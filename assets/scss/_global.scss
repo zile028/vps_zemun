@@ -1,0 +1,151 @@
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 1.7rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.3rem;
+}
+
+h6 {
+    font-size: 1.1rem;
+}
+
+input,
+textarea {
+    padding: 15px 10px;
+
+    &::placeholder {
+        font-family: $textFont;
+        font-size: 1rem;
+    }
+}
+
+hgroup {
+    text-align: center;
+    padding: 50px 0;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: $orange;
+    }
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+        text-transform: uppercase;
+
+        &:after {
+            content: "";
+            display: block;
+            height: 6px;
+            width: 50px;
+            background-color: $primary;
+            border-radius: 3px;
+            margin: 10px auto;
+        }
+    }
+}
+
+.btn {
+    background-color: $primary;
+    padding: 1em 2.5em;
+    text-transform: uppercase;
+    color: $white;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-block;
+    transition: all $transition;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    &-sm {
+        padding: .5em 1.5em;
+    }
+
+    &:hover {
+        background-color: $darkPrimary !important;
+    }
+}
+
+.card {
+    border: 1px solid $lightGray;
+
+    &.row {
+        @include flex;
+        margin-bottom: 30px;
+        text-align: right;
+
+        &:nth-child(even) {
+            background-color: $lightGray;
+
+            img {
+                order: 1;
+                @media (max-width: 768px) {
+                    order: unset;
+                }
+            }
+
+            .card-body {
+                text-align: left;
+            }
+        }
+
+        img {
+            max-width: 320px;
+            @media (max-width: 768px) {
+                max-width: unset;
+            }
+        }
+
+        .card-body {
+            flex: 1;
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+
+    &-body {
+        padding: 10px;
+
+        div {
+            @include flex($y: center);
+            font-size: 0.9rem;
+            color: $gray;
+        }
+
+        h6 {
+            line-height: 2rem;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+    }
+}
