@@ -59,7 +59,9 @@
 <script src="assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
 <script src="assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
-<script src=" assets/libs/quill/dist/quill.min.js"></script>
+<!--<script src=" assets/libs/quill/dist/quill.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.4/dist/quill.js"></script>
 
 <script>
     //***********************************//
@@ -98,9 +100,27 @@
         autoclose: true,
         todayHighlight: true
     });
-    var quill = new Quill("#editor", {
+    let quill = new Quill("#editor", {
         theme: "snow"
     });
+    quill.on('text-change', function (delta) {
+        const playground = document.querySelector('#playground');
+
+
+        console.log(quill.editor.root);
+        const contents = quill.getContents();
+        let html = `<h3>contents</h3>${formatDelta(contents)}`
+        if (delta) {
+            html = `${html}<h3>change</h3>${formatDelta(delta)}`;
+        }
+        playground.innerHTML = html;
+    });
+
+    function formatDelta(delta) {
+        console.log(JSON.stringify(delta.ops, null, 2));
+        return `<div>${JSON.stringify(delta.ops, null, 2)}</div>`;
+    }
+
     
 </script>
 </body>

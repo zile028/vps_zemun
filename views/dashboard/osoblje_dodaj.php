@@ -109,6 +109,7 @@
                     </div>
                 </div>
 
+                <div id="playground"></div>
 
             </div>
             <div class="border-top">
