@@ -16,6 +16,14 @@ class Validator
 
     }
 
+    public static function compareValue($value1, $value2)
+    {
+        $value1 = self::sanitizeString($value1);
+        $value2 = self::sanitizeString($value2);
+        return $value1 === $value2;
+
+    }
+
     private static function sanitizeString($value): string
     {
         return strip_tags(trim($value));

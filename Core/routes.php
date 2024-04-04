@@ -4,12 +4,17 @@ $router->get("/nastavno_osoblje", "/nastavno_osoblje/index.php");
 $router->get("/nastavno_osoblje/:id", "/nastavno_osoblje/employer.php");
 $router->get("/akreditacija", "/akreditacija/index.php");
 
-$router->get("/course_level", "course/show.php");
-$router->get("/course_level/:id", "course/details.php");
-$router->get("/news", "news/getNews.php");
-$router->get("/news/getSingle/:id", "news/getSingleNews.php");
+$router->get("/login", "/auth/loginPage.php");
+$router->get("/register", "/auth/registerPage.php");
+$router->post("/register", "/auth/register.php");
+$router->post("/login", "/auth/login.php");
 
-$router->post("/news/add", "news/addNews.php");
+$router->get("/dashboard", "/dashboard/index.php")->only("admin");
+$router->get("/dashboard/osoblje", "/dashboard/osoblje.php")->only("admin");
+$router->get("/dashboard/osoblje/dodaj", "/dashboard/osoblje_dodaj_page.php")->only("admin");
+$router->post("/dashboard/osoblje/dodaj", "/dashboard/osoblje_dodaj.php")->only("admin");
+
+
 //
 //$router->get("/about", "controllers/about.php");
 //$router->get("/notes", "controllers/notes/index.php")->only("auth");

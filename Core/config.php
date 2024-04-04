@@ -5,7 +5,7 @@ return $_SERVER["SERVER_NAME"] === "localhost" ?
         "database" => [
             "host" => "localhost",
             "port" => 3306,
-            "dbname" => "fim_sajt",
+            "dbname" => "vps_sajt",
             "charset" => "utf8mb4",
             "username" => "root",
             "password" => ""
