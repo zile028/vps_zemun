@@ -30,6 +30,11 @@ function base_path($path): string
     return BASE_PATH . $path;
 }
 
+function uploadPath($src): void
+{
+    echo UPLOAD_DIR . $src;
+}
+
 function view($view, $params = []): void
 {
     extract($params);

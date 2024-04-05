@@ -1,4 +1,9 @@
 <?php include('partials/top.php') ?>
+    <style>
+        #zero_config tr td {
+            vertical-align: middle;
+        }
+    </style>
     <!--  -->
 <?php include('partials/sidebar.php') ?>
 
@@ -127,6 +132,65 @@
     <!-- ============================================================== -->
     <!-- Sales chart -->
     <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- START table -->
+    <!-- ============================================================== -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Osoblje</h5>
+            <div class="table-responsive">
+                <table
+                        id="zero_config"
+                        class="table table-striped table-bordered"
+                >
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Име и Презиме</th>
+                        <th>Звање</th>
+                        <th>E-mail</th>
+                        <th>CV</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($osoblje as $item): ?>
+                        <tr>
+                            <td style="width: 30px"><a href="/dashboard/osoblje/<?php echo $item["id"]; ?>">
+                                    <img style="height: 30px; width: 30px; object-fit: cover" class="rounded-circle"
+                                         src="<?php uploadPath($item["image"]); ?>"
+                                         alt="<?php echo $item["firstName"]; ?>">
+                                </a></td>
+                            <td>
+                                <?php echo $item["title"]; ?>
+                                <?php echo $item["firstName"]; ?>
+                                <?php echo $item["lastName"]; ?>
+                            </td>
+                            <td><?php echo $item["rank"]; ?></td>
+                            <td><?php echo $item["email"]; ?></td>
+                            <td><a class="btn btn-sm btn-warning" href="<?php uploadPath($item["cv"]); ?>"
+                                   target="_blank">CV</a></td>
+                            <td class="d-flex gap-1">
+                                <a class="btn btn-sm btn-info" href="/dashboard/osoblje/<?php echo $item["id"]; ?>"><i
+                                            class="mdi mdi-account-card-details"></i></a>
+                                <form action="/dashboard/osoblje/<?php echo $item["id"]; ?>">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- END table -->
+    <!-- ============================================================== -->
+
+
     <!-- ============================================================== -->
     <!-- End PAge Content -->
     <!-- ============================================================== -->

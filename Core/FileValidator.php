@@ -5,6 +5,7 @@ namespace Core;
 class FileValidator
 {
     private string $unit = "MB";
+    public const UPLOAD_DIR = "/upload";
     public const KB = 1024;
     public const MB = 1024 * self::KB;
     public const GB = 1024 * self::MB;
@@ -17,12 +18,13 @@ class FileValidator
     private int $limit = 3;
     private array $validType = [];
     public mixed $file = null;
-    private string $name = "";
-    private string $type = "";
-    private string $tmp_name = "";
-    private int $size = null;
+    private string $name;
+    private string $type;
+    private string $tmp_name;
+    private mixed $size = null;
     private mixed $error = [];
-    private string $extension = "";
+    private string $extension;
+    public string $storeName = "";
 
     public function __construct($file)
     {
@@ -50,15 +52,37 @@ class FileValidator
     public function isValid()
     {
         if ($this->size > $this->limit * self::UNITS[$this->unit]) {
-            $this->error["limit"] = "File is to large, maximum file size is $this->limit $this->unit";
+            $this->error["limit"] = "File is to large, maximum file size is " . $this->limit . $this->unit;
         }
 
         if (!in_array($this->extension, $this->validType)) {
             $this->error["fileType"] = "Filetype is not allowed, allowed filetype is " . implode
                 (", ", $this->validType);
         }
-        return count($this->error);
+        return count($this->error) === 0;
     }
 
+    public function getError(): mixed
+    {
+        return $this->error;
+    }
+
+    public function upload()
+    {
+        $this->storeName = $this->generateFileName($this->extension);
+        $storeDirectory = realpath(__DIR__ . "../.." . self::UPLOAD_DIR);
+        if (file_exists($storeDirectory)) {
+            mkdir($storeDirectory);
+        }
+        $storePath = $storeDirectory . "/" . $this->storeName;
+        return move_uploaded_file($this->tmp_name, $storePath);
+    }
+
+    public function generateFileName($extension, $prefix = "", $suffix = "")
+    {
+        $timestamp = microtime(true); // Trenutni vremenski pečat
+        $random = mt_rand(); // Slučajan broj
+        return $prefix . round($timestamp * 1000) . "_" . $random . $suffix . "." . $extension;
+    }
 
 }

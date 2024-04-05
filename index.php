@@ -10,6 +10,7 @@ if (session_status()) {
     session_start();
 }
 const BASE_PATH = __DIR__ . "/";
+const UPLOAD_DIR = "/upload/";
 //echo BASE_PATH;
 //die();
 require_once(BASE_PATH . "Core/functions.php");

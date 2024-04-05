@@ -18,9 +18,9 @@
                 <li class="sidebar-item">
                     <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="charts.html"
+                            href="/dashboard/osoblje"
                             aria-expanded="false"
-                    ><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a
+                    ><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Osoblje</span></a
                     >
                 </li>
                 <li class="sidebar-item">
