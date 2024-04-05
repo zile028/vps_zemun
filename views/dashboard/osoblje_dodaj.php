@@ -12,14 +12,14 @@
                 <h4 class="card-title">Osoblje - dodavanje</h4>
                 <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label
-                    col-form-label">Ime</label
+                    col-form-label">Име</label
                     >
                     <div class="col-sm-9">
                         <input
                                 type="text"
                                 class="form-control"
                                 id="fname"
-                                placeholder="Ime"
+                                placeholder="Име"
                                 name="firstName"
                         />
                     </div>
@@ -28,14 +28,14 @@
                     <label
                             for="lname"
                             class="col-sm-3 text-end control-label col-form-label"
-                    >Prezime</label
+                    >Презиме</label
                     >
                     <div class="col-sm-9">
                         <input
                                 type="text"
                                 class="form-control"
                                 id="lname"
-                                placeholder="Prezime"
+                                placeholder="Презиме"
                                 name="lastName"
                         />
                     </div>
@@ -44,14 +44,14 @@
                     <label
                             for="title"
                             class="col-sm-3 text-end control-label col-form-label"
-                    >Titula</label
+                    >Титула</label
                     >
                     <div class="col-sm-9">
                         <input
                                 type="text"
                                 class="form-control"
                                 id="title"
-                                placeholder="Titula"
+                                placeholder="Титула"
                                 name="title"
                         />
                     </div>
@@ -85,9 +85,19 @@
                                 type="email"
                                 class="form-control"
                                 id="email"
-                                placeholder="Звање"
+                                placeholder="E-mail"
                                 name="email"
                         />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-sm-3 col ">
+                        <label class="btn btn-warning" for="profile">Одабери
+                            слику</label>
+                        <label class="btn btn-warning" for="cvAtach">CV</label>
+                        <input type="file" class="d-none" name="image" id="profile">
+                        <input type="file" class="d-none" name="cv" accept="application/pdf"
+                               id="cvAtach">
                     </div>
                 </div>
                 <!-- editor -->
@@ -95,21 +105,18 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Quill Editor</h4>
+                                <h4 class="card-title">Биографија</h4>
+                                <div id="toolbar"></div>
                                 <!-- Create the editor container -->
                                 <div id="editor" style="height: 300px">
-                                    <p>Hello World!</p>
-                                    <p>Some initial <strong>bold</strong> text</p>
-                                    <p>
-                                        <br/>
-                                    </p>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div id="playground"></div>
+                <textarea name="description" style="display: none" id="playground"></textarea>
 
             </div>
             <div class="border-top">

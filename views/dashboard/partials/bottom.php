@@ -101,27 +101,21 @@
         todayHighlight: true
     });
     let quill = new Quill("#editor", {
-        theme: "snow"
-    });
-    quill.on('text-change', function (delta) {
-        const playground = document.querySelector('#playground');
-
-
-        console.log(quill.editor.root);
-        const contents = quill.getContents();
-        let html = `<h3>contents</h3>${formatDelta(contents)}`
-        if (delta) {
-            html = `${html}<h3>change</h3>${formatDelta(delta)}`;
+        theme: "snow",
+        modules: {
+            toolbar: [
+                [{'header': [1, 2, 3, 4, 5, 6, false]}],
+                ['bold', 'italic', 'underline', 'strike'],
+                ['link', 'blockquote'],
+                [{list: 'ordered'}, {list: 'bullet'}]
+            ]
         }
-        playground.innerHTML = html;
+    });
+    let content = document.querySelector("#playground");
+    quill.on('text-change', () => {
+        content.value = quill.root.innerHTML;
     });
 
-    function formatDelta(delta) {
-        console.log(JSON.stringify(delta.ops, null, 2));
-        return `<div>${JSON.stringify(delta.ops, null, 2)}</div>`;
-    }
-
-    
 </script>
 </body>
 </html>
