@@ -66,7 +66,7 @@ class Router
 
         foreach ($this->routes as $route) {
             if (str_contains($route["uri"], ":") && $route["method"] === $method) {
-// Replace :param with a regular expression that matches any value
+                // Replace :param with a regular expression that matches any value
                 $routePattern = preg_replace('/(:\w+)/', '(\w+)', $route["uri"]);
                 $routePattern = str_replace('/', '\/', $routePattern); // Escape slashes
                 // Add start and end anchors to the pattern
@@ -99,7 +99,6 @@ class Router
 
     public function only($key)
     {
-
         $this->routes[array_key_last($this->routes)]["middleware"] = $key;
         return $this;
     }

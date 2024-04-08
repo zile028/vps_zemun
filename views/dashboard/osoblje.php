@@ -156,8 +156,10 @@
                     <tbody>
                     <?php foreach ($osoblje as $item): ?>
                         <tr>
-                            <td style="width: 30px"><a href="/dashboard/osoblje/<?php echo $item["id"]; ?>">
-                                    <img style="height: 30px; width: 30px; object-fit: cover" class="rounded-circle"
+                            <td style="width: 30px"><a
+                                        href="/dashboard/osoblje/<?php echo $item["id"]; ?>">
+                                    <img style="height: 30px; width: 30px; object-fit: cover"
+                                         class="rounded-circle"
                                          src="<?php uploadPath($item["image"]); ?>"
                                          alt="<?php echo $item["firstName"]; ?>">
                                 </a></td>
@@ -168,14 +170,18 @@
                             </td>
                             <td><?php echo $item["rank"]; ?></td>
                             <td><?php echo $item["email"]; ?></td>
-                            <td><a class="btn btn-sm btn-warning" href="<?php uploadPath($item["cv"]); ?>"
+                            <td><a class="btn btn-sm btn-warning"
+                                   href="<?php uploadPath($item["cv"]); ?>"
                                    target="_blank">CV</a></td>
                             <td class="d-flex gap-1">
-                                <a class="btn btn-sm btn-info" href="/dashboard/osoblje/<?php echo $item["id"]; ?>"><i
+                                <a class="btn btn-sm btn-info"
+                                   href="/dashboard/osoblje/<?php echo $item["id"]; ?>"><i
                                             class="mdi mdi-account-card-details"></i></a>
-                                <form action="/dashboard/osoblje/<?php echo $item["id"]; ?>">
+                                <form action="/dashboard/osoblje/<?php echo $item["id"]; ?>"
+                                      method="post">
                                     <input type="hidden" name="_method" value="delete">
-                                    <button class="btn btn-sm btn-danger"><i class="mdi mdi-delete"></i>
+                                    <button class="btn btn-sm btn-danger"><i
+                                                class="mdi mdi-delete"></i>
                                     </button>
                                 </form>
                             </td>

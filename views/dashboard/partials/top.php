@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta
             name="keywords"
-            content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"
+            content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin"
     />
     <meta
             name="description"
-            content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
+            content="Powerful and clean admin dashboard template, inpired from Bootstrap Framework"
     />
     <meta name="robots" content="noindex,nofollow"/>
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title>Dashboard</title>
     <!-- Favicon icon -->
     <link
             rel="icon"
@@ -90,11 +90,13 @@
                     <!-- Logo text -->
                     <span class="logo-text ms-2">
                 <!-- dark Logo text -->
-                <img
-                        src="assets/images/logo-text.png"
-                        alt="homepage"
-                        class="light-logo"
-                />
+                        VPS ZEMUN
+                        <!--                <img-->
+
+                        <!--                        src="assets/images/logo-text.png"-->
+                        <!--                        alt="homepage"-->
+                        <!--                        class="light-logo"-->
+                        <!--                />-->
               </span>
                     <!-- Logo icon -->
                     <!-- <b class="logo-icon"> -->
@@ -137,54 +139,7 @@
                         ><i class="mdi mdi-menu font-24"></i
                             ></a>
                     </li>
-                    <!-- ============================================================== -->
-                    <!-- create new -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown">
-                        <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="navbarDropdown"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                        >
-                  <span class="d-none d-md-block"
-                  >Create New <i class="fa fa-angle-down"></i
-                      ></span>
-                            <span class="d-block d-md-none"
-                            ><i class="fa fa-plus"></i
-                                ></span>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider"/>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- ============================================================== -->
-                    <!-- Search -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item search-box">
-                        <a
-                                class="nav-link waves-effect waves-dark"
-                                href="javascript:void(0)"
-                        ><i class="mdi mdi-magnify fs-4"></i
-                            ></a>
-                        <form class="app-search position-absolute">
-                            <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Search &amp; enter"
-                            />
-                            <a class="srh-btn"><i class="mdi mdi-window-close"></i></a>
-                        </form>
-                    </li>
+
                 </ul>
                 <!-- ============================================================== -->
                 <!-- Right side toggle and nav items -->

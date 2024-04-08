@@ -26,25 +26,26 @@
                 <li class="sidebar-item">
                     <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="widgets.html"
+                            href="/dashboard/cenovnik"
                             aria-expanded="false"
-                    ><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a
+                    ><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Ценовник</span></a
                     >
                 </li>
                 <li class="sidebar-item">
                     <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="tables.html"
+                            href="/dashboard/dokumenta"
                             aria-expanded="false"
-                    ><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a
+                    ><i class="mdi mdi-border-inside"></i><span
+                                class="hide-menu">Документа</span></a
                     >
                 </li>
                 <li class="sidebar-item">
                     <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="grid.html"
+                            href="/dashboard/studije"
                             aria-expanded="false"
-                    ><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a
+                    ><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Studije</span></a
                     >
                 </li>
                 <li class="sidebar-item">

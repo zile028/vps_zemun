@@ -13,8 +13,8 @@
 <!-- footer -->
 <!-- ============================================================== -->
 <footer class="footer text-center">
-    All Rights Reserved by Matrix-admin. Designed and Developed by
-    <a href="https://www.wrappixel.com">WrapPixel</a>.
+    All Rights Reserved by Dejna Zivkovic.
+    <a href="mailto:zile028@gmail.com">zile028@gmial.com</a>.
 </footer>
 <!-- ============================================================== -->
 <!-- End footer -->

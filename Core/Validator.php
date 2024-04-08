@@ -28,4 +28,5 @@ class Validator
     {
         return strip_tags(trim($value));
     }
+    
 }

@@ -956,7 +956,7 @@ TEACHER
 *************/
 .teacher .row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 25%));
   gap: 1rem;
 }
 .teacher .row .card {
@@ -968,6 +968,11 @@ TEACHER
   .teacher .row .card {
     margin-bottom: 20px;
   }
+}
+.teacher .row .card img {
+  max-height: 200px;
+  object-fit: cover;
+  object-fit: cover;
 }
 .teacher h4 {
   font-size: 1.5rem;

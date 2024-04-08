@@ -7,22 +7,23 @@
             <h2>Предавачи струковних студија</h2>
         </article>
         <article class="row">
-            <?php for ($i = 0; $i < 6; $i++) : ?>
+            <?php foreach ($osoblje as $nastavnik) : ?>
                 <div class="card">
-                    <img src="upload/jasmina_radonjic.jpg" alt="">
+                    <img src="<?php uploadPath($nastavnik["image"]); ?>" alt="">
                     <div class="card-body">
-                        <h4>Јасмина<br>Радоњић</h4>
-                        <p>Profesor engleskog jezika</p>
+                        <h4><?php echo $nastavnik["firstName"]; ?>
+                            <br><?php echo $nastavnik["lastName"]; ?></h4>
+                        <p><?php echo $nastavnik["rank"]; ?></p>
 
-                        <a class="email" href="mailto:jasmina@vpsbeograd.edu.rs">jasmina@vpsbeograd.edu
-                            .rs</a>
+                        <a class="email" href="mailto:<?php echo $nastavnik["email"];
+                        ?>"><?php echo $nastavnik["email"]; ?></a>
 
-                        <p>631-239-8818</p>
-                        <a href="nastavno_osoblje/<?php echo $i; ?>" class="btn btn-sm">View
+                        <a href="nastavno_osoblje/<?php echo $nastavnik["id"]; ?>" class="btn
+                        btn-sm">View
                             profile</a>
                     </div>
                 </div>
-            <?php endfor; ?>
+            <?php endforeach; ?>
         </article>
     </section>
 

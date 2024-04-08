@@ -39,14 +39,14 @@ class Database
         return $this;
     }
 
-    public function find()
+    public function find($fetchType = null)
     {
-        return $this->statment->fetchAll();
+        return $this->statment->fetchAll($fetchType);
     }
 
-    public function findOne()
+    public function findOne($fetchType = null)
     {
-        return $this->statment->fetch();
+        return $this->statment->fetch($fetchType);
     }
 
     public function findOneOrFail()
@@ -81,4 +81,11 @@ class Database
         $this->statment->nextRowset();
         return $this->statment->fetch();
     }
+
+    public function isExecuteResult(): bool
+    {
+        return $this->executeResult;
+    }
+
+
 }

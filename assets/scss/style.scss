@@ -711,7 +711,7 @@ TEACHER
 .teacher {
     .row {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 25%));
         gap: 1rem;
 
         .card {
@@ -723,6 +723,12 @@ TEACHER
                 margin-bottom: 20px;
             }
             @media (max-width: 450px) {
+            }
+
+            img {
+                max-height: 200px;
+                object-fit: cover;
+                object-fit: cover;
             }
         }
     }

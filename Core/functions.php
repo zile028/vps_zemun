@@ -30,6 +30,11 @@ function base_path($path): string
     return BASE_PATH . $path;
 }
 
+function realUploadPath($path)
+{
+    return BASE_PATH . "upload/" . $path;
+}
+
 function uploadPath($src): void
 {
     echo UPLOAD_DIR . $src;
@@ -71,4 +76,10 @@ function getUser($key)
 function base_uri($path = "/")
 {
     echo $path;
+}
+
+function dateDDMMYYY($date): void
+{
+    $date = new DateTime($date);
+    echo date_format($date, "d.m.Y.");
 }
