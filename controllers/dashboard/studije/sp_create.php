@@ -26,11 +26,15 @@ if (!Validator::string($zvanje)) {
 if (!Validator::string($polje)) {
     $error["polje"] = "Поље је обавезно!";
 }
+if (!Validator::number($akreditovan, 2000)) {
+    $error["akreditovan"] = "Година акредитације је обавезна!";
+}
+
 
 if (count($error) === 0) {
     $db = App::resolve(Database::class);
-    $sql = "INSERT INTO studijski_programi (nivo, naziv, trajanje, espb, zvanje, polje, cilj, opis)
-            VALUES (:naziv, :trajanje, :espb, :zvanje, :polje, :cilj, :opis)";
+    $sql = "INSERT INTO studijski_programi (nivo, naziv, modul, trajanje, espb, zvanje, polje, cilj, opis, akreditovan)
+            VALUES (:nivo, :naziv, :modul, :trajanje, :espb, :zvanje, :polje, :cilj, :opis, :akreditovan)";
     $result = $db->query($sql, $_POST)->isExecuteResult();
     redirect("/dashboard/studije");
 } else {

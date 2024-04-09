@@ -2,7 +2,8 @@ CREATE TABLE `studijski_programi`
 (
     `id`          INT          NOT NULL AUTO_INCREMENT,
     `nivo`        VARCHAR(100) NOT NULL,
-    `naziv`       VARCHAR(50)  NOT NULL,
+    `naziv`       VARCHAR(100) NOT NULL,
+    `modul`       VARCHAR(100) NOT NULL,
     `trajanje`    VARCHAR(50)  NOT NULL,
     `espb`        INT(3)       NOT NULL,
     `zvanje`      VARCHAR(50)  NOT NULL,
@@ -12,15 +13,6 @@ CREATE TABLE `studijski_programi`
     `lang`        VARCHAR(5)   NOT NULL DEFAULT 'srb',
     `cilj`        TEXT         NULL     DEFAULT NULL,
     `opis`        TEXT         NULL     DEFAULT NULL,
-    PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `moduli`
-(
-    `id`    INT         NOT NULL AUTO_INCREMENT,
-    `modul` VARCHAR(50) NOT NULL,
-    `spID`  INT(10)     NOT NULL,
-    `lang`  VARCHAR(5)  NOT NULL DEFAULT 'srb',
     PRIMARY KEY (`id`)
 );
 
@@ -34,14 +26,14 @@ CREATE TABLE `predmeti`
     `vezbe`            INT(2)      NOT NULL,
     `espb`             INT(2)      NOT NULL,
     `obavezan_izborni` VARCHAR(15) NOT NULL,
+    `curiculum`        VARCHAR(60) NULL,
     `lang`             VARCHAR(5)  NOT NULL DEFAULT 'srb',
     PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `sp_modul_predmet`
+CREATE TABLE `sp_predmet`
 (
-    `modulID`   INT(10) NOT NULL,
     `spID`      INT(10) NOT NULL,
     `predmetID` INT(10) NOT NULL,
-    PRIMARY KEY (`modulID`, `spID`, `predmetID`)
+    INDEX (`spID`, `predmetID`)
 );

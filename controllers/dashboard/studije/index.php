@@ -5,11 +5,10 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 $studije = $db->query("
-                        SELECT sp.id, sp.*,m.modul
+                        SELECT sp.id, sp.*
                         FROM studijski_programi sp
-                        LEFT JOIN moduli m ON m.spID = sp.id 
+                        ORDER BY FIELD(espb, 180,60,120), akreditovan DESC
                        "
-)->find(PDO::FETCH_GROUP | PDO::FETCH_OBJ);
-
+)->find(PDO::FETCH_OBJ);
 
 view("dashboard/studije/index.view", ["studije" => $studije]);

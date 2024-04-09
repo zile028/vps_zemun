@@ -39,6 +39,20 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="modul" class="col-sm-3 text-end control-label
+                    col-form-label">Модул</label>
+                    <div class="col-sm-9">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="modul"
+                                placeholder="Модул"
+                                name="modul"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="trajanje" class="col-sm-3 text-end control-label
                     col-form-label">Трајање (година)</label>
                     <div class="col-sm-9">
@@ -90,6 +104,20 @@
                                 id="polje"
                                 placeholder="Образовно поље"
                                 name="polje"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="akreditovan" class="col-sm-3 text-end control-label
+                    col-form-label">Година акредитације</label>
+                    <div class="col-sm-9">
+                        <input
+                                type="text"
+                                class="form-control"
+                                id="akreditovan"
+                                placeholder="Година акредитације"
+                                name="akreditovan"
                         />
                     </div>
                 </div>

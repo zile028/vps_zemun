@@ -28,5 +28,11 @@ class Validator
     {
         return strip_tags(trim($value));
     }
-    
+
+    public static function number($value, int $min, $max = INF)
+    {
+        $value = (float)self::sanitizeString($value);
+        return $value >= $min && $value <= $max;
+    }
+
 }
