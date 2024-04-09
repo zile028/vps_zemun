@@ -14,7 +14,7 @@
 <!-- ============================================================== -->
 <footer class="footer text-center">
     All Rights Reserved by Dejna Zivkovic.
-    <a href="mailto:zile028@gmail.com">zile028@gmial.com</a>.
+    <a href="mailto:zile028@gmail.com">zile028@gmail.com</a>.
 </footer>
 <!-- ============================================================== -->
 <!-- End footer -->
@@ -100,22 +100,24 @@
         autoclose: true,
         todayHighlight: true
     });
-    let quill = new Quill("#editor", {
-        theme: "snow",
-        modules: {
-            toolbar: [
-                [{'header': [1, 2, 3, 4, 5, 6, false]}],
-                ['bold', 'italic', 'underline', 'strike'],
-                ['link', 'blockquote'],
-                [{list: 'ordered'}, {list: 'bullet'}]
-            ]
-        }
-    });
-    let content = document.querySelector("#playground");
-    quill.on('text-change', () => {
-        content.value = quill.root.innerHTML;
-    });
-
+    let quillEditor = document.getElementById("editor");
+    if (quillEditor) {
+        let quill = new Quill(quillEditor, {
+            theme: "snow",
+            modules: {
+                toolbar: [
+                    [{'header': [1, 2, 3, 4, 5, 6, false]}],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    ['link', 'blockquote'],
+                    [{list: 'ordered'}, {list: 'bullet'}]
+                ]
+            }
+        });
+        let content = document.querySelector("#playground");
+        quill.on('text-change', () => {
+            content.value = quill.root.innerHTML;
+        });
+    }
 </script>
 </body>
 </html>

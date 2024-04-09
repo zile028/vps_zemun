@@ -33,6 +33,7 @@ $router->get("/dashboard/studije/sp/dodaj", "/dashboard/studije/sp_create_page.p
 $router->post("/dashboard/studije/sp/dodaj", "/dashboard/studije/sp_create.php")->only("auth");
 $router->get("/dashboard/studije/modul/dodaj", "/dashboard/studije/modul_create_page.php")->only("auth");
 $router->post("/dashboard/studije/modul/dodaj", "/dashboard/studije/modul_create.php")->only("auth");
+$router->get("/dashboard/studije/predmeti", "/dashboard/studije/predmeti_page.php")->only("auth");
 $router->get("/dashboard/studije/predmet/dodaj", "/dashboard/studije/predmet_create_page.php")->only("auth");
 $router->post("/dashboard/studije/predmet/dodaj", "/dashboard/studije/predmet_create.php")
     ->only("auth");
