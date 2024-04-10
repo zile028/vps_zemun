@@ -9,7 +9,7 @@
         <form class="form-horizontal" action="/dashboard/osoblje/dodaj" method="post"
               enctype="multipart/form-data">
             <div class="card-body">
-                <h4 class="card-title">Osoblje - dodavanje</h4>
+                <h4 class="card-title">Особље/Додавање</h4>
                 <div class="form-group row">
                     <label for="fname" class="col-sm-3 text-end control-label
                     col-form-label">Име</label
@@ -88,6 +88,20 @@
                                 placeholder="E-mail"
                                 name="email"
                         />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label
+                            for="status"
+                            class="col-sm-3 text-end control-label col-form-label"
+                    >Статус</label
+                    >
+                    <div class="col-sm-9">
+                        <select class="form-control" id="status" name="status">
+                            <option value="nastavno">Наставно особље</option>
+                            <option value="nenastavno">Ненаставно особље</option>
+                            <option value="clan">Члан</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">

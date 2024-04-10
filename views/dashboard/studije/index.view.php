@@ -96,7 +96,7 @@
                             <td class=""><?php echo $sp->trajanje; ?></td>
                             <td class=""><?php echo $sp->espb; ?></td>
                             <td class="">
-                                <form action="/dashboard/studije/<?php echo $sp->id; ?>"
+                                <form action="/dashboard/studije/sp/<?php echo $sp->id; ?>"
                                       method="post">
                                     <input type="hidden" name="_method" value="delete">
                                     <button class="btn btn-sm btn-danger"><i

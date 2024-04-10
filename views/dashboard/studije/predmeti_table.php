@@ -36,8 +36,14 @@
                         <td class=""><?php echo $predmet->vezbe; ?></td>
                         <td class=""><?php echo $predmet->obavezan_izborni ? "Обавезан" : "Изборни"; ?></td>
                         <td class=""><?php echo $predmet->espb; ?></td>
-                        <td class="">
-                            <form action="/dashboard/studije/<?php echo $predmet->id; ?>"
+                        <td>
+                            <?php if (isset($flag) && $flag === "remove") {
+                                $href = "/dashboard/studije/predmet/remove/$predmet->id";
+                            } else {
+                                $href = "/dashboard/studije/predmet/$predmet->id";
+                            } ?>
+
+                            <form action="<?php echo $href; ?>"
                                   method="post">
                                 <input type="hidden" name="_method" value="delete">
                                 <button class="btn btn-sm btn-danger"><i

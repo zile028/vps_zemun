@@ -58,6 +58,13 @@ function redirect($path)
     exit();
 }
 
+function redirectBack()
+{
+    header("Location: " . $_SERVER["HTTP_REFERER"]);
+    exit();
+
+}
+
 function getOld($key, $default = "")
 {
     return Session::get("old")[$key] ?? $default;

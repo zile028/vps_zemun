@@ -5,6 +5,8 @@ CREATE TABLE `osoblje`
     `lastName`    VARCHAR(50) NOT NULL,
     `title`       VARCHAR(10) NOT NULL,
     `rank`        VARCHAR(50) NOT NULL,
+    `status`      VARCHAR(50) NOT NULL,
+    `active`      BOOLEAN     NOT NULL DEFAULT true,
     `email`       VARCHAR(70) NULL     DEFAULT NULL,
     `cv`          VARCHAR(30) NULL     DEFAULT NULL,
     `image`       VARCHAR(30) NULL     DEFAULT NULL,
