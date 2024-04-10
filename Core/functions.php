@@ -90,3 +90,25 @@ function dateDDMMYYY($date): void
     $date = new DateTime($date);
     echo date_format($date, "d.m.Y.");
 }
+
+function getExcerpt($content, $word_limit = 20)
+{
+    // Uklanja HTML tagove iz sadržaja
+    $content = strip_tags($content);
+
+    // Razdvaja sadržaj na reči
+    $words = explode(' ', $content);
+
+    // Ako sadržaj ima manje reči od ograničenja, vraća ceo sadržaj
+    if (count($words) <= $word_limit) {
+        return $content;
+    } else {
+        // Uzima samo prvi deo niza reči, do ograničenja reči
+        $excerpt_words = array_slice($words, 0, $word_limit);
+        // Spaja reči nazad u string
+        $excerpt = implode(' ', $excerpt_words);
+        // Dodaje "..." na kraju izvoda
+        $excerpt .= '...';
+        return $excerpt;
+    }
+}

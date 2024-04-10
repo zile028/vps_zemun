@@ -24,8 +24,21 @@
                 <tbody>
                 <?php foreach ($predmeti as $index => $predmet): ?>
                     <tr>
-                        <td style="width: 30px">
-                            <?php echo $index + 1; ?>
+                        <td style="width: 100px">
+                            <?php if (isset($predmet->redniBroj)): ?>
+                                <form action="/dashboard/studije/sp/<?php echo $sp->id; ?>/predmet/<?php echo $predmet->id ?>/order"
+                                      class="d-flex"
+                                      method="post">
+                                    <input type="hidden" name="_method" value="patch">
+                                    <input class="form-control form-select-sm text-center" type="text" name="order"
+                                           value="<?php echo $predmet->redniBroj; ?>" min="1">
+                                    <button class="btn btn-sm btn-primary"><i class="fas fa-check"></i></button>
+                                </form>
+
+
+                            <?php else: ?>
+                                <?php echo $index + 1; ?>
+                            <?php endif; ?>
                         </td>
                         <td class="">
                             <?php echo $predmet->sifra; ?>

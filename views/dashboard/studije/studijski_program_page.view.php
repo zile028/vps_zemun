@@ -52,12 +52,12 @@
             <form action="/dashboard/studije/sp/<?php echo $sp->id; ?>/predmet" class="row"
                   method="post">
                 <input type="hidden" name="_method" value="put">
+                <input type="hidden" name="redniBroj" value="<?php echo count($predmeti) + 1; ?>">
                 <div class="col-md-9">
                     <select class="form-control" name="predmetID">
                         <?php foreach ($slobodniPredmeti as $predmet) : ?>
-                            <option value="<?php echo $predmet->id; ?>"><?php echo
-                                $predmet->predmet;
-                                ?></option>
+                            <option value="<?php echo $predmet->id; ?>">
+                                <?php echo $predmet->predmet; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

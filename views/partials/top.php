@@ -55,13 +55,14 @@
                         <li><a href="/projekti">Пројекти</a></li>
                     </ul>
                 </li>
-                <li class="drop"><span>Студије</span>
-                    <ul>
-                        <li><a href="/os_studije">Основне струковне студије</a></li>
-                        <li><a href="/ss_studije">Специјалистичке струковне студије</a></li>
-                        <li><a href="/ms_studije">Мастер струковне студије</a></li>
-                    </ul>
-                </li>
+                <li><a href="/studije">Студије</a></li>
+                <!--                <li class="drop"><span>Студије</span>-->
+                <!--                    <ul>-->
+                <!--                        <li><a href="/studije/oss">Основне струковне студије</a></li>-->
+                <!--                        <li><a href="/studije/sss">Специјалистичке струковне студије</a></li>-->
+                <!--                        <li><a href="/studije/mss">Мастер струковне студије</a></li>-->
+                <!--                    </ul>-->
+                <!--                </li>-->
                 <li class="drop"><span>Документа</span>
                     <ul>
                         <li><a href="intro.php">Савет</a></li>

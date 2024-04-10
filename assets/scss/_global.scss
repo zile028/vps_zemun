@@ -100,10 +100,15 @@ hgroup {
         margin-bottom: 30px;
         text-align: right;
 
+        .card-header {
+            padding: 20px;
+        }
+
         &:nth-child(even) {
             background-color: $lightGray;
 
-            img {
+
+            .card-header, img {
                 order: 1;
                 @media (max-width: 768px) {
                     order: unset;
