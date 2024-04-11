@@ -70,16 +70,16 @@ class Database
         return $result;
     }
 
-    public function nextRowsetFind()
+    public function nextRowsetFind($fetchType = null)
     {
         $this->statment->nextRowset();
-        return $this->statment->fetchAll();
+        return $this->statment->fetchAll($fetchType);
     }
 
-    public function nextRowsetFindOne()
+    public function nextRowsetFindOne($fetchType = null)
     {
         $this->statment->nextRowset();
-        return $this->statment->fetch();
+        return $this->statment->fetch($fetchType);
     }
 
     public function isExecuteResult(): bool

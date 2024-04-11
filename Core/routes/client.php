@@ -3,6 +3,7 @@ $router->get("/", "home/index.php");
 $router->get("/nastavno_osoblje", "nastavno_osoblje/index.php");
 $router->get("/nastavno_osoblje/:id", "nastavno_osoblje/employer.php");
 $router->get("/studije", "studije/index.php");
+$router->get("/studije/:id", "studije/studije_single.php");
 
 
 $router->get("/akreditacija", "/akreditacija/index.php");
