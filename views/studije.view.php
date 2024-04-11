@@ -6,7 +6,7 @@
 <section class="courses container py">
     <article>
         <?php foreach ($studije as $sp => $moduli): $info = $moduli[0] ?>
-            <div class="card row" style="border-radius: 10px">
+            <div class="card row boxShadow" style="border-radius: 10px">
                 <div style="padding: 10px" class="card-header">
                     <img style="height: 100%; width: 100%; object-fit: cover"
                          src="<?php uploadPath($info->espb . "_thumbnail.jpg"); ?>"

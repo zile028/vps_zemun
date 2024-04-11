@@ -25,6 +25,10 @@ h6 {
     font-size: 1.1rem;
 }
 
+.boxShadow {
+    box-shadow: 0 0 3px $black;
+}
+
 input,
 textarea {
     padding: 15px 10px;
@@ -151,6 +155,20 @@ hgroup {
 
         .btn {
             margin-top: 20px;
+        }
+    }
+}
+
+.listGroup {
+    li {
+        color: $black;
+
+        &:before {
+            content: "\f0a4";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #233785;
+            margin-right: 5px;
         }
     }
 }

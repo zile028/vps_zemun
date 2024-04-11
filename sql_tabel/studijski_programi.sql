@@ -25,7 +25,7 @@ CREATE TABLE `predmeti`
     `predavanja`       INT(2)      NOT NULL,
     `vezbe`            INT(2)      NOT NULL,
     `espb`             INT(2)      NOT NULL,
-    `obavezan_izborni` VARCHAR(15) NOT NULL,
+    `obavezan_izborni` BOOLEAN     NOT NULL,
     `curiculum`        VARCHAR(60) NULL,
     `lang`             VARCHAR(5)  NOT NULL DEFAULT 'srb',
     PRIMARY KEY (`id`)

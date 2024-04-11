@@ -1,6 +1,6 @@
 <?php
 $db = \Core\App::resolve(\Core\Database::class);
-$sql = "SELECT naziv,id,nivo,opis,espb,polje,akreditovan,zvanje,trajanje, modul
+$sql = "SELECT naziv,id,nivo,opis,espb,polje,akreditovan,zvanje,trajanje, modul,cilj
         FROM studijski_programi
         WHERE id = :id;
         ##SELECT PREDMETI

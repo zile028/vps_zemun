@@ -4,9 +4,11 @@ $router->get("/nastavno_osoblje", "nastavno_osoblje/index.php");
 $router->get("/nastavno_osoblje/:id", "nastavno_osoblje/employer.php");
 $router->get("/studije", "studije/index.php");
 $router->get("/studije/:id", "studije/studije_single.php");
+$router->get("/akta", "akta/index.php");
 
 
 $router->get("/akreditacija", "/akreditacija/index.php");
+$router->get("/kontakt", "/kontakt/index.php");
 
 $router->get("/login", "/auth/loginPage.php");
 $router->get("/register", "/auth/registerPage.php");

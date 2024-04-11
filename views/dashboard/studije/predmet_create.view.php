@@ -101,14 +101,14 @@
                         <div class="form-check">
                             <input type="radio" class="form-check-input"
                                    id="customControlValidation1" name="obavezan_izborni" checked
-                                   required="" value="обавезан">
+                                   required="" value="1">
                             <label class="form-check-label mb-0"
                                    for="customControlValidation1">Обавезан</label>
                         </div>
                         <div class="form-check">
                             <input type="radio" class="form-check-input"
                                    id="customControlValidation2" name="obavezan_izborni"
-                                   required="" value="изборни">
+                                   required="" value="0">
                             <label class="form-check-label mb-0"
                                    for="customControlValidation2">Изборни</label>
                         </div>

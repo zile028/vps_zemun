@@ -65,15 +65,14 @@
                 <!--                </li>-->
                 <li class="drop"><span>Документа</span>
                     <ul>
-                        <li><a href="intro.php">Савет</a></li>
-                        <li><a href="teachers.php">Руководство</a></li>
-                        <li><a href="teachers.php">Наставно особље</a></li>
-                        <li><a href="gallery.php">Ценовник</a></li>
-                        <li><a href="gallery.php">Пројекти</a></li>
+                        <li><a href="/akta">Акта и правилници</a></li>
+                        <li><a href="/samovrednovanje">Самовредновање</a></li>
+                        <li><a href="/informator">Информатор о раду</a></li>
+                        <li><a href="/akreditacija">Акредитација</a></li>
                     </ul>
                 </li>
                 <li><a href="/vesti">Вести</a></li>
-                <li><a href="/akreditacija">Акредитација</a></li>
+                <li><a href="/upis">Упис</a></li>
                 <li><a href="/kontakt">Контакт</a></li>
 
             </ul>

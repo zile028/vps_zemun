@@ -688,10 +688,11 @@ CONTACT
 
         form {
             @include flex;
+            gap: 20px;
 
             input {
-                flex: 0 0 32%;
-                margin-bottom: 20px;
+                flex: 1;
+
                 @media (max-width: 768px) {
                     flex: 0 0 100%;
                 }
@@ -773,6 +774,7 @@ SINGLE PAGE
 
 .single {
     @include flex;
+    padding-bottom: 30px;
 
     article {
         flex: 1;
@@ -811,6 +813,26 @@ SINGLE PAGE
         @media (max-width: 768px) {
             margin-left: 0px;
             flex: 0 0 100%;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 5px;
+
+            li {
+                display: flex;
+                flex-direction: column;
+                border-bottom: 1px solid $lightGray;
+                padding-bottom: 5px;
+
+                span {
+                    &:first-child {
+                        font-weight: 700;
+                    }
+                }
+            }
         }
     }
 
@@ -857,6 +879,53 @@ SINGLE PAGE
                     &:hover {
                         color: $hoverLink;
                     }
+                }
+            }
+        }
+    }
+}
+
+.curiculum {
+    @extend .py;
+    padding-top: 0;
+
+    &-table {
+        width: 100%;
+
+        thead {
+            th {
+                border: 1px solid $gray;
+                padding: 5px;
+            }
+        }
+
+        tbody {
+            tr {
+                cursor: pointer;
+
+                &.highlight {
+                    td {
+                        background-color: rgba($gray, .4);
+
+                    }
+                }
+
+                &:hover {
+                    td {
+                        background-color: rgba($gray, .6);
+                    }
+                }
+            }
+
+            td {
+                border: 1px solid $gray;
+                padding: 5px;
+                text-align: center;
+                transition: background-color $transition;
+
+                &:nth-child(3) {
+                    text-align: left;
+
                 }
             }
         }

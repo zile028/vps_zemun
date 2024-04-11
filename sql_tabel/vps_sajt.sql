@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2024 at 06:33 PM
+-- Generation Time: Apr 11, 2024 at 04:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,6 +50,13 @@ CREATE TABLE `dokumenta` (
   `lang` varchar(5) NOT NULL DEFAULT 'srb',
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dokumenta`
+--
+
+INSERT INTO `dokumenta` (`id`, `title`, `attachment`, `userID`, `parentID`, `category`, `lang`, `createdAt`) VALUES
+(8, 'Статут', '1712844347601_906582268.pdf', 1, NULL, '1', 'srb', '2024-04-11 14:05:47');
 
 -- --------------------------------------------------------
 
@@ -117,7 +124,7 @@ CREATE TABLE `predmeti` (
   `predavanja` int(2) NOT NULL,
   `vezbe` int(2) NOT NULL,
   `espb` int(2) NOT NULL,
-  `obavezan_izborni` varchar(15) NOT NULL,
+  `obavezan_izborni` tinyint(1) NOT NULL,
   `lang` varchar(5) NOT NULL DEFAULT 'srb'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -126,8 +133,8 @@ CREATE TABLE `predmeti` (
 --
 
 INSERT INTO `predmeti` (`id`, `predmet`, `sifra`, `semestar`, `predavanja`, `vezbe`, `espb`, `obavezan_izborni`, `lang`) VALUES
-(18, 'Енглески језик 1', '789456', 1, 2, 2, 6, 'обавезан', 'srb'),
-(19, 'Социјологија', '456963', 1, 2, 2, 6, 'обавезан', 'srb');
+(18, 'Енглески језик 1', '789456', 1, 2, 2, 6, 1, 'srb'),
+(19, 'Социјологија', '456963', 1, 2, 2, 6, 0, 'srb');
 
 -- --------------------------------------------------------
 
@@ -140,6 +147,14 @@ CREATE TABLE `sp_predmet` (
   `predmetID` int(10) NOT NULL,
   `redniBroj` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sp_predmet`
+--
+
+INSERT INTO `sp_predmet` (`spID`, `predmetID`, `redniBroj`) VALUES
+(1, 18, 1),
+(1, 19, 2);
 
 -- --------------------------------------------------------
 
@@ -265,7 +280,7 @@ ALTER TABLE `cenovnik`
 -- AUTO_INCREMENT for table `dokumenta`
 --
 ALTER TABLE `dokumenta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `kategorije`

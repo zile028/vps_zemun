@@ -50,11 +50,11 @@ img {
   display: block;
 }
 
-.py {
+.py, .curiculum {
   padding: 140px 0;
 }
 @media (max-width: 768px) {
-  .py {
+  .py, .curiculum {
     padding: 30px 0;
   }
 }
@@ -116,6 +116,10 @@ h5 {
 
 h6 {
   font-size: 1.1rem;
+}
+
+.boxShadow {
+  box-shadow: 0 0 3px #000000;
 }
 
 input,
@@ -239,6 +243,17 @@ hgroup p {
 }
 .card-body .btn {
   margin-top: 20px;
+}
+
+.listGroup li {
+  color: #000000;
+}
+.listGroup li:before {
+  content: "\f0a4";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #233785;
+  margin-right: 5px;
 }
 
 /**************
@@ -939,10 +954,10 @@ CONTACT
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
+  gap: 20px;
 }
 .contact article form input {
-  flex: 0 0 32%;
-  margin-bottom: 20px;
+  flex: 1;
 }
 @media (max-width: 768px) {
   .contact article form input {
@@ -1010,6 +1025,7 @@ SINGLE PAGE
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
+  padding-bottom: 30px;
 }
 .single article {
   flex: 1;
@@ -1043,6 +1059,21 @@ SINGLE PAGE
     margin-left: 0px;
     flex: 0 0 100%;
   }
+}
+.single aside ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+.single aside ul li {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #d5d3d3;
+  padding-bottom: 5px;
+}
+.single aside ul li span:first-child {
+  font-weight: 700;
 }
 .single .feature {
   border-left: 5px solid #d5d3d3;
@@ -1086,6 +1117,35 @@ SINGLE PAGE
 }
 .single .categories ul li a:hover {
   color: #ff6347;
+}
+
+.curiculum {
+  padding-top: 0;
+}
+.curiculum-table {
+  width: 100%;
+}
+.curiculum-table thead th {
+  border: 1px solid #808080;
+  padding: 5px;
+}
+.curiculum-table tbody tr {
+  cursor: pointer;
+}
+.curiculum-table tbody tr.highlight td {
+  background-color: rgba(128, 128, 128, 0.4);
+}
+.curiculum-table tbody tr:hover td {
+  background-color: rgba(128, 128, 128, 0.6);
+}
+.curiculum-table tbody td {
+  border: 1px solid #808080;
+  padding: 5px;
+  text-align: center;
+  transition: background-color 0.5s ease;
+}
+.curiculum-table tbody td:nth-child(3) {
+  text-align: left;
 }
 
 /*# sourceMappingURL=style.css.map */
