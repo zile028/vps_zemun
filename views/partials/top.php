@@ -1,3 +1,4 @@
+<?php require_once "nav.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,11 +49,14 @@
                 <li><a href="/">Почетна</a></li>
                 <li class="drop"><span>О нама</span>
                     <ul>
-                        <li><a href="/savet">Савет</a></li>
-                        <li><a href="/rukovodstvo">Руководство</a></li>
-                        <li><a href="/nastavno_osoblje">Наставно особље</a></li>
-                        <li><a href="/cenovnik">Ценовник</a></li>
-                        <li><a href="/projekti">Пројекти</a></li>
+                        <?php foreach ($menu["odbori"] as $item) : ?>
+                            <li>
+                                <a href="/onama/<?php echo $item["id"]; ?>">
+                                    <?php echo $item["caption"]; ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                        <li><a href="/onama/cenovnik">Ценовник</a></li>
+                        <li><a href="/onama/projekti">Пројекти</a></li>
                     </ul>
                 </li>
                 <li><a href="/studije">Студије</a></li>
@@ -65,10 +69,14 @@
                 <!--                </li>-->
                 <li class="drop"><span>Документа</span>
                     <ul>
-                        <li><a href="/akta">Акта и правилници</a></li>
-                        <li><a href="/samovrednovanje">Самовредновање</a></li>
-                        <li><a href="/informator">Информатор о раду</a></li>
-                        <li><a href="/akreditacija">Акредитација</a></li>
+                        <?php foreach ($menu["dokumenta"] as $item) : ?>
+
+                            <li>
+                                <a href="/dokumenta/<?php echo $item["id"]; ?>">
+                                    <?php echo $item["caption"]; ?></a>
+                            </li>
+                        <?php endforeach; ?>
+
                     </ul>
                 </li>
                 <li><a href="/vesti">Вести</a></li>

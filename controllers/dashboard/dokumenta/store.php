@@ -5,7 +5,7 @@ use Core\Validator;
 $db = \Core\App::resolve(\Core\Database::class);
 extract($_POST);
 $error = [];
-$parentID = isset($_POST["parentID"]) && $_POST["parentID"] === "null" ? $_POST["parentID"] : NULL;
+$parentID = $_POST["parentID"] ?? 0;
 
 if (!Validator::string($title)) {
     $error["title"] = "Назив документа је обавезан!";

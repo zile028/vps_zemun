@@ -13,4 +13,23 @@ CREATE TABLE `osoblje`
     `lang`        VARCHAR(5)                               NOT NULL DEFAULT 'srb',
     `description` TEXT                                     NULL     DEFAULT NULL,
     PRIMARY KEY (`id`)
-)
+);
+
+CREATE TABLE `osoblje_odbor`
+(
+    `osobljeID` INT(10)     NOT NULL,
+    `odborID`   INT(10)     NOT NULL,
+    `pozicija`  VARCHAR(50) NOT NULL,
+    `prioritet` INT(10)     NOT NULL DEFAULT 1,
+    `lang`      VARCHAR(5)  NOT NULL DEFAULT 'srb',
+    PRIMARY KEY (`osobljeID`, odborID)
+);
+
+CREATE TABLE `odbori`
+(
+    `id`        INT(10)     NOT NULL AUTO_INCREMENT,
+    `odbor`     VARCHAR(50) NOT NULL,
+    `prioritet` INT(10)     NOT NULL DEFAULT 1,
+    `lang`      VARCHAR(5)  NOT NULL DEFAULT 'srb',
+    PRIMARY KEY (`id`)
+);

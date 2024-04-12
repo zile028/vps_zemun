@@ -53,7 +53,7 @@
                     >
                     <div class="col-sm-9">
                         <select class="form-control" name="parentID" id="parent">
-                            <option value="null">Није повезан</option>
+                            <option value="0">Није повезан</option>
                             <?php foreach ($dokumenta as $dokument): ?>
                                 <option value="<?php echo $dokument["id"]; ?>">
                                     <?php echo $dokument["title"]; ?>

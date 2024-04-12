@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 04:09 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 12, 2024 at 08:52 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,7 +56,12 @@ CREATE TABLE `dokumenta` (
 --
 
 INSERT INTO `dokumenta` (`id`, `title`, `attachment`, `userID`, `parentID`, `category`, `lang`, `createdAt`) VALUES
-(8, 'Статут', '1712844347601_906582268.pdf', 1, NULL, '1', 'srb', '2024-04-11 14:05:47');
+(8, 'Статут', '1712844347601_906582268.pdf', 1, 0, '1', 'srb', '2024-04-11 14:05:47'),
+(9, 'Кодекс', '1712867497501_1797489685.pdf', 1, 0, '1', 'srb', '2024-04-11 20:31:37'),
+(10, 'Стратегија', '1712867796617_1670715878.pdf', 1, 0, '1', 'srb', '2024-04-11 20:36:36'),
+(11, 'Кодекс 2', '1712867837314_1317133531.pdf', 1, 9, '1', 'srb', '2024-04-11 20:37:17'),
+(12, 'Статут 2', '1712868047157_1070811316.pdf', 1, 8, '1', 'srb', '2024-04-11 20:40:47'),
+(13, 'Одлука', '1712868063197_1295518169.pdf', 1, 0, '1', 'srb', '2024-04-11 20:41:03');
 
 -- --------------------------------------------------------
 
@@ -80,6 +85,29 @@ INSERT INTO `kategorije` (`id`, `category`, `lang`) VALUES
 (3, 'Самовредновање', 'srb'),
 (4, 'Акредитација', 'srb'),
 (5, 'Информатор рада', 'srb');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `odbori`
+--
+
+CREATE TABLE `odbori` (
+  `id` int(10) NOT NULL,
+  `odbor` varchar(50) NOT NULL,
+  `prioritet` int(10) NOT NULL DEFAULT 1,
+  `lang` varchar(5) NOT NULL DEFAULT 'srb'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `odbori`
+--
+
+INSERT INTO `odbori` (`id`, `odbor`, `prioritet`, `lang`) VALUES
+(1, 'Савет', 1, 'srb'),
+(2, 'Руководство', 1, 'srb'),
+(3, 'Наставно особље', 1, 'srb'),
+(4, 'Ненаставно особље', 1, 'srb');
 
 -- --------------------------------------------------------
 
@@ -109,6 +137,29 @@ CREATE TABLE `osoblje` (
 INSERT INTO `osoblje` (`id`, `firstName`, `lastName`, `title`, `rank`, `email`, `cv`, `image`, `lang`, `description`, `active`, `status`) VALUES
 (8, 'Јасмина', 'Радоњић', 'др', 'професор страног језика', 'jasmina@mail.com', '1712351829182_1047614426.pdf', '1712351829181_742742790.jpg', 'srb', '<p>JASMINA RADONJIĆ, PROFESOR ENGLESKOG JEZIKA.\r\nJASMINA RADONJIĆ&nbsp;ROĐENA JE 19.6.1986. U ČAČKU. POSLE ZAVRŠENE GIMNAZIJE U ČAČKU, ZAVRŠILA JE FILOLOŠKI FAKULTET UNIVERZITETA U BEOGRADU, ODSEK ENGLESKI JEZIK I KNJIŽEVNOST.\r\nZAPOSLENA JE NA VISOKOJ POSLOVNOJ ŠKOLI STRUKOVNIH STUDIJA U BEOGRADU OD 2012. GODINE KAO NASTAVNIK STRANOG JEZIKA – POSLOVNI ENGLESKI JEZIK I ENGLESKI ZA EKONOMISTE.\r\nUSAVRŠAVALA SE NA MNOGOBROJNIM KURSEVIMA U ZEMLJI I INOSTRANSTVU.\r\n</p>', 1, 'nastavno'),
 (10, 'Албина', 'Кецман Шушњар', 'др', 'професор струковних студије', 'albina@office.com', NULL, '1712352028765_1165684579.png', 'srb', '<p>ДР АЛБИНА КЕЦМАН ШУШЊАР ЈЕ МАГИСТРИРАЛА 2006. ГОДИНЕ НА ЕКОНОМСКОМ ФАКУЛТЕТУ У БЕОГРАДУ, ГДЕ ЈЕ СТЕКЛА И МАСТЕР ДИПЛОМУ ХЕЦ ПОСЛОВНЕ ШКОЛЕ ИЗ ПАРИЗА, У ОКВИРУ МЕЂУНАРОДНОГ МАГИСТАРСКОГ КУРСА ИЗ ПОСЛОВНЕ ЕКОНОМИЈЕ. ДОКТОРИРАЛА ЈЕ 2013. ГОД. НА ЕКОНОМСКОМ ФАКУЛТЕТУ У БЕОГРАДУ.</p><p>ИЗАБРАНА ЈЕ У ЗВАЊЕ ПРОФЕСОРА СТРУКОВНИХ СТУДИЈА ЗА УЖЕ НАУЧНЕ ОБЛАСТИ МЕНАЏМЕНТ И МАРКЕТИНГ И ЕКОНОМИЈА; ФИНАНСИЈЕ И БАНКАРСТВО. НАСТАВНИК ЈЕ НА ПРЕДМЕТИМА МЕНАЏМЕНТ ЉУДСКИХ РЕСУРСА, ОРГАНИЗАЦИОНО ПОНАШАЊЕ И ПРИНЦИПИ МАРКЕТИНГА.</p><p>ПОСЕДУЈЕ ПРЕКО 15 ГОДИНА РАДНОГ ИСКУСТВА, ОД ЧЕГА СКОРО 10 ГОДИНА НА ОДГОВОРНИМ РУКОВОДЕЋИМ ПОЗИЦИЈАМА.</p><p>АУТОР ЈЕ ВИШЕ СТРУЧНИХ РАДОВА ИЗ ОБЛАСТИ МЕНАЏМЕНТА И ЕКОНОМИЈЕ, КАО И КОАТОР КЊИГЕ “МЕНАЏМЕНТ ЉУДСКИХ РЕСУРСА”.</p><p>ГОВОРИ ЕНГЛЕСКИ И ШПАНСКИ ЈЕЗИК, А ПОЗНАЈЕ И ОСНОВЕ НЕМАЧКОГ ЈЕЗИКА.</p>', 1, 'nastavno');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `osoblje_odbor`
+--
+
+CREATE TABLE `osoblje_odbor` (
+  `osobljeID` int(10) NOT NULL,
+  `odborID` int(10) NOT NULL,
+  `pozicija` varchar(50) NOT NULL,
+  `prioritet` int(10) NOT NULL DEFAULT 1,
+  `lang` varchar(5) NOT NULL DEFAULT 'srb'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `osoblje_odbor`
+--
+
+INSERT INTO `osoblje_odbor` (`osobljeID`, `odborID`, `pozicija`, `prioritet`, `lang`) VALUES
+(8, 1, 'Председник', 1, 'srb'),
+(10, 1, 'Члан', 2, 'srb'),
+(10, 2, 'Члан', 1, 'srb');
 
 -- --------------------------------------------------------
 
@@ -236,10 +287,22 @@ ALTER TABLE `kategorije`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `odbori`
+--
+ALTER TABLE `odbori`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `osoblje`
 --
 ALTER TABLE `osoblje`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `osoblje_odbor`
+--
+ALTER TABLE `osoblje_odbor`
+  ADD PRIMARY KEY (`osobljeID`,`odborID`);
 
 --
 -- Indexes for table `predmeti`
@@ -280,13 +343,19 @@ ALTER TABLE `cenovnik`
 -- AUTO_INCREMENT for table `dokumenta`
 --
 ALTER TABLE `dokumenta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `kategorije`
 --
 ALTER TABLE `kategorije`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `odbori`
+--
+ALTER TABLE `odbori`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `osoblje`

@@ -22,10 +22,13 @@
             <div class="card-body">
                 <ul>
                     <li><span>ЕСПБ</span><span><?php echo $studije->espb; ?></span></li>
-                    <li><span>Трајање студија</span><span><?php echo $studije->trajanje; ?></span></li>
+                    <li><span>Трајање студија</span><span><?php echo $studije->trajanje; ?></span>
+                    </li>
                     <li><span>Звање</span><span><?php echo $studije->zvanje; ?></span></li>
                     <li><span>Научно поље</span><span><?php echo $studije->polje; ?></span></li>
-                    <li><span>Година акредитације</span><span><?php echo $studije->akreditovan; ?></span></li>
+                    <li>
+                        <span>Година акредитације</span><span><?php echo $studije->akreditovan; ?></span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -34,7 +37,7 @@
 <section class="curiculum container">
     <h5>Предмети</h5>
     <?php if (count($predmeti) > 0): ?>
-        <table class="curiculum-table">
+        <table class="table table-curiculum">
             <thead>
             <tr>
                 <th>Р.Б.</th>
@@ -59,7 +62,8 @@
                     </td>
                     <td class=""><?php echo $predmet->predmet; ?></td>
                     <td class=""><?php echo $predmet->semestar; ?></td>
-                    <td class=""><?php echo $predmet->predavanja; ?>+<?php echo $predmet->vezbe; ?></td>
+                    <td class=""><?php echo $predmet->predavanja; ?>
+                        +<?php echo $predmet->vezbe; ?></td>
                     <td class=""><?php echo $predmet->obavezan_izborni ? "Обавезан" : "Изборни"; ?></td>
                     <td class=""><?php echo $predmet->espb; ?></td>
                 </tr>

@@ -605,6 +605,7 @@ ABOUT
 *************/
 .about {
     @include flex;
+    gap: 30px;
 
     h2 {
         text-align: left;
@@ -615,14 +616,21 @@ ABOUT
     }
 
     article {
-        flex: 0 0 49%;
+        flex: 1;
+
+        &:first-child {
+            flex: 0 0 60%;
+        }
+
         @media (max-width: 768px) {
             flex: 0 0 100%;
         }
 
         img {
             width: 100%;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
         ul {
@@ -888,46 +896,77 @@ SINGLE PAGE
 .curiculum {
     @extend .py;
     padding-top: 0;
+}
 
-    &-table {
-        width: 100%;
+.table {
+    width: 100%;
 
-        thead {
-            th {
-                border: 1px solid $gray;
-                padding: 5px;
+    thead {
+        th {
+            border: 1px solid $gray;
+            padding: 5px;
+        }
+    }
+
+    tbody {
+        tr {
+            cursor: pointer;
+
+            &.highlight {
+                td {
+                    background-color: rgba($gray, .4);
+
+                }
+            }
+
+            &:hover {
+                td {
+                    background-color: rgba($gray, .6);
+                }
             }
         }
 
-        tbody {
-            tr {
-                cursor: pointer;
+        td {
+            border: 1px solid $gray;
+            padding: 5px;
+            text-align: center;
+            transition: background-color $transition;
 
-                &.highlight {
-                    td {
-                        background-color: rgba($gray, .4);
 
-                    }
-                }
+        }
+    }
 
-                &:hover {
-                    td {
-                        background-color: rgba($gray, .6);
-                    }
-                }
-            }
+    &-document {
+        tr {
+            display: grid;
+            grid-template-columns: 1fr 6fr 2fr 1fr;
+            text-align: center;
+        }
 
-            td {
-                border: 1px solid $gray;
-                padding: 5px;
-                text-align: center;
-                transition: background-color $transition;
+        td {
+            text-align: center;
 
-                &:nth-child(3) {
-                    text-align: left;
-
-                }
+            &:nth-child(2) {
+                text-align: left;
             }
         }
+
+        a {
+            transition: color $transition;
+
+            &:hover {
+                color: $hoverLink;
+            }
+        }
+    }
+
+    &-curiculum {
+        td {
+            &:nth-child(3) {
+                text-align: left;
+
+            }
+        }
+
     }
 }

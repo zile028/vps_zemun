@@ -2,7 +2,7 @@
 <?php require_once "partials/hero_pages.php" ?>
     <section class="container py">
         <?php if (count($dokumenta) > 0): ?>
-            <table class="curiculum-table">
+            <table class="table table-document">
                 <thead>
                 <tr>
                     <th>Р.Б.</th>
@@ -15,13 +15,12 @@
                 <?php foreach ($dokumenta as $index => $dokument): ?>
                     <tr>
                         <td>
-
                             <?php echo $index + 1; ?>
-                            
                         </td>
                         <td class=""><?php echo $dokument->title; ?></td>
                         <td class=""><?php dateDDMMYYY($dokument->createdAt); ?></td>
-                        <td class=""><a href="<?php echo $dokument->attachment; ?>">LINK</a></td>
+                        <td class=""><a href="<?php uploadPath($dokument->attachment); ?>"><i
+                                        class="fa-solid fa-file-pdf"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

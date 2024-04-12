@@ -4,7 +4,10 @@ $router->get("/nastavno_osoblje", "nastavno_osoblje/index.php");
 $router->get("/nastavno_osoblje/:id", "nastavno_osoblje/employer.php");
 $router->get("/studije", "studije/index.php");
 $router->get("/studije/:id", "studije/studije_single.php");
-$router->get("/akta", "akta/index.php");
+$router->get("/dokumenta/:kategorijaID", "dokumenta/index.php");
+$router->get("/onama/cenovnik", "onama/cenovnik.php");
+$router->get("/onama/projekti", "onama/projekti.php");
+$router->get("/onama/:odborID", "onama/odbor.php");
 
 
 $router->get("/akreditacija", "/akreditacija/index.php");

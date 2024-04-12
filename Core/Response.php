@@ -6,6 +6,7 @@ class Response
     const FORBIDDEN = 403;
     const NOT_FOUND = 404;
     const SERVER_ERROR = 500;
+    const UNDER_CONSTRUCTION = 503;
 
     public static function send($data)
     {
