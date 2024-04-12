@@ -5,9 +5,9 @@ $sql = "
         SELECT id, odbor AS caption FROM odbori ORDER BY prioritet;
 ";
 
-$dokumenta = $db->query($sql)->find();
-$odbori = $db->nextRowsetFind();
+$dokumentaMenu = $db->query($sql)->find();
+$odboriMenu = $db->nextRowsetFind();
 $menu = [
-    "dokumenta" => $dokumenta,
-    "odbori" => $odbori
+    "dokumenta" => $dokumentaMenu,
+    "odbori" => $odboriMenu
 ];

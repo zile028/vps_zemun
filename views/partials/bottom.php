@@ -7,11 +7,9 @@
                 <img src="upload/logo.png" alt="vps zemun logo">
                 <span>Висока пословна школа<br>струковних студија</span>
             </a>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dolore debitis
-                ullam cum magnam
-                molestias nobis, voluptates temporibus accusantium corrupti recusandae sequi?
-                Facilis qui asperiores
-                voluptates molestiae illum earum quo.</p>
+            <p>Одлучити о томе где наставити школовање после средње школе или где се дошколовати уз рад, једна је од
+                највећих животних одлука. Она ће пресудно утицати на ваш даљи живот. ВПШ Земун вам помаже да стекнете
+                неопходна знања и квалификације које су потребне за успех у каријери.</p>
         </div>
         <div>
             <h3>links</h3>

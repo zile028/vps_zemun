@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2024 at 08:52 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Apr 12, 2024 at 03:58 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,13 @@ CREATE TABLE `cenovnik` (
   `price` varchar(50) NOT NULL,
   `lang` varchar(5) NOT NULL DEFAULT 'srb'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cenovnik`
+--
+
+INSERT INTO `cenovnik` (`id`, `service`, `price`, `lang`) VALUES
+(3, 'Пријава испита', '600 дин.', 'srb');
 
 -- --------------------------------------------------------
 
@@ -337,7 +344,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cenovnik`
 --
 ALTER TABLE `cenovnik`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `dokumenta`

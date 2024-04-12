@@ -16,11 +16,8 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 
 </head>
-
 <body>
-
 <!-------- TOP BAR -------->
-
 <section class="top-bar">
     <article class="container">
         <ul>
@@ -30,9 +27,7 @@
         </ul>
     </article>
 </section>
-
 <!-------- NAV -------->
-
 <nav>
     <article class="container-fluid">
         <div class="logo">
@@ -56,17 +51,9 @@
                             </li>
                         <?php endforeach; ?>
                         <li><a href="/onama/cenovnik">Ценовник</a></li>
-                        <li><a href="/onama/projekti">Пројекти</a></li>
                     </ul>
                 </li>
                 <li><a href="/studije">Студије</a></li>
-                <!--                <li class="drop"><span>Студије</span>-->
-                <!--                    <ul>-->
-                <!--                        <li><a href="/studije/oss">Основне струковне студије</a></li>-->
-                <!--                        <li><a href="/studije/sss">Специјалистичке струковне студије</a></li>-->
-                <!--                        <li><a href="/studije/mss">Мастер струковне студије</a></li>-->
-                <!--                    </ul>-->
-                <!--                </li>-->
                 <li class="drop"><span>Документа</span>
                     <ul>
                         <?php foreach ($menu["dokumenta"] as $item) : ?>
@@ -76,7 +63,12 @@
                                     <?php echo $item["caption"]; ?></a>
                             </li>
                         <?php endforeach; ?>
-
+                    </ul>
+                </li>
+                <li class="drop"><span>Распоред</span>
+                    <ul>
+                        <li><a href="/raspored/predavanja">Предавања</a></li>
+                        <li><a href="/raspored/ispiti">Испити</a></li>
                     </ul>
                 </li>
                 <li><a href="/vesti">Вести</a></li>
