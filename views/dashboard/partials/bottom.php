@@ -59,65 +59,17 @@
 <script src="assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
 <script src="assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
-<!--<script src=" assets/libs/quill/dist/quill.min.js"></script>-->
+<script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+<script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+<script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+<script>
+    /****************************************
+     *       Basic Table                   *
+     ****************************************/
+    $("#zero_config").DataTable();
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.4/dist/quill.js"></script>
-
-<script>
-    //***********************************//
-    // For select 2
-    //***********************************//
-    $(".select2").select2();
-
-    /*colorpicker*/
-    $(".demo").each(function () {
-        //
-        // Dear reader, it's actually very easy to initialize MiniColors. For example:
-        //
-        //  $(selector).minicolors();
-        //
-        // The way I've done it below is just for the demo, so don't get confused
-        // by it. Also, data- attributes aren't supported at this time...they're
-        // only used for this demo.
-        //
-        $(this).minicolors({
-            control: $(this).attr("data-control") || "hue",
-            position: $(this).attr("data-position") || "bottom left",
-
-            change: function (value, opacity) {
-                if (!value) return;
-                if (opacity) value += ", " + opacity;
-                if (typeof console === "object") {
-                    console.log(value);
-                }
-            },
-            theme: "bootstrap"
-        });
-    });
-    /*datwpicker*/
-    jQuery(".mydatepicker").datepicker();
-    jQuery("#datepicker-autoclose").datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
-    let quillEditor = document.getElementById("editor");
-    if (quillEditor) {
-        let quill = new Quill(quillEditor, {
-            theme: "snow",
-            modules: {
-                toolbar: [
-                    [{'header': [1, 2, 3, 4, 5, 6, false]}],
-                    ['bold', 'italic', 'underline', 'strike'],
-                    ['link', 'blockquote'],
-                    [{list: 'ordered'}, {list: 'bullet'}]
-                ]
-            }
-        });
-        let content = document.querySelector("#playground");
-        quill.on('text-change', () => {
-            content.value = quill.root.innerHTML;
-        });
-    }
-</script>
+<script src="../../../assets/js/dashboard/main.js"></script>
 </body>
 </html>

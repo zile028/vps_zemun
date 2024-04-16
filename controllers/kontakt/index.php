@@ -18,7 +18,7 @@ $contactInfo = [
 ];
 
 view("kontakt.view", [
-    "heroTitle" => "Контак",
+    "heroTitle" => "Контакт",
     "heroImage" => "hero_contact.jpg",
     "contactInfo" => $contactInfo
 ]);

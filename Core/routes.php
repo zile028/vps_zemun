@@ -12,3 +12,9 @@ require_once "routes/cenovnik.php";
 require_once "routes/dokumenta.php";
 //STUDIJE
 require_once "routes/studije.php";
+//RASPORED
+require_once "routes/raspored.php";
+//MEDIA
+require_once "routes/media.php";
+//VESTI
+require_once "routes/vesti.php";

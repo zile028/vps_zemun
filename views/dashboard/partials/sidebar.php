@@ -61,7 +61,18 @@
                             class="sidebar-link waves-effect waves-dark sidebar-link"
                             href="/dashboard/raspored"
                             aria-expanded="false"
-                    ><i class="mdi mdi-calendar-check"></i><span class="hide-menu">Распоред</span></a
+                    ><i class="mdi mdi-calendar-check"></i><span
+                                class="hide-menu">Распоред</span></a
+                    >
+                </li>
+
+                <li class="sidebar-item">
+                    <a
+                            class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="/dashboard/media"
+                            aria-expanded="false"
+                    ><i class="mdi mdi-folder-multiple-image"></i><span
+                                class="hide-menu">Медија</span></a
                     >
                 </li>
 

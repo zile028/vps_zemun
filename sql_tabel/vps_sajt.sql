@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2024 at 03:58 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 16, 2024 at 10:08 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -92,6 +92,34 @@ INSERT INTO `kategorije` (`id`, `category`, `lang`) VALUES
 (3, 'Самовредновање', 'srb'),
 (4, 'Акредитација', 'srb'),
 (5, 'Информатор рада', 'srb');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `media`
+--
+
+CREATE TABLE `media` (
+  `id` int(11) NOT NULL,
+  `fileName` varchar(255) NOT NULL,
+  `storeName` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `size` float NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `lang` varchar(5) NOT NULL DEFAULT 'srb',
+  `mimetype` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `media`
+--
+
+INSERT INTO `media` (`id`, `fileName`, `storeName`, `type`, `size`, `createdAt`, `lang`, `mimetype`) VALUES
+(6, 'Распоред ОСС', '1713000887701_1451153525.pdf', 'pdf', 477291, '2024-04-13 09:34:47', 'srb', 'application/pdf'),
+(9, 'Вест - пријава испита', '1713119955803_2053874772.jpg', 'jpg', 45031, '2024-04-14 18:39:15', 'srb', 'image/jpg'),
+(13, 'fajl 1', '1713178740204_659186168.jpg', 'jpg', 45031, '2024-04-15 10:59:00', 'srb', 'image/jpeg'),
+(14, 'fajl 2', '1713178740213_1160522735.png', 'png', 392488, '2024-04-15 10:59:00', 'srb', 'image/png'),
+(15, 'Rezultati', '1713178740227_817663976.pdf', 'pdf', 477291, '2024-04-15 10:59:00', 'srb', 'application/pdf');
 
 -- --------------------------------------------------------
 
@@ -197,6 +225,31 @@ INSERT INTO `predmeti` (`id`, `predmet`, `sifra`, `semestar`, `predavanja`, `vez
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `raspored`
+--
+
+CREATE TABLE `raspored` (
+  `id` int(10) NOT NULL,
+  `spID` varchar(255) NOT NULL,
+  `mediaID` varchar(50) NOT NULL,
+  `kategorija` varchar(20) NOT NULL,
+  `active` tinyint(1) DEFAULT 1,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `lang` varchar(5) NOT NULL DEFAULT 'srb'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `raspored`
+--
+
+INSERT INTO `raspored` (`id`, `spID`, `mediaID`, `kategorija`, `active`, `createdAt`, `lang`) VALUES
+(1, '1', '6', 'predavanja', 0, '2024-04-14 07:19:03', 'srb'),
+(4, '8', '6', 'ispiti', 1, '2024-04-14 12:51:35', 'srb'),
+(5, '2', '6', 'predavanja', 1, '2024-04-14 12:51:46', 'srb');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sp_predmet`
 --
 
@@ -244,7 +297,7 @@ INSERT INTO `studijski_programi` (`id`, `nivo`, `naziv`, `modul`, `trajanje`, `e
 (1, 'основне струковне студије', 'Економија и бизнис', 'Трговина и маркетинг', '3 године / 6 семестра', 180, 'струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Основни циљ едукације која се постиже на основним струковним студијама је стицање и\r\nповезивање стечених знања из предметних области економије и бизниса у одговарајућу\r\nпрофесионалну структуру. Структура студијског програма Економија и бизнис кроз своје наставне\r\nсадржаје посебно акцентира добијање јасне и потпуне слике значаја и потребе практичног знања\r\nкоје се стиче кроз садржај основних струковних студија. Другим речима, циљ је да студенти усвоје\r\nнајновија знања и вештине из области економије, управљања и бизниса у савременом пословно-\r\nекономском окружењу, тј. да се добију стручњаци спремни да одговоре на сва питања и изазове\r\nса којима су реалан и финансијски сектор данас сусрећу у сфери економије, како би се креирале\r\nнове пословне идеје и исте претвориле у профитабилан посао.', 'Студијски програм „Економија и бизнис“ је конципиран у складу са Законом о високом\r\nобразовању и стандардима за акредитацију. Основна сврха студијског програма „Економија и\r\nбизнис“ је образовање и оспособљавање студената за професију струковног економисте како у\r\nреалном, тако и у финансијском, јавном или приватном сектору. Предузећа, банке, осигуравајуће\r\nкомпаније, јавне институције и агенције одувек су захтевале стручњаке економске струке обучене\r\nда препознају и/или дефинишу ефикасност, економичност, ризике, управљање ризицима, новчане\r\nтокове, креирање буџета, управљање новчаним средствима и потраживањима, логистику,\r\nтрговину и послове спољне трговине, инвестиционе токове, финансијско окружење и сл. Самим\r\nтим, перманентна је потреба за младим и компетентним кадровима из области економије, који ће\r\nбити оспособљени да креирају и спроводе пословну политику код својих будућих послодаваца.'),
 (2, 'специјалистичке струковне студије', 'Пословно управљање', NULL, '1 година / 2 семестра', 60, 'специјалиста струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Основни циљ едукације која се постиже на основним струковним студијама је стицање и\r\nповезивање стечених знања из предметних области економије и бизниса у одговарајућу\r\nпрофесионалну структуру. Структура студијског програма Економија и бизнис кроз своје наставне\r\nсадржаје посебно акцентира добијање јасне и потпуне слике значаја и потребе практичног знања\r\nкоје се стиче кроз садржај основних струковних студија. Другим речима, циљ је да студенти усвоје\r\nнајновија знања и вештине из области економије, управљања и бизниса у савременом пословно-\r\nекономском окружењу, тј. да се добију стручњаци спремни да одговоре на сва питања и изазове\r\nса којима су реалан и финансијски сектор данас сусрећу у сфери економије, како би се креирале\r\nнове пословне идеје и исте претвориле у профитабилан посао.', 'Студијски програм „Економија и бизнис“ је конципиран у складу са Законом о високом\r\nобразовању и стандардима за акредитацију. Основна сврха студијског програма „Економија и\r\nбизнис“ је образовање и оспособљавање студената за професију струковног економисте како у\r\nреалном, тако и у финансијском, јавном или приватном сектору. Предузећа, банке, осигуравајуће\r\nкомпаније, јавне институције и агенције одувек су захтевале стручњаке економске струке обучене\r\nда препознају и/или дефинишу ефикасност, економичност, ризике, управљање ризицима, новчане\r\nтокове, креирање буџета, управљање новчаним средствима и потраживањима, логистику,\r\nтрговину и послове спољне трговине, инвестиционе токове, финансијско окружење и сл. Самим\r\nтим, перманентна је потреба за младим и компетентним кадровима из области економије, који ће\r\nбити оспособљени да креирају и спроводе пословну политику код својих будућих послодаваца.'),
 (7, 'основне струковне студије', 'Економија и бизнис', 'Финансијски менаџмент', '3 године / 6 семестра', 180, 'струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'bla bla bla', 'truc truc truc'),
-(8, 'мастер струковне студије', 'Економија услуга', '', '2 године / 4 семестра', 120, 'мастер струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).');
+(8, 'мастер струковне студије', 'Економија услуга', NULL, '2 године / 4 семестра', 120, 'мастер струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).');
 
 -- --------------------------------------------------------
 
@@ -271,6 +324,54 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `password`, `role`, `image`, `createdAt`, `lastAccess`) VALUES
 (1, 'Dejan', 'Zivkovic', 'zile028@gmail.com', '$2y$10$06l61QvyrRSu0wAtMKJmWu54Qpmh9LjrTyjxtD6oFFGHTUIIpZ6rW', 'admin', NULL, '2024-04-03 19:39:18', NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vesti`
+--
+
+CREATE TABLE `vesti` (
+  `id` int(11) NOT NULL,
+  `naslov` varchar(50) NOT NULL,
+  `description` text NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `featured_imageID` varchar(10) DEFAULT NULL,
+  `lang` varchar(5) NOT NULL DEFAULT 'srb',
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  `userID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `vesti`
+--
+
+INSERT INTO `vesti` (`id`, `naslov`, `description`, `active`, `featured_imageID`, `lang`, `createdAt`, `updatedAt`, `userID`) VALUES
+(1, 'ОБАВЕШТЕЊЕ - ПРИЈАВА ИСПИТА', '<p class=\"ql-align-justify\"><span style=\"color: rgb(0, 0, 0);\">АКАДЕМИЈА СТРУКОВНИХ СТУДИЈА КОСОВСКО МЕТОХИЈСКА на својим одсецима уписује у прву годину студијских програма основних, специојалистичких и мастер струковних студија у школској 2023/2024. години.</span></p><ol><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span><a href=\"https://www.vtsurosevac.com/ur-admin/upload/obavestenja/6281693308706.docx\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: inherit;\">Конкурс - Основне струконве студије</a></li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span><a href=\"https://www.vtsurosevac.com/ur-admin/upload/obavestenja/8501693308706.docx\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: inherit;\">Конкурс - Специјалистичке струковне студије</a></li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span><a href=\"https://www.vtsurosevac.com/ur-admin/upload/obavestenja/9111693308706.docx\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: inherit;\">Конкурс - Мастер струковне студије</a></li></ol>', 1, '9', 'srb', '2024-04-15 10:59:00', NULL, 1),
+(2, 'ОБАВЕШТЕЊЕ - ПРИЈАВА ИСПИТА', '<p class=\"ql-align-justify\"><span style=\"color: rgb(0, 0, 0);\">АКАДЕМИЈА СТРУКОВНИХ СТУДИЈА КОСОВСКО МЕТОХИЈСКА на својим одсецима уписује у прву годину студијских програма основних, специојалистичких и мастер струковних студија у школској 2023/2024. години.</span></p><ol><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span><a href=\"https://www.vtsurosevac.com/ur-admin/upload/obavestenja/6281693308706.docx\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: inherit;\">Конкурс - Основне струконве студије</a></li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span><a href=\"https://www.vtsurosevac.com/ur-admin/upload/obavestenja/8501693308706.docx\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: inherit;\">Конкурс - Специјалистичке струковне студије</a></li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span><a href=\"https://www.vtsurosevac.com/ur-admin/upload/obavestenja/9111693308706.docx\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: inherit;\">Конкурс - Мастер струковне студије</a></li></ol>', 1, '9', 'srb', '2024-04-15 10:59:00', NULL, 1),
+(7, 'ОБАВЕШТЕЊЕ - РАСПОРЕД ПРЕДАВАЊА', '<p>Обавештавају се студенти да је објављен <strong>распоред предавања</strong> за летњи семетсар.</p>', 1, '9', 'srb', '2024-04-16 05:11:35', NULL, 1),
+(8, 'ОБАВЕШТЕЊЕ', '<p>Обавештавају се студенти да је објављен распоред предавања за летњи семетсар.</p>', 1, '13', 'srb', '2024-04-16 05:12:24', NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vest_media`
+--
+
+CREATE TABLE `vest_media` (
+  `vestID` int(10) NOT NULL,
+  `mediaID` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `vest_media`
+--
+
+INSERT INTO `vest_media` (`vestID`, `mediaID`) VALUES
+(1, 13),
+(1, 14),
+(1, 15);
+
 --
 -- Indexes for dumped tables
 --
@@ -291,6 +392,12 @@ ALTER TABLE `dokumenta`
 -- Indexes for table `kategorije`
 --
 ALTER TABLE `kategorije`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `media`
+--
+ALTER TABLE `media`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -318,6 +425,12 @@ ALTER TABLE `predmeti`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `raspored`
+--
+ALTER TABLE `raspored`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sp_predmet`
 --
 ALTER TABLE `sp_predmet`
@@ -335,6 +448,19 @@ ALTER TABLE `studijski_programi`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `vesti`
+--
+ALTER TABLE `vesti`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userID` (`userID`,`featured_imageID`);
+
+--
+-- Indexes for table `vest_media`
+--
+ALTER TABLE `vest_media`
+  ADD PRIMARY KEY (`vestID`,`mediaID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -359,6 +485,12 @@ ALTER TABLE `kategorije`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `media`
+--
+ALTER TABLE `media`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `odbori`
 --
 ALTER TABLE `odbori`
@@ -377,6 +509,12 @@ ALTER TABLE `predmeti`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
+-- AUTO_INCREMENT for table `raspored`
+--
+ALTER TABLE `raspored`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `studijski_programi`
 --
 ALTER TABLE `studijski_programi`
@@ -387,6 +525,12 @@ ALTER TABLE `studijski_programi`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `vesti`
+--
+ALTER TABLE `vesti`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -112,3 +112,9 @@ function getExcerpt($content, $word_limit = 20)
         return $excerpt;
     }
 }
+
+function sizeInMB($size)
+{
+    $mb = \Core\FileValidator::MB;
+    echo round($size / $mb, 2) . "MB";
+}

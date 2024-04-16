@@ -19,11 +19,11 @@ class FileValidator
     private array $validType = [];
     public mixed $file = null;
     private string $name;
-    private string $type;
+    public string $type;
     private string $tmp_name;
-    private mixed $size = null;
+    public mixed $size = null;
     private mixed $error = [];
-    private string $extension;
+    public string $extension;
     public string $storeName = "";
 
     public function __construct($file)
@@ -40,9 +40,9 @@ class FileValidator
         }
     }
 
-    static function deleteFile($path): bool
+    static function deleteFile($fileName): bool
     {
-        return unlink(BASE_PATH . self::UPLOAD_DIR . "/" . $path);
+        return unlink(BASE_PATH . self::UPLOAD_DIR . "/" . $fileName);
     }
 
     public function setLimit(int $limit, $unit)

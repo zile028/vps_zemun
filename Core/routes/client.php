@@ -12,6 +12,8 @@ $router->get("/onama/:odborID", "onama/odbor.php");
 
 $router->get("/akreditacija", "/akreditacija/index.php");
 $router->get("/kontakt", "/kontakt/index.php");
+$router->get("/vesti", "/vesti/index.php");
+$router->get("/vesti/:id", "/vesti/vest_single.php");
 
 $router->get("/login", "/auth/loginPage.php");
 $router->get("/register", "/auth/registerPage.php");

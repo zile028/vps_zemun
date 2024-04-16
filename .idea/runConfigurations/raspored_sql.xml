@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="raspored.sql" type="DatabaseScript" editBeforeRun="true" nameIsGenerated="true">
+    <script-file value="$PROJECT_DIR$/sql_tabel/raspored.sql" />
+    <script-mode>FILE</script-mode>
+    <data-source id="ce3d7805-d768-47c1-b683-c24fca5a3204" />
+    <method v="2" />
+  </configuration>
+</component>

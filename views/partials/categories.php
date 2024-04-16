@@ -1,10 +1,9 @@
+<?php require __DIR__ . "/../../controllers/vesti/last_news.php" ?>
 <h3>
-    Categories
+    Најновије
 </h3>
 <ul>
-    <li><a href="#">Design/Build</a></li>
-    <li><a href="#">General Construction</a> </li>
-    <li><a href="#">Portable/Modular Buildings</a> </li>
-    <li><a href="#">Construction Management</a> </li>
-    <li><a href="#">Demolition</a> </li>
+    <?php foreach ($najnovije as $vest) : ?>
+        <li><a href="/vesti/<?php echo $vest->id; ?>"><?php echo $vest->naslov; ?></a></li>
+    <?php endforeach; ?>
 </ul>
