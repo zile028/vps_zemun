@@ -25,23 +25,19 @@
             <ul class="contact-footer p-t-28">
                 <li>
                     <i class="fas fa-home" aria-hidden="true"></i>
-                    <span>Zemun, 11000 Beograd</span>
+                    <span><?php echo ADRESA; ?></span>
                 </li>
                 <li>
                     <i class="fas fa-phone" aria-hidden="true"></i>
-                    <span>(+381) 11 123 123 12</span>
-                </li>
-                <li>
-                    <i class="fas fa-fax" aria-hidden="true"></i>
-                    <span>(+381) 11 123 123 12</span>
+                    <span><?php echo TELEFON; ?></span>
                 </li>
                 <li>
                     <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <span>office@vpsbeograd.edu.rs</span>
+                    <span><?php echo EMAIL; ?></span>
                 </li>
                 <li>
                     <i class="fas fa-clock" aria-hidden="true"></i>
-                    <span>Radno vreme 09:00 - 17:00</span>
+                    <span>Radno vreme <?php echo RADNO_VREME; ?></span>
                 </li>
             </ul>
         </div>

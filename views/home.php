@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . "/../controllers/vesti/last_news.php" ?>
 <?php require_once "partials/top.php" ?>
 <?php require_once "partials/hero_index.php" ?>
     <!-------- ABOUT -------->
@@ -43,6 +44,35 @@
     </section>
 
 <?php require_once "partials/features.php" ?>
+
+    <section class="courses container py">
+        <article class="title-section">
+            <h2>Најновије вести</h2>
+        </article>
+
+        <article class="wrapper">
+            <?php foreach ($najnovije as $vest): ?>
+                <div class="card">
+                    <img src="<?php uploadPath($vest->storeName); ?>" alt="">
+                    <div class="card-body">
+                        <span><?php dateDDMMYYY($vest->createdAt); ?></span>
+                        <h6><?php echo $vest->naslov; ?></h6>
+                        <div><?php echo getExcerpt($vest->description, 10,); ?></div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/vesti/<?php echo $vest->id; ?>" class="btn btn-sm">Више</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+        </article>
+
+        <article class="wrapper">
+            <a href="/vesti" class="btn">Све вести</a>
+        </article>
+
+    </section>
+
 <?php require_once "partials/map.php" ?>
 
 

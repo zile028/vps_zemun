@@ -98,6 +98,8 @@ hgroup {
 
 .card {
     border: 1px solid $lightGray;
+    display: flex;
+    flex-direction: column;
 
     &.row {
         @include flex;
@@ -142,6 +144,7 @@ hgroup {
 
     &-body {
         padding: 10px;
+        flex: 1;
 
         div {
             @include flex($y: center);
@@ -156,6 +159,11 @@ hgroup {
         .btn {
             margin-top: 20px;
         }
+    }
+
+    &-footer {
+        border-top: 1px solid $lightGray;
+        padding: 10px;
     }
 }
 

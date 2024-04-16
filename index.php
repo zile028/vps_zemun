@@ -11,6 +11,10 @@ if (session_status()) {
 }
 const BASE_PATH = __DIR__ . "/";
 const UPLOAD_DIR = "/upload/";
+const ADRESA = "11080 Београд, ул. Градски парк 2";
+const TELEFON = "(+381) 11 3771-552";
+const EMAIL = "info@vpscacak.edu.rs";
+const RADNO_VREME = "09:00 - 17:00";
 //echo BASE_PATH;
 //die();
 require_once(BASE_PATH . "Core/functions.php");

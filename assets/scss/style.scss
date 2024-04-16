@@ -316,13 +316,14 @@ FEATURES
         }
 
         .wrapper {
-            @include flex(center, flex-start, column);
-            flex: 1;
-            min-width: 200px;
-            background-color: $white;
             border: 1px solid rgba($gray, 0.3);
             border-radius: 5px;
+            background-color: $white;
             padding: 0 20px 20px;
+            min-width: 200px;
+            @include flex(center, flex-start, column);
+            flex: 1;
+
             @media (max-width: 768px) {
                 flex: 0 0 49%;
                 margin-bottom: 50px;
@@ -331,10 +332,23 @@ FEATURES
                 flex: 0 0 100%;
             }
 
+            &-body {
+                flex: 1;
+            }
+
+            &-footer {
+                margin-top: 1rem;
+            }
+
             p {
                 font-size: 1rem;
                 text-align: center;
                 margin-top: 10px;
+            }
+
+            ul {
+                align-self: flex-start;
+                margin-top: 1rem;
             }
         }
 

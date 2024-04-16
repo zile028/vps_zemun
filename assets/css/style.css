@@ -185,6 +185,8 @@ hgroup p {
 
 .card {
   border: 1px solid #d5d3d3;
+  display: flex;
+  flex-direction: column;
 }
 .card.row {
   display: flex;
@@ -228,6 +230,7 @@ hgroup p {
 }
 .card-body {
   padding: 10px;
+  flex: 1;
 }
 .card-body div {
   display: flex;
@@ -243,6 +246,10 @@ hgroup p {
 }
 .card-body .btn {
   margin-top: 20px;
+}
+.card-footer {
+  border-top: 1px solid #d5d3d3;
+  padding: 10px;
 }
 
 .listGroup li {
@@ -573,17 +580,17 @@ FEATURES
   text-align: center;
 }
 .features article:not(:first-child) .wrapper {
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 0 20px 20px;
+  min-width: 200px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   flex: 1;
-  min-width: 200px;
-  background-color: #ffffff;
-  border: 1px solid rgba(128, 128, 128, 0.3);
-  border-radius: 5px;
-  padding: 0 20px 20px;
 }
 @media (max-width: 768px) {
   .features article:not(:first-child) .wrapper {
@@ -596,10 +603,20 @@ FEATURES
     flex: 0 0 100%;
   }
 }
+.features article:not(:first-child) .wrapper-body {
+  flex: 1;
+}
+.features article:not(:first-child) .wrapper-footer {
+  margin-top: 1rem;
+}
 .features article:not(:first-child) .wrapper p {
   font-size: 1rem;
   text-align: center;
   margin-top: 10px;
+}
+.features article:not(:first-child) .wrapper ul {
+  align-self: flex-start;
+  margin-top: 1rem;
 }
 .features article:not(:first-child) .icon {
   display: block;

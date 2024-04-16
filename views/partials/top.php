@@ -21,9 +21,9 @@
 <section class="top-bar">
     <article class="container">
         <ul>
-            <li><i class="fas fa-phone"></i>1-800-123-6889</li>
-            <li><i class="fas fa-map-marker-alt"></i>8th floor, 379 Hudson St, New York</li>
-            <li><i class="fas fa-clock"></i>09:30 am – 06:00 pm</li>
+            <li><i class="fas fa-phone"></i><?php echo TELEFON; ?></li>
+            <li><i class="fas fa-map-marker-alt"></i><?php echo ADRESA; ?></li>
+            <li><i class="fas fa-clock"></i><?php echo RADNO_VREME; ?></li>
         </ul>
     </article>
 </section>

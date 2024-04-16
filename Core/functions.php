@@ -91,7 +91,7 @@ function dateDDMMYYY($date): void
     echo date_format($date, "d.m.Y.");
 }
 
-function getExcerpt($content, $word_limit = 20)
+function getExcerpt($content, $word_limit = 20, $ellipsis = "...")
 {
     // Uklanja HTML tagove iz sadržaja
     $content = strip_tags($content);
@@ -108,7 +108,7 @@ function getExcerpt($content, $word_limit = 20)
         // Spaja reči nazad u string
         $excerpt = implode(' ', $excerpt_words);
         // Dodaje "..." na kraju izvoda
-        $excerpt .= '...';
+        $excerpt .= $ellipsis;
         return $excerpt;
     }
 }
