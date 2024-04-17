@@ -13,9 +13,9 @@ return $_SERVER["SERVER_NAME"] === "localhost" ?
         "database" => [
             "host" => "localhost",
             "port" => 3306,
-            "dbname" => "dexawebdev_notes",
+            "dbname" => "zilecom_vps_sajt",
             "charset" => "utf8mb4",
-            "username" => "dexawebdev_admin_notes",
-            "password" => "davidavid+2791447"
+            "username" => "zilecom_vpsadmin",
+            "password" => "UQBXKHHVawXz"
         ]
     ];
