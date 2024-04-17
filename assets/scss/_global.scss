@@ -177,6 +177,25 @@ hgroup {
     }
 }
 
+.listFlush {
+    list-style: none;
+
+    li {
+        border-bottom: 1px solid $lightGray;
+        padding: 5px 0;
+
+        span {
+            &:first-child {
+                font-weight: 600;
+            }
+        }
+
+        span {
+
+        }
+    }
+}
+
 .listGroup {
     li {
         color: $black;

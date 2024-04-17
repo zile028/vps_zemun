@@ -4,22 +4,14 @@
     <article class="container">
         <div>
             <a class="logo" href="/">
-                <img src="upload/logo.png" alt="vps zemun logo">
+                <img src="upload/logo-white.png" alt="vps zemun logo">
                 <span>Висока пословна школа<br>струковних студија</span>
             </a>
             <p>Одлучити о томе где наставити школовање после средње школе или где се дошколовати уз рад, једна је од
                 највећих животних одлука. Она ће пресудно утицати на ваш даљи живот. ВПШ Земун вам помаже да стекнете
                 неопходна знања и квалификације које су потребне за успех у каријери.</p>
         </div>
-        <div>
-            <h3>links</h3>
-            <ul>
-                <li><a href="/">Početna</a></li>
-                <li><a href="/studije">Courses</a></li>
-                <li><a href="/nastavno_osoblje">Teachers</a></li>
-                <li><a href="/kontakt">Contact</a></li>
-            </ul>
-        </div>
+
         <div>
             <h3>contact us</h3>
             <ul class="contact-footer p-t-28">

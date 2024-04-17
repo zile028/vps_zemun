@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/upload/favicon.png">
     <title>ВПШ - Земун</title>
     <!-- Font Awesome 5 | visit: https://fontawesome.com/v5.15/icons?d=gallery&p=2 -->
     <link rel="stylesheet"
@@ -32,7 +33,7 @@
     <article class="container-fluid">
         <div class="logo">
             <a href="/">
-                <img src="upload/logo.png" alt="logo">
+                <img src="upload/logo-blue.png" alt="logo">
                 <span>Висока пословна школа<br>струковних студија</span>
             </a>
         </div>

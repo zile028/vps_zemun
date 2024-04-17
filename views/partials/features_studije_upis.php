@@ -3,10 +3,10 @@
     <article class="title-section container">
         <h2>СТУДИЈЕ</h2>
     </article>
-    <article class="container">
+    <article class="container col-4">
         <?php foreach ($studije as $sp => $plan): ?>
             <?php foreach ($plan as $info) : ?>
-                <div class="wrapper">
+                <div class="wrapper ">
                     <div class="wrapper-body">
                         <div class="icon">
                             <i class="fa-solid fa-graduation-cap"></i>

@@ -18,20 +18,18 @@
         </div>
     </article>
     <aside class="teacher">
-        <div class="card">
-            <div class="card-body">
-                <ul>
-                    <li><span>ЕСПБ</span><span><?php echo $studije->espb; ?></span></li>
-                    <li><span>Трајање студија</span><span><?php echo $studije->trajanje; ?></span>
-                    </li>
-                    <li><span>Звање</span><span><?php echo $studije->zvanje; ?></span></li>
-                    <li><span>Научно поље</span><span><?php echo $studije->polje; ?></span></li>
-                    <li>
-                        <span>Година акредитације</span><span><?php echo $studije->akreditovan; ?></span>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
+        <ul class="listFlush">
+            <li><span>ЕСПБ</span><br><span><?php echo $studije->espb; ?></span></li>
+            <li><span>Трајање студија</span><br><span><?php echo $studije->trajanje; ?></span>
+            </li>
+            <li><span>Звање</span><br><span><?php echo $studije->zvanje; ?></span></li>
+            <li><span>Научно поље</span><br><span><?php echo $studije->polje; ?></span></li>
+            <li>
+                <span>Година акредитације</span><br><span><?php echo $studije->akreditovan; ?></span>
+            </li>
+        </ul>
+
     </aside>
 </section>
 <section class="curiculum container">
