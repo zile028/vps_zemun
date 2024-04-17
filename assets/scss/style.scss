@@ -387,18 +387,26 @@ COURSES
 *************/
 .courses {
     .wrapper {
-        @include flex;
+        gap: 2rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 20px;
+        }
+        @media (max-width: 650px) {
+            grid-template-columns:  1fr;
+        }
+
+        &:last-child {
+            display: block;
+            @include flex();
+            
+        }
 
         .card {
-            flex: 0 0 23%;
             min-width: 220px;
-            @media (max-width: 768px) {
-                flex: 0 0 49%;
-                margin-bottom: 20px;
-            }
-            @media (max-width: 650px) {
-                flex: 0 0 100%;
-            }
+
         }
 
         img {
@@ -428,7 +436,8 @@ COURSES
             }
 
             h6 {
-                line-height: 2rem;
+                //line-height: 2rem;
+                margin-bottom: 1rem;
             }
 
             .btn {
@@ -670,20 +679,42 @@ ABOUT
 CONTACT
 *************/
 .contact {
-    @include flex;
+    //@include flex;
+    display: grid;
+    grid-template-areas: "info forma" "adresa forma";
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    @media (max-width: 1300px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    @media (max-width: 1080px) {
+        grid-template-areas: "forma forma" "info adresa";
+    }
+    @media (max-width: 1080px) {
+        grid-template-areas: "forma forma" "info info" "adresa adresa";
+    }
 
     article {
-        &:first-child {
-            flex: 1;
+        &:nth-child(1) {
+            grid-area: forma;
+        }
+
+        &:nth-child(2) {
+            grid-area: info;
+        }
+
+        &:nth-child(3) {
+            grid-area: adresa;
         }
 
         &:last-child {
-            flex: 0 0 38%;
-            margin-left: 2%;
-            @media (max-width: 768px) {
-                flex: 0 0 100%;
-                margin-top: 30px;
-            }
+            //flex: 0 0 38%;
+            //margin-left: 2%;
+            //@media (max-width: 768px) {
+            //    flex: 0 0 100%;
+            //    margin-top: 30px;
+            //}
         }
 
         h3 {
@@ -701,6 +732,7 @@ CONTACT
 
             li {
                 line-height: 2;
+                //white-space: nowrap;
 
                 i {
                     margin-right: 5px;
@@ -1015,5 +1047,19 @@ SINGLE PAGE
             }
         }
 
+    }
+}
+
+.schedule {
+    display: grid;
+    grid-template-columns: minmax(320px, 3fr) 1fr;
+    gap: 3rem;
+
+    .card {
+        box-shadow: $boxShadow-sm;
+
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
     }
 }

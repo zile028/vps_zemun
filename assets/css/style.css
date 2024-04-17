@@ -70,8 +70,9 @@ img {
 }
 
 .container {
-  width: 70%;
+  max-width: 1280px;
   margin: 0 auto;
+  width: 95%;
 }
 @media (max-width: 768px) {
   .container {
@@ -187,6 +188,8 @@ hgroup p {
   border: 1px solid #d5d3d3;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .card.row {
   display: flex;
@@ -242,10 +245,17 @@ hgroup p {
   color: #808080;
 }
 .card-body h6 {
-  line-height: 2rem;
+  line-height: 1.3;
+  font-size: 1rem;
 }
 .card-body .btn {
   margin-top: 20px;
+}
+.card-header {
+  text-transform: uppercase;
+  padding: 10px;
+  border-bottom: 1px solid #d5d3d3;
+  background-color: #d5d3d3;
 }
 .card-footer {
   border-top: 1px solid #d5d3d3;
@@ -648,6 +658,23 @@ FEATURES
 COURSES
 *************/
 .courses .wrapper {
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1200px) {
+  .courses .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .courses .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+.courses .wrapper:last-child {
+  display: block;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -655,19 +682,7 @@ COURSES
   align-items: stretch;
 }
 .courses .wrapper .card {
-  flex: 0 0 23%;
   min-width: 220px;
-}
-@media (max-width: 768px) {
-  .courses .wrapper .card {
-    flex: 0 0 49%;
-    margin-bottom: 20px;
-  }
-}
-@media (max-width: 650px) {
-  .courses .wrapper .card {
-    flex: 0 0 100%;
-  }
 }
 .courses .wrapper img {
   width: 100%;
@@ -691,7 +706,7 @@ COURSES
   color: #808080;
 }
 .courses .card-body h6 {
-  line-height: 2rem;
+  margin-bottom: 1rem;
 }
 .courses .card-body .btn {
   margin-top: 20px;
@@ -935,24 +950,35 @@ ABOUT
 CONTACT
 *************/
 .contact {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
+  display: grid;
+  grid-template-areas: "info forma" "adresa forma";
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
-.contact article:first-child {
-  flex: 1;
-}
-.contact article:last-child {
-  flex: 0 0 38%;
-  margin-left: 2%;
-}
-@media (max-width: 768px) {
-  .contact article:last-child {
-    flex: 0 0 100%;
-    margin-top: 30px;
+@media (max-width: 1300px) {
+  .contact {
+    padding-left: 20px;
+    padding-right: 20px;
   }
+}
+@media (max-width: 1080px) {
+  .contact {
+    grid-template-areas: "forma forma" "info adresa";
+  }
+}
+@media (max-width: 1080px) {
+  .contact {
+    grid-template-areas: "forma forma" "info info" "adresa adresa";
+  }
+}
+.contact article:nth-child(1) {
+  grid-area: forma;
+}
+.contact article:nth-child(2) {
+  grid-area: info;
+}
+.contact article:nth-child(3) {
+  grid-area: adresa;
 }
 .contact article h3 {
   color: #233785;
@@ -1209,6 +1235,18 @@ SINGLE PAGE
 }
 .table-curiculum td:nth-child(3) {
   text-align: left;
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: minmax(320px, 3fr) 1fr;
+  gap: 3rem;
+}
+.schedule .card {
+  box-shadow: 0 0px 5px 0px #333333;
+}
+.schedule .card:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

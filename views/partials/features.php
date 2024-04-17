@@ -12,7 +12,5 @@
                 <p><?php echo getExcerpt($sp->opis); ?></p>
             </div>
         <?php endforeach; ?>
-
-
     </article>
 </section>

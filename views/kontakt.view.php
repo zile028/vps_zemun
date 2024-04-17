@@ -5,9 +5,9 @@
     <section class="contact container py">
         <article>
             <h3>Контактирај нас</h3>
-            <form action="">
-                <input type="text" placeholder="Име">
-                <input type="email" placeholder="Email">
+            <form action="/kontakt" method="post">
+                <input type="text" name="fullName" placeholder="Име">
+                <input type="email" name="email" placeholder="Email">
                 <textarea name="message" placeholder="Порука" cols="30" rows="10"></textarea>
                 <button class="btn" type="submit">Пошаљи</button>
             </form>
@@ -20,22 +20,25 @@
                     <li><?php echo $usluga; ?></li>
                 <?php endforeach; ?>
             </ul>
+
+        </article>
+        <article>
             <ul class="contact-footer p-t-28">
                 <li>
                     <i class="fas fa-home" aria-hidden="true"></i>
-                    <?php echo $contactInfo["adresa"] ?>
+                    <?php echo ADRESA ?>
                 </li>
                 <li>
                     <i class="fas fa-phone" aria-hidden="true"></i>
-                    <?php echo $contactInfo["telefon"] ?>
+                    <?php echo TELEFON ?>
                 </li>
                 <li>
                     <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <?php echo $contactInfo["email"] ?>
+                    <?php echo EMAIL ?>
                 </li>
                 <li>
                     <i class="fas fa-clock" aria-hidden="true"></i>
-                    <?php echo $contactInfo["radnoVreme"] ?>
+                    <?php echo RADNO_VREME ?>
                 </li>
             </ul>
         </article>

@@ -11,7 +11,7 @@
                 <?php echo $vest->description; ?>
             </div>
             <?php if (isset($media["document"])): ?>
-                
+
                 <ul>
                     <?php foreach ($media["document"] as $doc) : ?>
                         <li><a href="<?php uploadPath($doc->storeName); ?>"
@@ -34,7 +34,7 @@
             <?php endif; ?>
         </article>
         <aside class="categories">
-            <?php include "partials/categories.php" ?>
+            <?php include "partials/last_news.php" ?>
         </aside>
     </section>
 <?php require_once "partials/bottom.php" ?>
