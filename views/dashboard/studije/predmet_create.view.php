@@ -115,28 +115,6 @@
                     </div>
                 </div>
 
-
-                <div class="form-group row">
-                    <span class="col-sm-3 text-end control-label col-form-label"
-                    >Студијски програм</span>
-                    <div class="col-sm-9">
-                        <?php foreach ($studije as $index => $sp): ?>
-                            <div class="form-group row align-items-center">
-                                <input class="col-auto" id="sp<?php echo $sp->id; ?>"
-                                       type="checkbox"
-                                       name="spID[]"
-                                       value="<?php echo $sp->id; ?>"/>
-                                <label class="col m-0"
-                                       for="sp<?php echo $sp->id; ?>"><?php echo
-                                        $sp->nivo . " - " . $sp->naziv .
-                                        ($sp->modul ? " - " . $sp->modul : ""); ?></label>
-                            </div>
-                        <?php endforeach; ?>
-
-                    </div>
-                </div>
-
-
             </div>
             <div class="row border-top">
 

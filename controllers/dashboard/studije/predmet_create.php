@@ -38,10 +38,7 @@ if (count($error) === 0) {
     $predmetID = $db->query($sqlPredmet, $data)->lastID();
     $sqlPredmetSP = "INSERT INTO sp_predmet (spID, predmetID) VALUES (:spID, :predmetID)";
 
-    foreach ($spID as $sp) {
-        $row = ["spID" => (int)$sp, "predmetID" => (int)$predmetID];
-        $db->query($sqlPredmetSP, $row);
-    }
+   
     redirect("/dashboard/studije/predmet/dodaj");
 } else {
     view("dashboard/studije/predmet_create.view");

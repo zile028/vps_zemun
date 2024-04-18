@@ -9,3 +9,4 @@ $router->post("/dashboard/osoblje/odbor/:id", "/dashboard/osoblje/osoblje_odbor_
 
 $router->delete("/dashboard/osoblje/:id", "/dashboard/osoblje/osoblje_obrisi.php")->only("auth");
 $router->get("/dashboard/osoblje/:id", "/dashboard/osoblje/osoblje_single_page.php")->only("auth");
+$router->put("/dashboard/osoblje/:id", "/dashboard/osoblje/osoblje_update.php")->only("auth");

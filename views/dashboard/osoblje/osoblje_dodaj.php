@@ -1,7 +1,6 @@
 <?php require_once __DIR__ . "/../partials/top.php"; ?>
 <?php require_once __DIR__ . "/../partials/sidebar.php"; ?>
 
-
 <!-- ============================================================== -->
 <!-- Start Page Content -->
 <!-- ============================================================== -->
@@ -91,20 +90,6 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label
-                        for="status"
-                        class="col-sm-3 text-end control-label col-form-label"
-                >Статус</label
-                >
-                <div class="col-sm-9">
-                    <select class="form-control" id="status" name="status">
-                        <option value="nastavno">Наставно особље</option>
-                        <option value="nenastavno">Ненаставно особље</option>
-                        <option value="clan">Члан</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
                 <div class="offset-sm-3 col ">
                     <label class="btn btn-warning" for="profile">Одабери
                         слику</label>
@@ -146,5 +131,4 @@
 <!-- End PAge Content -->
 <!-- ============================================================== -->
 
-<!--  -->
 <?php require_once __DIR__ . "/../partials/bottom.php"; ?>

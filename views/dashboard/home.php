@@ -15,114 +15,126 @@
                 <div class="card card-hover">
                     <div class="box bg-cyan text-center">
                         <h1 class="font-light text-white">
-                            <i class="mdi mdi-view-dashboard"></i>
+                            <i class="mdi mdi-face"></i>
                         </h1>
-                        <h6 class="text-white">Nastavno osoblje</h6>
+                        <h6 class="text-white">ОСОБЉЕ</h6>
                     </div>
                 </div>
             </a>
         </div>
         <!-- Column -->
-        <div class="col-md-6 col-lg-4 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-success text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-chart-areaspline"></i>
-                    </h1>
-                    <h6 class="text-white">Charts</h6>
+        <div class="col-md-6 col-lg-2 col-xlg-3">
+            <a href="/dashboard/cenovnik">
+                <div class="card card-hover">
+                    <div class="box bg-success text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-chart-bubble"></i>
+                        </h1>
+                        <h6 class="text-white">ЦЕНОВНИК</h6>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- Column -->
         <div class="col-md-6 col-lg-2 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-warning text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-collage"></i>
-                    </h1>
-                    <h6 class="text-white">Widgets</h6>
+            <a href="/dashboard/dokumenta">
+                <div class="card card-hover">
+                    <div class="box bg-warning text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-border-inside"></i>
+                        </h1>
+                        <h6 class="text-white">ДОКУМЕНТА</h6>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- Column -->
         <div class="col-md-6 col-lg-2 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-danger text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-border-outside"></i>
-                    </h1>
-                    <h6 class="text-white">Tables</h6>
+            <a href="/dashboard/studije">
+                <div class="card card-hover">
+                    <div class="box bg-danger text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-blur-linear"></i>
+                        </h1>
+                        <h6 class="text-white">СТУДИЈЕ</h6>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- Column -->
         <div class="col-md-6 col-lg-2 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-info text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-arrow-all"></i>
-                    </h1>
-                    <h6 class="text-white">Full Width</h6>
+            <a href="/dashboard/vesti">
+                <div class="card card-hover">
+                    <div class="box bg-info text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-receipt"></i>
+                        </h1>
+                        <h6 class="text-white">ВЕСТИ</h6>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- Column -->
-        <!-- Column -->
-        <div class="col-md-6 col-lg-4 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-danger text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-receipt"></i>
-                    </h1>
-                    <h6 class="text-white">Forms</h6>
-                </div>
-            </div>
+            </a>
         </div>
         <!-- Column -->
         <div class="col-md-6 col-lg-2 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-info text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-relative-scale"></i>
-                    </h1>
-                    <h6 class="text-white">Buttons</h6>
+            <a href="/dashboard/raspored">
+                <div class="card card-hover">
+                    <div class="box bg-danger text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-calendar-check"></i>
+                        </h1>
+                        <h6 class="text-white">РАСПОРЕД</h6>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- Column -->
         <div class="col-md-6 col-lg-2 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-cyan text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-pencil"></i>
-                    </h1>
-                    <h6 class="text-white">Elements</h6>
+            <a href="/dashboard/media">
+                <div class="card card-hover">
+                    <div class="box bg-info text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-folder-multiple-image"></i>
+                        </h1>
+                        <h6 class="text-white">МЕДИЈИ</h6>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <?php if (\Core\Session::currentUser("role") === "admin"): ?>
+            <!-- Column -->
+            <div class="col-md-6 col-lg-2 col-xlg-3">
+                <div class="card card-hover">
+                    <div class="box bg-cyan text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-pencil"></i>
+                        </h1>
+                        <h6 class="text-white">КОРИСНИЦИ</h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Column -->
-        <div class="col-md-6 col-lg-2 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-success text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-calendar-check"></i>
-                    </h1>
-                    <h6 class="text-white">Calnedar</h6>
+            <!-- Column -->
+            <div class="col-md-6 col-lg-2 col-xlg-3">
+                <div class="card card-hover">
+                    <div class="box bg-success text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-calendar-check"></i>
+                        </h1>
+                        <h6 class="text-white">Calnedar</h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Column -->
-        <div class="col-md-6 col-lg-2 col-xlg-3">
-            <div class="card card-hover">
-                <div class="box bg-warning text-center">
-                    <h1 class="font-light text-white">
-                        <i class="mdi mdi-alert"></i>
-                    </h1>
-                    <h6 class="text-white">Errors</h6>
+            <!-- Column -->
+            <div class="col-md-6 col-lg-2 col-xlg-3">
+                <div class="card card-hover">
+                    <div class="box bg-warning text-center">
+                        <h1 class="font-light text-white">
+                            <i class="mdi mdi-alert"></i>
+                        </h1>
+                        <h6 class="text-white">Errors</h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Column -->
+        <?php endif; ?>
     </div>
     <!-- ============================================================== -->
     <!-- Sales chart -->
