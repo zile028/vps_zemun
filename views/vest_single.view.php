@@ -33,8 +33,8 @@
                 </div>
             <?php endif; ?>
         </article>
-        <aside class="categories">
-            <?php include "partials/last_news.php" ?>
-        </aside>
+
+        <?php include "partials/last_news.php" ?>
+
     </section>
 <?php require_once "partials/bottom.php" ?>

@@ -82,6 +82,12 @@ class Database
         return $this->statment->fetch($fetchType);
     }
 
+    public function nextRowset()
+    {
+        $this->statment->nextRowset();
+        return $this;
+    }
+
     public function isExecuteResult(): bool
     {
         return $this->executeResult;

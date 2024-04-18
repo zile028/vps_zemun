@@ -27,20 +27,21 @@
                 </div>
             </a>
         </div>
-
-        <!-- Column -->
-        <div class="col-md-6 col-lg-2 col-xlg-3">
-            <a href="/dashboard/osoblje/savet">
-                <div class="card card-hover">
-                    <div class="box bg-cyan text-center">
-                        <h1 class="font-light text-white">
-                            <i class="mdi mdi-view-dashboard"></i>
-                        </h1>
-                        <h6 class="text-white">САВЕТ</h6>
+        <?php foreach ($odbori as $odbor) : ?>
+            <!-- Column -->
+            <div class="col-md-6 col-lg-2 col-xlg-3">
+                <a href="/dashboard/osoblje/odbor/<?php echo $odbor->id; ?>">
+                    <div class="card card-hover">
+                        <div class="box bg-cyan text-center">
+                            <h1 class="font-light text-white">
+                                <i class="mdi mdi-view-dashboard"></i>
+                            </h1>
+                            <h6 class="text-white text-uppercase"><?php echo $odbor->odbor ?></h6>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
+        <?php endforeach; ?>
 
     </div>
     <!-- ============================================================== -->
@@ -84,13 +85,20 @@
                             </td>
                             <td><?php echo $item["rank"]; ?></td>
                             <td><?php echo $item["email"]; ?></td>
-                            <td><a class="btn btn-sm btn-warning"
-                                   href="<?php uploadPath($item["cv"]); ?>"
-                                   target="_blank">CV</a></td>
+                            <td>
+                                <?php if (isset($item["cv"])): ?>
+                                    <a class="btn btn-sm btn-warning"
+                                       href="<?php uploadPath($item["cv"]); ?>"
+                                       target="_blank">CV</a>
+                                <?php endif; ?>
+                            </td>
                             <td class="d-flex gap-1">
+
+
                                 <a class="btn btn-sm btn-info"
                                    href="/dashboard/osoblje/<?php echo $item["id"]; ?>"><i
                                             class="mdi mdi-account-card-details"></i></a>
+
                                 <form action="/dashboard/osoblje/<?php echo $item["id"]; ?>"
                                       method="post">
                                     <input type="hidden" name="_method" value="delete">

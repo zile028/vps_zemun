@@ -81,11 +81,11 @@ class FileValidator
     public function upload()
     {
         $this->storeName = $this->generateFileName($this->extension);
-        $storeDirectory = realpath(__DIR__ . "../../" . self::UPLOAD_DIR);
+        $storeDirectory = __DIR__ . "../../";
         if (!file_exists($storeDirectory)) {
             mkdir($storeDirectory);
         }
-        $storePath = $storeDirectory . "/" . $this->storeName;
+        $storePath = $storeDirectory . "/" . self::UPLOAD_DIR . "/" . $this->storeName;
         return move_uploaded_file($this->tmp_name, $storePath);
     }
 

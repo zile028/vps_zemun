@@ -61,18 +61,18 @@ img {
 
 
 .container-fluid {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
     @media (max-width: 768px) {
-        width: 95%;
+        width: 90%;
     }
 }
 
 .container {
     max-width: $containerWidth;
     margin: 0 auto;
-    width: 95%;
+    width: 90%;
     @media (max-width: 768px) {
-        width: 95%;
+        width: 90%;
     }
 }

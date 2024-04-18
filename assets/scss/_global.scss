@@ -1,11 +1,19 @@
 h1 {
     font-size: 3rem;
     text-transform: uppercase;
+    @media (max-width: 420px) {
+        font-size: 2.8rem;
+
+    }
 }
 
 h2 {
     text-transform: uppercase;
     font-size: 2rem;
+    @media (max-width: 420px) {
+        font-size: 1.8rem;
+
+    }
 }
 
 h3 {
@@ -174,6 +182,25 @@ hgroup {
     &-footer {
         border-top: 1px solid $lightGray;
         padding: 10px;
+    }
+}
+
+.listFlush {
+    list-style: none;
+
+    li {
+        border-bottom: 1px solid $lightGray;
+        padding: 5px 0;
+
+        span {
+            &:first-child {
+                font-weight: 600;
+            }
+        }
+
+        span {
+
+        }
     }
 }
 

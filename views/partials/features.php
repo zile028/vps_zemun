@@ -2,7 +2,7 @@
     <article class="title-section container">
         <h2>СТУДИЈЕ</h2>
     </article>
-    <article class="container">
+    <article class="container col-3">
         <?php foreach ($studije as $sp): ?>
             <div class="wrapper">
                 <div class="icon">
