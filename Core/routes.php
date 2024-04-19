@@ -18,3 +18,5 @@ require_once "routes/raspored.php";
 require_once "routes/media.php";
 //VESTI
 require_once "routes/vesti.php";
+//USERS
+require_once "routes/users.php";

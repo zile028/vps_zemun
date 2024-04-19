@@ -96,10 +96,20 @@ h1 {
   font-size: 3rem;
   text-transform: uppercase;
 }
+@media (max-width: 420px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+}
 
 h2 {
   text-transform: uppercase;
   font-size: 2rem;
+}
+@media (max-width: 420px) {
+  h2 {
+    font-size: 1.8rem;
+  }
 }
 
 h3 {
@@ -345,6 +355,11 @@ nav .logo a {
   align-items: center;
   gap: 1rem;
 }
+@media (max-width: 400px) {
+  nav .logo span {
+    display: none;
+  }
+}
 nav .logo img {
   max-height: 70px;
   object-fit: contain;
@@ -466,6 +481,7 @@ HEADER
   min-height: 60vh;
   position: relative;
   color: #ffffff;
+  padding: 10vh 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -603,7 +619,7 @@ FEATURES
 }
 @media (max-width: 640px) {
   .features article:not(:first-child).col-3 {
-    grid-template-columns: repeat(1, 90%);
+    grid-template-columns: repeat(1, 1fr);
     justify-content: center;
   }
 }
@@ -618,7 +634,7 @@ FEATURES
 }
 @media (max-width: 640px) {
   .features article:not(:first-child).col-4 {
-    grid-template-columns: repeat(1, 90%);
+    grid-template-columns: repeat(1, 1fr);
     justify-content: center;
   }
 }

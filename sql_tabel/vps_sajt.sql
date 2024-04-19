@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2024 at 03:49 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 19, 2024 at 08:45 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -193,8 +193,10 @@ CREATE TABLE `osoblje_odbor` (
 
 INSERT INTO `osoblje_odbor` (`osobljeID`, `odborID`, `pozicija`, `prioritet`, `lang`) VALUES
 (8, 1, 'Председник', 1, 'srb'),
+(8, 3, 'Професор струковних студија', 1, 'srb'),
 (10, 1, 'Члан', 2, 'srb'),
-(10, 2, 'Члан', 1, 'srb');
+(10, 2, 'Члан', 1, 'srb'),
+(10, 3, 'Професор струковних студија', 1, 'srb');
 
 -- --------------------------------------------------------
 
@@ -211,16 +213,18 @@ CREATE TABLE `predmeti` (
   `vezbe` int(2) NOT NULL,
   `espb` int(2) NOT NULL,
   `obavezan_izborni` tinyint(1) NOT NULL,
-  `lang` varchar(5) NOT NULL DEFAULT 'srb'
+  `lang` varchar(5) NOT NULL DEFAULT 'srb',
+  `nastvaniPlan` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `predmeti`
 --
 
-INSERT INTO `predmeti` (`id`, `predmet`, `sifra`, `semestar`, `predavanja`, `vezbe`, `espb`, `obavezan_izborni`, `lang`) VALUES
-(18, 'Енглески језик 1', '789456', 1, 2, 2, 6, 1, 'srb'),
-(19, 'Социјологија', '456963', 1, 2, 2, 6, 0, 'srb');
+INSERT INTO `predmeti` (`id`, `predmet`, `sifra`, `semestar`, `predavanja`, `vezbe`, `espb`, `obavezan_izborni`, `lang`, `nastvaniPlan`) VALUES
+(18, 'Енглески језик 1', '789456', 1, 2, 2, 6, 1, 'srb', NULL),
+(19, 'Социјологија', '456963', 1, 2, 2, 6, 0, 'srb', NULL),
+(20, 'Економија', '44444', 2, 2, 2, 8, 0, 'srb', '1713504650193_788551465.pdf');
 
 -- --------------------------------------------------------
 
@@ -256,16 +260,22 @@ INSERT INTO `raspored` (`id`, `spID`, `mediaID`, `kategorija`, `active`, `create
 CREATE TABLE `sp_predmet` (
   `spID` int(10) NOT NULL,
   `predmetID` int(10) NOT NULL,
-  `redniBroj` int(10) NOT NULL DEFAULT 0
+  `redniBroj` int(10) NOT NULL DEFAULT 0,
+  `izborni` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sp_predmet`
 --
 
-INSERT INTO `sp_predmet` (`spID`, `predmetID`, `redniBroj`) VALUES
-(1, 18, 1),
-(1, 19, 2);
+INSERT INTO `sp_predmet` (`spID`, `predmetID`, `redniBroj`, `izborni`) VALUES
+(1, 18, 1, 0),
+(1, 19, 2, 0),
+(2, 18, 1, 0),
+(2, 19, 2, 1),
+(7, 18, 1, 0),
+(7, 19, 2, 0),
+(8, 18, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -286,18 +296,19 @@ CREATE TABLE `studijski_programi` (
   `akreditovan` int(4) NOT NULL,
   `lang` varchar(5) NOT NULL DEFAULT 'srb',
   `cilj` text DEFAULT NULL,
-  `opis` text DEFAULT NULL
+  `opis` text DEFAULT NULL,
+  `ishod` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `studijski_programi`
 --
 
-INSERT INTO `studijski_programi` (`id`, `nivo`, `naziv`, `modul`, `trajanje`, `espb`, `zvanje`, `polje`, `aktivan`, `akreditovan`, `lang`, `cilj`, `opis`) VALUES
-(1, 'основне струковне студије', 'Економија и бизнис', 'Трговина и маркетинг', '3 године / 6 семестра', 180, 'струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Основни циљ едукације која се постиже на основним струковним студијама је стицање и\r\nповезивање стечених знања из предметних области економије и бизниса у одговарајућу\r\nпрофесионалну структуру. Структура студијског програма Економија и бизнис кроз своје наставне\r\nсадржаје посебно акцентира добијање јасне и потпуне слике значаја и потребе практичног знања\r\nкоје се стиче кроз садржај основних струковних студија. Другим речима, циљ је да студенти усвоје\r\nнајновија знања и вештине из области економије, управљања и бизниса у савременом пословно-\r\nекономском окружењу, тј. да се добију стручњаци спремни да одговоре на сва питања и изазове\r\nса којима су реалан и финансијски сектор данас сусрећу у сфери економије, како би се креирале\r\nнове пословне идеје и исте претвориле у профитабилан посао.', 'Студијски програм „Економија и бизнис“ је конципиран у складу са Законом о високом\r\nобразовању и стандардима за акредитацију. Основна сврха студијског програма „Економија и\r\nбизнис“ је образовање и оспособљавање студената за професију струковног економисте како у\r\nреалном, тако и у финансијском, јавном или приватном сектору. Предузећа, банке, осигуравајуће\r\nкомпаније, јавне институције и агенције одувек су захтевале стручњаке економске струке обучене\r\nда препознају и/или дефинишу ефикасност, економичност, ризике, управљање ризицима, новчане\r\nтокове, креирање буџета, управљање новчаним средствима и потраживањима, логистику,\r\nтрговину и послове спољне трговине, инвестиционе токове, финансијско окружење и сл. Самим\r\nтим, перманентна је потреба за младим и компетентним кадровима из области економије, који ће\r\nбити оспособљени да креирају и спроводе пословну политику код својих будућих послодаваца.'),
-(2, 'специјалистичке струковне студије', 'Пословно управљање', NULL, '1 година / 2 семестра', 60, 'специјалиста струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Основни циљ едукације која се постиже на основним струковним студијама је стицање и\r\nповезивање стечених знања из предметних области економије и бизниса у одговарајућу\r\nпрофесионалну структуру. Структура студијског програма Економија и бизнис кроз своје наставне\r\nсадржаје посебно акцентира добијање јасне и потпуне слике значаја и потребе практичног знања\r\nкоје се стиче кроз садржај основних струковних студија. Другим речима, циљ је да студенти усвоје\r\nнајновија знања и вештине из области економије, управљања и бизниса у савременом пословно-\r\nекономском окружењу, тј. да се добију стручњаци спремни да одговоре на сва питања и изазове\r\nса којима су реалан и финансијски сектор данас сусрећу у сфери економије, како би се креирале\r\nнове пословне идеје и исте претвориле у профитабилан посао.', 'Студијски програм „Економија и бизнис“ је конципиран у складу са Законом о високом\r\nобразовању и стандардима за акредитацију. Основна сврха студијског програма „Економија и\r\nбизнис“ је образовање и оспособљавање студената за професију струковног економисте како у\r\nреалном, тако и у финансијском, јавном или приватном сектору. Предузећа, банке, осигуравајуће\r\nкомпаније, јавне институције и агенције одувек су захтевале стручњаке економске струке обучене\r\nда препознају и/или дефинишу ефикасност, економичност, ризике, управљање ризицима, новчане\r\nтокове, креирање буџета, управљање новчаним средствима и потраживањима, логистику,\r\nтрговину и послове спољне трговине, инвестиционе токове, финансијско окружење и сл. Самим\r\nтим, перманентна је потреба за младим и компетентним кадровима из области економије, који ће\r\nбити оспособљени да креирају и спроводе пословну политику код својих будућих послодаваца.'),
-(7, 'основне струковне студије', 'Економија и бизнис', 'Финансијски менаџмент', '3 године / 6 семестра', 180, 'струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'bla bla bla', 'truc truc truc'),
-(8, 'мастер струковне студије', 'Економија услуга', NULL, '2 године / 4 семестра', 120, 'мастер струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).');
+INSERT INTO `studijski_programi` (`id`, `nivo`, `naziv`, `modul`, `trajanje`, `espb`, `zvanje`, `polje`, `aktivan`, `akreditovan`, `lang`, `cilj`, `opis`, `ishod`) VALUES
+(1, 'основне струковне студије', 'Економија и бизнис', 'Трговина и маркетинг', '3 године / 6 семестра', 180, 'струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Основни циљ едукације која се постиже на основним струковним студијама је стицање и\r\nповезивање стечених знања из предметних области економије и бизниса у одговарајућу\r\nпрофесионалну структуру. Структура студијског програма Економија и бизнис кроз своје наставне\r\nсадржаје посебно акцентира добијање јасне и потпуне слике значаја и потребе практичног знања\r\nкоје се стиче кроз садржај основних струковних студија. Другим речима, циљ је да студенти усвоје\r\nнајновија знања и вештине из области економије, управљања и бизниса у савременом пословно-\r\nекономском окружењу, тј. да се добију стручњаци спремни да одговоре на сва питања и изазове\r\nса којима су реалан и финансијски сектор данас сусрећу у сфери економије, како би се креирале\r\nнове пословне идеје и исте претвориле у профитабилан посао.', 'Студијски програм „Економија и бизнис“ је конципиран у складу са Законом о високом\r\nобразовању и стандардима за акредитацију. Основна сврха студијског програма „Економија и\r\nбизнис“ је образовање и оспособљавање студената за професију струковног економисте како у\r\nреалном, тако и у финансијском, јавном или приватном сектору. Предузећа, банке, осигуравајуће\r\nкомпаније, јавне институције и агенције одувек су захтевале стручњаке економске струке обучене\r\nда препознају и/или дефинишу ефикасност, економичност, ризике, управљање ризицима, новчане\r\nтокове, креирање буџета, управљање новчаним средствима и потраживањима, логистику,\r\nтрговину и послове спољне трговине, инвестиционе токове, финансијско окружење и сл. Самим\r\nтим, перманентна је потреба за младим и компетентним кадровима из области економије, који ће\r\nбити оспособљени да креирају и спроводе пословну политику код својих будућих послодаваца.', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
+(2, 'специјалистичке струковне студије', 'Пословно управљање', NULL, '1 година / 2 семестра', 60, 'специјалиста струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Основни циљ едукације која се постиже на основним струковним студијама је стицање и\r\nповезивање стечених знања из предметних области економије и бизниса у одговарајућу\r\nпрофесионалну структуру. Структура студијског програма Економија и бизнис кроз своје наставне\r\nсадржаје посебно акцентира добијање јасне и потпуне слике значаја и потребе практичног знања\r\nкоје се стиче кроз садржај основних струковних студија. Другим речима, циљ је да студенти усвоје\r\nнајновија знања и вештине из области економије, управљања и бизниса у савременом пословно-\r\nекономском окружењу, тј. да се добију стручњаци спремни да одговоре на сва питања и изазове\r\nса којима су реалан и финансијски сектор данас сусрећу у сфери економије, како би се креирале\r\nнове пословне идеје и исте претвориле у профитабилан посао.', 'Студијски програм „Економија и бизнис“ је конципиран у складу са Законом о високом\r\nобразовању и стандардима за акредитацију. Основна сврха студијског програма „Економија и\r\nбизнис“ је образовање и оспособљавање студената за професију струковног економисте како у\r\nреалном, тако и у финансијском, јавном или приватном сектору. Предузећа, банке, осигуравајуће\r\nкомпаније, јавне институције и агенције одувек су захтевале стручњаке економске струке обучене\r\nда препознају и/или дефинишу ефикасност, економичност, ризике, управљање ризицима, новчане\r\nтокове, креирање буџета, управљање новчаним средствима и потраживањима, логистику,\r\nтрговину и послове спољне трговине, инвестиционе токове, финансијско окружење и сл. Самим\r\nтим, перманентна је потреба за младим и компетентним кадровима из области економије, који ће\r\nбити оспособљени да креирају и спроводе пословну политику код својих будућих послодаваца.', NULL),
+(7, 'основне струковне студије', 'Економија и бизнис', 'Финансијски менаџмент', '3 године / 6 семестра', 180, 'струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'bla bla bla', 'truc truc truc', NULL),
+(8, 'мастер струковне студије', 'Економија услуга', NULL, '2 године / 4 семестра', 120, 'мастер струковни економиста', 'Друштвено-хуманистичко', 1, 2024, 'srb', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', NULL);
 
 -- --------------------------------------------------------
 
@@ -506,7 +517,7 @@ ALTER TABLE `osoblje`
 -- AUTO_INCREMENT for table `predmeti`
 --
 ALTER TABLE `predmeti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `raspored`

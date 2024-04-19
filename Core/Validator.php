@@ -24,7 +24,7 @@ class Validator
 
     }
 
-    private static function sanitizeString($value): string
+    public static function sanitizeString($value): string
     {
         return strip_tags(trim($value));
     }

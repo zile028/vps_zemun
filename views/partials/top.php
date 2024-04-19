@@ -34,7 +34,7 @@
         <div class="logo">
             <a href="/">
                 <img src="upload/logo-blue.png" alt="logo">
-                <span>Висока пословна школа<br>струковних студија</span>
+                <span>Висока пословна школа<br>струковних студија Чачак</span>
             </a>
         </div>
         <div class="nav-btn">

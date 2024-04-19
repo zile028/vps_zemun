@@ -103,14 +103,16 @@
         <?php if (\Core\Session::currentUser("role") === "admin"): ?>
             <!-- Column -->
             <div class="col-md-6 col-lg-2 col-xlg-3">
-                <div class="card card-hover">
-                    <div class="box bg-cyan text-center">
-                        <h1 class="font-light text-white">
-                            <i class="mdi mdi-pencil"></i>
-                        </h1>
-                        <h6 class="text-white">КОРИСНИЦИ</h6>
+                <a href="/dashboard/users">
+                    <div class="card card-hover">
+                        <div class="box bg-cyan text-center">
+                            <h1 class="font-light text-white">
+                                <i class="mdi mdi-account-multiple"></i>
+                            </h1>
+                            <h6 class="text-white">USERS</h6>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <!-- Column -->
             <div class="col-md-6 col-lg-2 col-xlg-3">
@@ -119,7 +121,7 @@
                         <h1 class="font-light text-white">
                             <i class="mdi mdi-calendar-check"></i>
                         </h1>
-                        <h6 class="text-white">Calnedar</h6>
+                        <h6 class="text-white">TICKETS</h6>
                     </div>
                 </div>
             </div>

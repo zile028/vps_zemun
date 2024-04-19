@@ -6,7 +6,10 @@ use Core\Validator;
 
 extract($_POST);
 $error = [];
-
+$bindParams = $_POST;
+$bindParams["ishod"] = Validator::sanitizeString($bindParams["ishod"]);
+$bindParams["cilj"] = Validator::sanitizeString($bindParams["cilj"]);
+$bindParams["opis"] = Validator::sanitizeString($bindParams["opis"]);
 if (!Validator::string($nivo)) {
     $error["nivo"] = "Ниво студија је обавезан!";
 }
@@ -34,7 +37,7 @@ if (!Validator::number($akreditovan, 2000)) {
 if (count($error) === 0) {
     $db = App::resolve(Database::class);
     $sql = "INSERT INTO studijski_programi (nivo, naziv, modul, trajanje, espb, zvanje, polje, cilj, opis, akreditovan)
-            VALUES (:nivo, :naziv, :modul, :trajanje, :espb, :zvanje, :polje, :cilj, :opis, :akreditovan)";
+            VALUES (:nivo, :naziv, :modul, :trajanje, :espb, :zvanje, :polje, :cilj, :opis, :akreditovan,:ishod)";
     $result = $db->query($sql, $_POST)->isExecuteResult();
     redirect("/dashboard/studije");
 } else {

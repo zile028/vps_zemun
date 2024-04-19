@@ -150,10 +150,23 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="ishod" class="col-sm-3 text-end control-label
+                    col-form-label">Исход</label>
+                    <div class="col-sm-9">
+                        <textarea
+                                rows="10"
+                                class="form-control"
+                                id="ishod"
+                                placeholder="Исход"
+                                name="ishod"
+                        ></textarea>
+                    </div>
+                </div>
+
 
             </div>
             <div class="row border-top">
-
                 <div class="col-sm-9 offset-sm-3">
                     <div class="card-body">
                         <button type="submit" class="btn btn-primary">

@@ -30,9 +30,11 @@
                                       class="d-flex"
                                       method="post">
                                     <input type="hidden" name="_method" value="patch">
-                                    <input class="form-control form-select-sm text-center" type="text" name="order"
+                                    <input class="form-control form-select-sm text-center"
+                                           type="text" name="order"
                                            value="<?php echo $predmet->redniBroj; ?>" min="1">
-                                    <button class="btn btn-sm btn-primary"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-sm btn-primary"><i
+                                                class="fas fa-check"></i></button>
                                 </form>
 
 
@@ -47,7 +49,7 @@
                         <td class=""><?php echo $predmet->semestar; ?></td>
                         <td class=""><?php echo $predmet->predavanja; ?></td>
                         <td class=""><?php echo $predmet->vezbe; ?></td>
-                        <td class=""><?php echo $predmet->obavezan_izborni ? "Обавезан" : "Изборни"; ?></td>
+                        <td class=""><?php echo $predmet->izborni ? "Изборни" : "Обавезан"; ?></td>
                         <td class=""><?php echo $predmet->espb; ?></td>
                         <td>
                             <?php if (isset($flag) && $flag === "remove") {

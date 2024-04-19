@@ -94,38 +94,25 @@
                         />
                     </div>
                 </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-sm-3 col ">
+                    <label class="btn btn-warning" for="nastavniPlan">Наставни план</label>
+                    <input type="file" class="d-none" name="nastavniPlan" accept="application/pdf"
+                           id="nastavniPlan">
+                </div>
 
-                <div class="form-group row">
-                    <label class="col-md-3 text-end">Обавезан/Изборни</label>
-                    <div class="col-md-9">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input"
-                                   id="customControlValidation1" name="obavezan_izborni" checked
-                                   required="" value="1">
-                            <label class="form-check-label mb-0"
-                                   for="customControlValidation1">Обавезан</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input"
-                                   id="customControlValidation2" name="obavezan_izborni"
-                                   required="" value="0">
-                            <label class="form-check-label mb-0"
-                                   for="customControlValidation2">Изборни</label>
+
+                <div class="row border-top">
+
+                    <div class="col-sm-9 offset-sm-3">
+                        <div class="card-body">
+                            <button type="submit" class="btn btn-primary">
+                                ДОДАЈ
+                            </button>
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="row border-top">
-
-                <div class="col-sm-9 offset-sm-3">
-                    <div class="card-body">
-                        <button type="submit" class="btn btn-primary">
-                            ДОДАЈ
-                        </button>
-                    </div>
-                </div>
-            </div>
         </form>
     </div>
     <!--  -->
