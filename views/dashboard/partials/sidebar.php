@@ -75,16 +75,17 @@
                                 class="hide-menu">Медија</span></a
                     >
                 </li>
-
-                <li class="sidebar-item">
-                    <a
-                            class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href="/dashboard/users"
-                            aria-expanded="false"
-                    ><i class="mdi mdi-account-multiple"></i><span
-                                class="hide-menu">Корисници</span></a
-                    >
-                </li>
+                <?php if (\Core\Session::currentUser("role") === "admin"): ?>
+                    <li class="sidebar-item">
+                        <a
+                                class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="/dashboard/users"
+                                aria-expanded="false"
+                        ><i class="mdi mdi-account-multiple"></i><span
+                                    class="hide-menu">Корисници</span></a
+                        >
+                    </li>
+                <?php endif; ?>
 
 
             </ul>

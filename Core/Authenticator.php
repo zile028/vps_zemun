@@ -14,10 +14,12 @@ class Authenticator extends Session
     public function atempt($email, $password)
     {
         $user = $this->db->query("SELECT * FROM users WHERE email = :email", ["email" => $email])->findOne();
+
+
         if (!$user) {
             $this->errors["login"] = "User with this email not exist!";
         } elseif (password_verify($password, $user["password"])) {
-            static::put("user", ["fullName" => $user["fullName"], "id" => $user["id"],
+            static::put("user", ["fullName" => $user["firstName"] . " " . $user["lastName"], "id" => $user["id"],
                 "role" => $user["role"]]);
             return true;
         } else {

@@ -99,4 +99,10 @@ class Database
 
     }
 
+    public function affectedRows()
+    {
+        return $this->statment->rowCount();
+
+    }
+
 }

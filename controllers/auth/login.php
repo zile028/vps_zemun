@@ -19,6 +19,7 @@ if (count($errors) === 0) {
     $authenticator = new Authenticator();
     if ($authenticator->atempt($email, $password)) {
         redirect("/dashboard");
+        return;
     }
     redirect("/login");
 } else {

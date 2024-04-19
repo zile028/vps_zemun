@@ -1,6 +1,5 @@
 <?php require_once __DIR__ . "/../partials/top.php"; ?>
 <?php require_once __DIR__ . "/../partials/sidebar.php"; ?>
-
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
@@ -11,7 +10,7 @@
     <div class="row">
         <!-- Column -->
         <div class="col-md-6 col-lg-4 col-xlg-3">
-            <a href="/dashboard/studije/sp/dodaj">
+            <a href="/dashboard/users/create">
                 <div class="card card-hover">
                     <div class="box bg-cyan text-center">
                         <h1 class="font-light text-white">
@@ -46,30 +45,23 @@
                         <th>Улога</th>
                         <th>Креиран</th>
                         <th>Последњи приступ</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($users as $index => $user) : ?>
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
+                            <td><?php echo $index + 1; ?></td>
+                            <td><?php echo $user->firstName; ?></td>
+                            <td><?php echo $user->lastName; ?></td>
+                            <td><?php echo $user->email; ?></td>
+                            <td><?php echo $user->role; ?></td>
+                            <td><?php dateDDMMYYY($user->createdAt); ?></td>
+                            <td><?php dateDDMMYYY($user->lastAccess); ?></td>
+                            <td></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
-                    </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

@@ -4,6 +4,7 @@ require_once "routes/client.php";
  * DASHBOARD ROUTES
  *****************************************************************/
 $router->get("/dashboard", "/dashboard/index.php")->only("auth");
+$router->get("/import_db", "/dashboard/import_db.php")->only("admin");
 //OSOBLJE
 require_once "routes/osoblje.php";
 //CENOVNIK
@@ -20,3 +21,4 @@ require_once "routes/media.php";
 require_once "routes/vesti.php";
 //USERS
 require_once "routes/users.php";
+
