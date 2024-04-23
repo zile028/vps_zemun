@@ -79,7 +79,6 @@
                         слику</label>
                     <input type="file" class="d-none" name="image" id="profile">
                     <select class="form-control col-md" name="mediaID" id="">
-                        <option value="" disabled selected>Одабери слику</option>
                         <?php foreach ($media as $image) : ?>
                             <option value="<?php echo $image->id; ?>"><?php echo
                                 $image->fileName; ?></option>

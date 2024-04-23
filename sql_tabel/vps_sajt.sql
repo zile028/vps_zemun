@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 09:24 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Apr 23, 2024 at 04:07 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,9 +37,17 @@ CREATE TABLE `alumni` (
   `poslodavac` varchar(255) NOT NULL,
   `posao` varchar(255) NOT NULL DEFAULT '1',
   `social` varchar(70) DEFAULT NULL,
-  `image` int(10) DEFAULT NULL,
+  `imageID` int(10) DEFAULT NULL,
   `lang` varchar(5) NOT NULL DEFAULT 'srb'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `alumni`
+--
+
+INSERT INTO `alumni` (`id`, `firstName`, `lastName`, `spID`, `diplomirao`, `tema`, `poslodavac`, `posao`, `social`, `imageID`, `lang`) VALUES
+(1, 'Marko', 'Markovic', 1, 2024, 'Вожња у алкохолисаном стању и ризик од настанка саобраћајне незгоде', 'STUP', 'vozac', '', 9, 'srb'),
+(2, 'Pera', 'Zivkovic', 2, 2023, 'Улога логистичких центара у ланцу снабдевања - студија случаја', 'IMLEK', 'vozac', 'https://www.facebook.com/profile.php?id=1207011299', 19, 'srb');
 
 -- --------------------------------------------------------
 
@@ -141,7 +149,8 @@ INSERT INTO `media` (`id`, `fileName`, `storeName`, `type`, `size`, `createdAt`,
 (14, 'fajl 2', '1713178740213_1160522735.png', 'png', 392488, '2024-04-15 10:59:00', 'srb', 'image/png'),
 (15, 'Rezultati', '1713178740227_817663976.pdf', 'pdf', 477291, '2024-04-15 10:59:00', 'srb', 'application/pdf'),
 (16, 'Семестрални лист', '1713651299300_1486443897.pdf', 'pdf', 221245, '2024-04-20 22:14:59', 'srb', 'application/pdf'),
-(17, 'Пријава теме', '1713651438684_1654100679.pdf', 'pdf', 432611, '2024-04-20 22:17:18', 'srb', 'application/pdf');
+(17, 'Пријава теме', '1713651438684_1654100679.pdf', 'pdf', 432611, '2024-04-20 22:17:18', 'srb', 'application/pdf'),
+(19, 'Pera Zivkovic', '1713879365236_909684403.jpg', 'jpg', 64568, '2024-04-23 13:36:05', 'srb', 'image/jpeg');
 
 -- --------------------------------------------------------
 
@@ -541,7 +550,7 @@ ALTER TABLE `vest_media`
 -- AUTO_INCREMENT for table `alumni`
 --
 ALTER TABLE `alumni`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cenovnik`
@@ -565,7 +574,7 @@ ALTER TABLE `kategorije`
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `odbori`

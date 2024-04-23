@@ -9,7 +9,7 @@ CREATE TABLE `alumni`
     `poslodavac` VARCHAR(255) NOT NULL,
     `posao`      VARCHAR(255) NOT NULL DEFAULT true,
     `social`     VARCHAR(70)  NULL     DEFAULT NULL,
-    `image`      INT(10)      NULL     DEFAULT NULL,
+    `imageID`    INT(10)      NULL     DEFAULT NULL,
     `lang`       VARCHAR(5)   NOT NULL DEFAULT 'srb',
     PRIMARY KEY (`id`)
 );

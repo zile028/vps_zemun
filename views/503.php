@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . "/partials/top.php" ?>
 <?php require_once __DIR__ . "/partials/hero_pages.php" ?>
 
-<section class="error container py">
+<section class="error container py ignore">
     <article>
         <i class="fa-solid fa-triangle-exclamation"></i>
         <h2>ERROR 503</h2>

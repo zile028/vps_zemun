@@ -37,7 +37,6 @@ class FileValidator
             $this->type = $file["type"];
             $this->size = $file["size"];
             $this->tmp_name = $file["tmp_name"];
-            $this->mimetype = $file["mimetype"];
             $this->extension = pathinfo($file["name"], PATHINFO_EXTENSION);
         } else {
             $this->error["required"] = "File is required!";
@@ -103,10 +102,10 @@ class FileValidator
     public function forMedia($fileName)
     {
         return [
-            "type" => $this->type,
+            "type" => $this->extension,
             "fileName" => $fileName,
             "size" => $this->size,
-            "mimetype" => $this->mimetype,
+            "mimetype" => $this->type,
             "storeName" => $this->storeName];
     }
 }

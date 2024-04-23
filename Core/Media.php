@@ -12,14 +12,14 @@ class Media
     protected int $lastId;
     private $db;
 
-    public function __construct($storeName, $fileName, $type, $size, $mimetype)
+    public function __construct($mediaData)
     {
         $this->db = App::resolve(Database::class);
-        $this->type = $type;
-        $this->size = $size;
-        $this->mimetype = $mimetype;
-        $this->storeName = $storeName;
-        $this->fileName = $fileName;
+        $this->type = $mediaData["type"];
+        $this->mimetype = $mediaData["mimetype"];
+        $this->size = $mediaData["size"];
+        $this->storeName = $mediaData["storeName"];
+        $this->fileName = $mediaData["fileName"];
     }
 
     public function save($lang = "srb")
@@ -34,8 +34,13 @@ class Media
             "mimetype" => $this->mimetype,
             "lang" => $lang
         ]);
-        $this->lastId = $this->db->lastID;
+        $this->lastId = $this->db->lastID();
         return $this->db->isExecuteResult();
+    }
+
+    public function getLastId(): int
+    {
+        return $this->lastId;
     }
 
 }
