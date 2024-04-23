@@ -91,6 +91,18 @@ function dateDDMMYYY($date): void
     echo date_format($date, "d.m.Y.");
 }
 
+function dateDDMM($date): void
+{
+    $date = new DateTime($date);
+    echo date_format($date, "d.m.");
+}
+
+function dateYYYY($date): void
+{
+    $date = new DateTime($date);
+    echo date_format($date, "Y.");
+}
+
 function getExcerpt($content, $word_limit = 20, $ellipsis = "...")
 {
     // Uklanja HTML tagove iz sadržaja

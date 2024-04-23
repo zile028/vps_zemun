@@ -10,12 +10,13 @@
     <link rel="icon" href="/upload/favicon.png">
     <title>ВПШ - Земун</title>
     <!-- Font Awesome 5 | visit: https://fontawesome.com/v5.15/icons?d=gallery&p=2 -->
+
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/assets/css/style.css">
-
+    <script type="text/javascript" src="/assets/js/cyr-lat/cyrlatconverter.min.js"></script>
 </head>
 <body>
 <!-------- TOP BAR -------->
@@ -23,8 +24,16 @@
     <article class="container">
         <ul>
             <li><i class="fas fa-phone"></i><?php echo TELEFON; ?></li>
-            <li><i class="fas fa-map-marker-alt"></i><?php echo ADRESA; ?></li>
-            <li><i class="fas fa-clock"></i><?php echo RADNO_VREME; ?></li>
+            <li class="hide"><i class="fas fa-map-marker-alt"></i><?php echo ADRESA; ?></li>
+            <li class="hide"><i class="fas fa-clock"></i><?php echo RADNO_VREME; ?></li>
+        </ul>
+        <ul>
+            <li>
+                <button class="ignore" id="cirilica">Ћир</button>
+            </li>
+            <li>
+                <button class="ignore" id="latinica">Lat</button>
+            </li>
         </ul>
     </article>
 </section>
@@ -42,7 +51,7 @@
         </div>
         <div class="navbar" id="menu-box">
             <ul>
-                <li><a href="/">Почетна</a></li>
+                <!--                <li><a href="/">Почетна</a></li>-->
                 <li class="drop"><span>О нама</span>
                     <ul>
                         <?php foreach ($menu["odbori"] as $item) : ?>
@@ -66,14 +75,16 @@
                         <?php endforeach; ?>
                     </ul>
                 </li>
-                <li class="drop"><span>Распоред</span>
+                <li class="drop"><span>Студенти</span>
                     <ul>
-                        <li><a href="/raspored/predavanja">Предавања</a></li>
-                        <li><a href="/raspored/ispiti">Испити</a></li>
+                        <li><a href="/raspored/predavanja">Распоред предавања</a></li>
+                        <li><a href="/raspored/ispiti">Распоред испита</a></li>
+                        <li><a href="/preuzimanje">Упутства и обрасци</a></li>
                     </ul>
                 </li>
                 <li><a href="/vesti">Вести</a></li>
                 <li><a href="/upis">Упис</a></li>
+                <li><a href="/alumni">Алумни</a></li>
                 <li><a href="/kontakt">Контакт</a></li>
 
             </ul>

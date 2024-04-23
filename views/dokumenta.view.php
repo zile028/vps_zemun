@@ -1,30 +1,21 @@
 <?php require_once "partials/top.php" ?>
 <?php require_once "partials/hero_pages.php" ?>
-    <section class="container py">
+    <section class="documents container py">
         <?php if (count($dokumenta) > 0): ?>
-            <table class="table table-document">
-                <thead>
-                <tr>
-                    <th>Р.Б.</th>
-                    <th>Документ</th>
-                    <th>Датум објаве</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
+            <ul>
                 <?php foreach ($dokumenta as $index => $dokument): ?>
-                    <tr>
-                        <td>
-                            <?php echo $index + 1; ?>
-                        </td>
-                        <td class=""><?php echo $dokument->title; ?></td>
-                        <td class=""><?php dateDDMMYYY($dokument->createdAt); ?></td>
-                        <td class=""><a href="<?php uploadPath($dokument->attachment); ?>">
-                                <i class="fa-solid fa-file-pdf"></i></a></td>
-                    </tr>
+                    <li>
+                        <span>
+                            <?php dateDDMM($dokument->createdAt); ?><br>
+                            <?php dateYYYY($dokument->createdAt); ?>
+                        </span>
+                        <span><?php echo $dokument->title; ?></span>
+                        <a href="<?php uploadPath($dokument->attachment); ?>" target="_blank">
+                            <i class="fa-solid fa-download"></i></a>
+                    </li>
+
                 <?php endforeach; ?>
-                </tbody>
-            </table>
+            </ul>
         <?php else: ?>
             <p>Нема тренутно докумената.</p>
         <?php endif; ?>

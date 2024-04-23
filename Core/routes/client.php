@@ -21,3 +21,5 @@ $router->get("/register", "/auth/registerPage.php");
 $router->post("/register", "/auth/register.php");
 $router->post("/login", "/auth/login.php");
 $router->get("/logout", "/auth/logout.php");
+$router->get("/alumni", "/alumni/index.php");
+$router->get("/preuzimanje", "/preuzimanja/index.php");

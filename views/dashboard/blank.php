@@ -1,6 +1,6 @@
-<?php require_once 'partials/top.php'; ?>
+<?php require_once __DIR__ . '/../partials/top.php'; ?>
     <!--  -->
-<?php require_once 'partials/sidebar.php'; ?>
+<?php require_once __DIR__ . '/../partials/sidebar.php'; ?>
 
     <!-- ============================================================== -->
     <!-- Start Page Content -->
@@ -11,4 +11,4 @@
     <!-- ============================================================== -->
 
     <!--  -->
-<?php require_once 'partials/bottom.php'; ?>
+<?php require_once __DIR__ . '/../partials/bottom.php'; ?>

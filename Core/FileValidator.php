@@ -14,7 +14,10 @@ class FileValidator
         "MB" => self::MB,
         "GB" => self::GB,
     ];
-
+    public const ALLOW_ALL_FILE = ["jpg", "jpeg", "doc", "docx", "xls", "xlsx", "pdf", "png",
+        "bmp", "ppt", "pptx"];
+    public const ALLOW_IMAGE = ["jpg", "jpeg", "png", "bmp"];
+    public const ALLOW_DOCUMENT = ["doc", "docx", "xls", "xlsx", "pdf", "ppt", "pptx"];
     private int $limit = 3;
     private array $validType = [];
     public mixed $file = null;
@@ -34,6 +37,7 @@ class FileValidator
             $this->type = $file["type"];
             $this->size = $file["size"];
             $this->tmp_name = $file["tmp_name"];
+            $this->mimetype = $file["mimetype"];
             $this->extension = pathinfo($file["name"], PATHINFO_EXTENSION);
         } else {
             $this->error["required"] = "File is required!";
@@ -96,4 +100,13 @@ class FileValidator
         return $prefix . round($timestamp * 1000) . "_" . $random . $suffix . "." . $extension;
     }
 
+    public function forMedia($fileName)
+    {
+        return [
+            "type" => $this->type,
+            "fileName" => $fileName,
+            "size" => $this->size,
+            "mimetype" => $this->mimetype,
+            "storeName" => $this->storeName];
+    }
 }

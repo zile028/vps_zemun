@@ -8,8 +8,37 @@ TOOP BAR
 **************/
 .top-bar {
     background-color: $primary;
-    @media (max-width: 768px) {
-        display: none;
+
+    .hide {
+        @media (max-width: 768px) {
+            display: none;
+        }
+
+    }
+
+    article {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        @media (max-width: 768px) {
+
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 2px 5px;
+            background: transparent;
+            outline: none;
+            border: transparent;
+            color: $white;
+            cursor: pointer;
+            border-radius: 2px;
+
+            &.active {
+                background-color: $white;
+                color: $primary;
+            }
+        }
     }
 
     ul {
@@ -860,11 +889,10 @@ SINGLE PAGE
 .single {
     @include flex;
     padding-bottom: 30px;
-    //flex-wrap: nowrap;
     gap: 30px;
 
     .gallery {
-        flex-wrap: wrap;
+
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 200px;
@@ -981,11 +1009,13 @@ SINGLE PAGE
 
     ul {
         border-left: 3px solid $lightGray;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
 
         li {
             padding-left: 10px;
-            line-height: 2.5;
-
+            line-height: 1.3;
 
             a {
                 display: block;
@@ -1085,15 +1115,109 @@ SINGLE PAGE
 }
 
 .schedule {
-    display: grid;
-    grid-template-columns: minmax(320px, 3fr) 1fr;
-    gap: 3rem;
-
     .card {
         box-shadow: $boxShadow-sm;
+
+        ul {
+            margin-bottom: 0;
+
+            li:before {
+                content: none;
+            }
+        }
 
         &:not(:last-child) {
             margin-bottom: 2rem;
         }
+    }
+}
+
+.documents {
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        li {
+            box-shadow: $boxShadow-sm;
+            display: flex;
+            border-radius: 5px;
+            gap: 5px;
+            position: relative;
+            align-items: center;
+            justify-content: space-between;
+
+            span {
+                display: block;
+
+                &:nth-child(1) {
+                    background-color: $primary;
+                    padding: .5rem;
+                    border-radius: 5px;
+                    //width: 2em;
+                    text-align: center;
+                    color: $white;
+                    font-weight: 700;
+                    align-self: stretch;
+                }
+
+                &:nth-child(2) {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    flex-grow: 1;
+                }
+
+                &:nth-child(3) {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background-color: $primary;
+                    color: $white;
+                    padding: 2px 5px;
+                    border-radius: 5px;
+                    transform: translateY(-50%);
+                }
+            }
+
+            a {
+                background-color: $primary;
+                padding: .5rem 1rem;
+                border-radius: 5px;
+                text-align: center;
+                color: $white;
+                font-weight: 700;
+
+                align-self: stretch;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: $transition;
+
+                &:hover {
+                    color: $gray;
+                }
+            }
+        }
+    }
+}
+
+.error {
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    p {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    i {
+        font-size: 80px;
+        color: $yellow;
     }
 }

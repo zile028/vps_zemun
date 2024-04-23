@@ -106,29 +106,11 @@ class Router
 
     public function abort($statusCode = Response::NOT_FOUND)
     {
-        view("$statusCode", ["heading" => "Error"]);
+        view("$statusCode", ["heading" => "Error",
+            "heroImage" => "404_error.jpg",
+            "heroTitle" => ""
+        ]);
         die();
     }
 
 }
-
-/*
-runController($uri, require "routes.php");
-
-function runController($uri, $routes)
-{
-    if (array_key_exists($uri["path"], $routes)) {
-        require_once BASE_PATH . $routes[$uri["path"]];
-    } else {
-        abort();
-    }
-}
-
-function abort($statusCode = Response::NOT_FOUND)
-{
-    require_once "views/$statusCode.view.php";
-    die();
-
-}
-*/
-

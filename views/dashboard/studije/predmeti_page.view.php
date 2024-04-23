@@ -23,10 +23,10 @@
                         <th>Р.Б.</th>
                         <th>Шифра</th>
                         <th>Предмет</th>
-                        <th>С</th>
                         <th>П</th>
                         <th>В</th>
                         <th>ЕСПБ</th>
+                        <th>N.P.</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -55,10 +55,19 @@
                                 <?php echo $predmet->sifra; ?>
                             </td>
                             <td class=""><?php echo $predmet->predmet; ?></td>
-                            <td class=""><?php echo $predmet->semestar; ?></td>
+
                             <td class=""><?php echo $predmet->predavanja; ?></td>
                             <td class=""><?php echo $predmet->vezbe; ?></td>
                             <td class=""><?php echo $predmet->espb; ?></td>
+                            <td class="text-center">
+                                <?php if (isset($predmet->nastvaniPlan)): ?>
+                                    <a class="btn btn-sm btn-success text-white" target="_blank"
+                                       href="<?php uploadPath
+                                       ($predmet->nastvaniPlan); ?>"><i
+                                                class="mdi mdi-file-multiple"
+                                        ></i></a>
+                                <?php endif; ?>
+                            </td>
                             <td>
                                 <?php if (isset($flag) && $flag === "remove") {
                                     $href = "/dashboard/studije/predmet/remove/$predmet->id";

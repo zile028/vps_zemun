@@ -75,6 +75,25 @@
                                 class="hide-menu">Медија</span></a
                     >
                 </li>
+                <li class="sidebar-item">
+                    <a
+                            class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="/dashboard/preuzimanja"
+                            aria-expanded="false"
+                    ><i class="mdi mdi-cloud-download"></i><span
+                                class="hide-menu">Презимања</span></a
+                    >
+                </li>
+                <li class="sidebar-item">
+                    <a
+                            class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="/dashboard/alumni"
+                            aria-expanded="false"
+                    ><i class="mdi mdi-worker"></i><span
+                                class="hide-menu">Алумни клуб</span></a
+                    >
+                </li>
+
                 <?php if (\Core\Session::currentUser("role") === "admin"): ?>
                     <li class="sidebar-item">
                         <a

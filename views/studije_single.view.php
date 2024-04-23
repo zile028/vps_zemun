@@ -9,10 +9,13 @@
             <div class="card-body">
                 <h6><?php echo $studije->nivo; ?></h6>
                 <h3><?php echo $studije->naziv; ?></h3>
+                <h6><?php echo $studije->modul; ?></h6>
                 <h6>Опис</h6>
                 <p><?php echo $studije->opis; ?></p>
                 <h6>Циљ</h6>
                 <p><?php echo $studije->cilj; ?></p>
+                <h6>Исход</h6>
+                <p><?php echo $studije->ishod; ?></p>
 
             </div>
         </div>
@@ -45,11 +48,12 @@
                 <th>П + В</th>
                 <th>О/И</th>
                 <th>ЕСПБ</th>
+                <th>Н.П.</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($predmeti as $index => $predmet): ?>
-                <tr class="<?php echo !$predmet->obavezan_izborni ? "highlight" : ""; ?>">
+                <tr class="<?php echo $predmet->obavezan_izborni ? "highlight" : ""; ?>">
                     <td>
                         <?php ?>
                         <?php echo $index + 1; ?>
@@ -62,8 +66,16 @@
                     <td class=""><?php echo $predmet->semestar; ?></td>
                     <td class=""><?php echo $predmet->predavanja; ?>
                         +<?php echo $predmet->vezbe; ?></td>
-                    <td class=""><?php echo $predmet->obavezan_izborni ? "Обавезан" : "Изборни"; ?></td>
+                    <td class=""><?php echo $predmet->obavezan_izborni ? "Изборни" : "Обавезан"; ?></td>
                     <td class=""><?php echo $predmet->espb; ?></td>
+                    <td class="">
+                        <?php if (isset($predmet->nastavniPlan)): ?>
+                            <a href="<?php uploadPath($predmet->nastavniPlan); ?>" target="_blank">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </a>
+                        <?php endif; ?>
+                    </td>
+
                 </tr>
             <?php endforeach; ?>
             </tbody>

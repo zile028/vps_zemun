@@ -7,7 +7,7 @@ $db = App::resolve(Database::class);
 $studijskiProgram = $db->query("SELECT * FROM studijski_programi WHERE id = :id", $params)
     ->findOne(PDO::FETCH_OBJ);
 
-$sql = "SELECT p.*, spp.redniBroj AS redniBroj, spp.izborni
+$sql = "SELECT p.*, spp.redniBroj AS redniBroj, spp.izborni, spp.semestar
         FROM sp_predmet spp
         JOIN predmeti p ON p.id = spp.predmetID 
         WHERE spp.spID= :id

@@ -1,6 +1,6 @@
 <?php require_once "partials/top.php" ?>
 <?php require_once "partials/hero_pages.php" ?>
-<section class="schedule container py">
+<section class="schedule single container py">
     <article>
         <?php foreach ($rasporedi as $nivo => $raspored) : ?>
             <div class="card">

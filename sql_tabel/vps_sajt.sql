@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2024 at 08:45 AM
+-- Generation Time: Apr 23, 2024 at 09:24 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `vps_sajt`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alumni`
+--
+
+CREATE TABLE `alumni` (
+  `id` int(10) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `spID` int(10) NOT NULL,
+  `diplomirao` int(10) NOT NULL,
+  `tema` text NOT NULL,
+  `poslodavac` varchar(255) NOT NULL,
+  `posao` varchar(255) NOT NULL DEFAULT '1',
+  `social` varchar(70) DEFAULT NULL,
+  `image` int(10) DEFAULT NULL,
+  `lang` varchar(5) NOT NULL DEFAULT 'srb'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -119,7 +139,9 @@ INSERT INTO `media` (`id`, `fileName`, `storeName`, `type`, `size`, `createdAt`,
 (9, 'Вест - пријава испита', '1713119955803_2053874772.jpg', 'jpg', 45031, '2024-04-14 18:39:15', 'srb', 'image/jpg'),
 (13, 'fajl 1', '1713178740204_659186168.jpg', 'jpg', 45031, '2024-04-15 10:59:00', 'srb', 'image/jpeg'),
 (14, 'fajl 2', '1713178740213_1160522735.png', 'png', 392488, '2024-04-15 10:59:00', 'srb', 'image/png'),
-(15, 'Rezultati', '1713178740227_817663976.pdf', 'pdf', 477291, '2024-04-15 10:59:00', 'srb', 'application/pdf');
+(15, 'Rezultati', '1713178740227_817663976.pdf', 'pdf', 477291, '2024-04-15 10:59:00', 'srb', 'application/pdf'),
+(16, 'Семестрални лист', '1713651299300_1486443897.pdf', 'pdf', 221245, '2024-04-20 22:14:59', 'srb', 'application/pdf'),
+(17, 'Пријава теме', '1713651438684_1654100679.pdf', 'pdf', 432611, '2024-04-20 22:17:18', 'srb', 'application/pdf');
 
 -- --------------------------------------------------------
 
@@ -208,23 +230,46 @@ CREATE TABLE `predmeti` (
   `id` int(11) NOT NULL,
   `predmet` varchar(50) NOT NULL,
   `sifra` varchar(50) NOT NULL,
-  `semestar` int(2) NOT NULL,
   `predavanja` int(2) NOT NULL,
   `vezbe` int(2) NOT NULL,
   `espb` int(2) NOT NULL,
-  `obavezan_izborni` tinyint(1) NOT NULL,
   `lang` varchar(5) NOT NULL DEFAULT 'srb',
-  `nastvaniPlan` varchar(50) DEFAULT NULL
+  `nastavniPlan` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `predmeti`
 --
 
-INSERT INTO `predmeti` (`id`, `predmet`, `sifra`, `semestar`, `predavanja`, `vezbe`, `espb`, `obavezan_izborni`, `lang`, `nastvaniPlan`) VALUES
-(18, 'Енглески језик 1', '789456', 1, 2, 2, 6, 1, 'srb', NULL),
-(19, 'Социјологија', '456963', 1, 2, 2, 6, 0, 'srb', NULL),
-(20, 'Економија', '44444', 2, 2, 2, 8, 0, 'srb', '1713504650193_788551465.pdf');
+INSERT INTO `predmeti` (`id`, `predmet`, `sifra`, `predavanja`, `vezbe`, `espb`, `lang`, `nastavniPlan`) VALUES
+(18, 'Енглески језик 1', '789456', 2, 2, 6, 'srb', NULL),
+(19, 'Социјологија', '456963', 2, 2, 6, 'srb', NULL),
+(20, 'Економија', '44444', 2, 2, 8, 'srb', '1713504650193_788551465.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `preuzimanja`
+--
+
+CREATE TABLE `preuzimanja` (
+  `id` int(10) NOT NULL,
+  `fileName` varchar(255) NOT NULL,
+  `mediaID` int(10) NOT NULL,
+  `kategorija` varchar(50) DEFAULT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `lang` varchar(5) NOT NULL DEFAULT 'srb'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `preuzimanja`
+--
+
+INSERT INTO `preuzimanja` (`id`, `fileName`, `mediaID`, `kategorija`, `createdAt`, `lang`) VALUES
+(1, 'Пријава теме', 17, 'Обрасци', '2024-04-20 22:17:18', 'srb'),
+(2, 'Пријава испита', 6, 'Обрасци', '2024-04-20 22:18:12', 'srb'),
+(3, 'Семестрални лист', 16, '', '2024-04-20 22:28:04', 'srb'),
+(4, 'Упутство за мастер рад', 17, 'Упутство', '2024-04-21 07:16:27', 'srb');
 
 -- --------------------------------------------------------
 
@@ -261,21 +306,24 @@ CREATE TABLE `sp_predmet` (
   `spID` int(10) NOT NULL,
   `predmetID` int(10) NOT NULL,
   `redniBroj` int(10) NOT NULL DEFAULT 0,
-  `izborni` tinyint(1) NOT NULL DEFAULT 0
+  `izborni` tinyint(1) NOT NULL DEFAULT 0,
+  `semestar` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sp_predmet`
 --
 
-INSERT INTO `sp_predmet` (`spID`, `predmetID`, `redniBroj`, `izborni`) VALUES
-(1, 18, 1, 0),
-(1, 19, 2, 0),
-(2, 18, 1, 0),
-(2, 19, 2, 1),
-(7, 18, 1, 0),
-(7, 19, 2, 0),
-(8, 18, 1, 0);
+INSERT INTO `sp_predmet` (`spID`, `predmetID`, `redniBroj`, `izborni`, `semestar`) VALUES
+(1, 18, 1, 0, 1),
+(1, 19, 2, 0, 1),
+(1, 20, 3, 0, 2),
+(2, 18, 1, 0, 1),
+(2, 19, 2, 1, 1),
+(2, 20, 3, 1, 1),
+(7, 18, 1, 0, 1),
+(7, 19, 2, 0, 1),
+(8, 18, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -388,6 +436,12 @@ INSERT INTO `vest_media` (`vestID`, `mediaID`) VALUES
 --
 
 --
+-- Indexes for table `alumni`
+--
+ALTER TABLE `alumni`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cenovnik`
 --
 ALTER TABLE `cenovnik`
@@ -436,6 +490,12 @@ ALTER TABLE `predmeti`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `preuzimanja`
+--
+ALTER TABLE `preuzimanja`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `raspored`
 --
 ALTER TABLE `raspored`
@@ -478,6 +538,12 @@ ALTER TABLE `vest_media`
 --
 
 --
+-- AUTO_INCREMENT for table `alumni`
+--
+ALTER TABLE `alumni`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `cenovnik`
 --
 ALTER TABLE `cenovnik`
@@ -499,7 +565,7 @@ ALTER TABLE `kategorije`
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `odbori`
@@ -518,6 +584,12 @@ ALTER TABLE `osoblje`
 --
 ALTER TABLE `predmeti`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `preuzimanja`
+--
+ALTER TABLE `preuzimanja`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `raspored`

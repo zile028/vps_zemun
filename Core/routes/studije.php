@@ -14,3 +14,4 @@ $router->get("/dashboard/studije/sp/:id", "/dashboard/studije/studijski_program_
 $router->delete("/dashboard/studije/sp/:id", "/dashboard/studije/studijski_program_delete.php")->only("auth");
 $router->put("/dashboard/studije/sp/:id/predmet", "/dashboard/studije/studijski_program_predmet.php")->only("auth");
 $router->patch("/dashboard/studije/sp/:spID/predmet/:predmetID/order", "/dashboard/studije/studijski_program_predmet_order.php")->only("auth");
+$router->patch("/dashboard/studije/sp/:spID/:status", "/dashboard/studije/studijski_program_active_status.php")->only("auth");

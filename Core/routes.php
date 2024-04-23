@@ -21,4 +21,7 @@ require_once "routes/media.php";
 require_once "routes/vesti.php";
 //USERS
 require_once "routes/users.php";
-
+//PREUZIMANJA
+require_once "routes/preuzimanja.php";
+//ALUMNI
+require_once "routes/alumni.php";

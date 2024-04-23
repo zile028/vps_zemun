@@ -57,7 +57,7 @@
                   method="post">
                 <input type="hidden" name="_method" value="put">
                 <input type="hidden" name="redniBroj" value="<?php echo count($predmeti) + 1; ?>">
-                <div class="col-md-7">
+                <div class="col-md-5">
                     <select id="predmetID" class="form-control" name="predmetID">
                         <?php foreach ($slobodniPredmeti as $predmet) : ?>
                             <option value="<?php echo $predmet->id; ?>">
@@ -66,10 +66,13 @@
                     </select>
                 </div>
                 <div class="col-md d-flex gap-2 align-items-center">
+                    <input class="form-control" type="text" name="semestar" placeholder="Семестар">
+                </div>
+                <div class="col-md d-flex gap-2 align-items-center">
                     <label for="izborni" class="form-check-label mb-0 pb-0">Изборни</label>
                     <input type="checkbox" class="form-check-input" value="1" name="izborni">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md">
                     <button class="btn btn-primary form-control" type="submit">ДОДАЈ ПРЕДМЕТ
                     </button>
                 </div>

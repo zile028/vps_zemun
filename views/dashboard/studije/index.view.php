@@ -74,6 +74,7 @@
                         <th>Ниво</th>
                         <th>Трајање</th>
                         <th>ЕСПБ</th>
+                        <th>Активан</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -91,11 +92,23 @@
                                 </a>
 
                             </td>
-                            <td class=""><?php echo $sp->akreditovan; ?></td>
-                            <td class=""><?php echo $sp->nivo; ?></td>
-                            <td class=""><?php echo $sp->trajanje; ?></td>
-                            <td class=""><?php echo $sp->espb; ?></td>
-                            <td class="">
+                            <td><?php echo $sp->akreditovan; ?></td>
+                            <td><?php echo $sp->nivo; ?></td>
+                            <td><?php echo $sp->trajanje; ?></td>
+                            <td><?php echo $sp->espb; ?></td>
+                            <td>
+                                <form
+                                        action="/dashboard/studije/sp/<?php echo $sp->id; ?>/<?php
+                                        echo $sp->aktivan; ?>"
+                                        method="post"
+                                >
+                                    <input type="hidden" name="_method" value="patch">
+                                    <button class="btn bnt-sm btn-success">
+                                        <?php echo $sp->aktivan ? "Деактивирај" : "Активирај" ?>
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
                                 <form action="/dashboard/studije/sp/<?php echo $sp->id; ?>"
                                       method="post">
                                     <input type="hidden" name="_method" value="delete">
