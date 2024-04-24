@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 04:07 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 24, 2024 at 09:03 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,7 +47,9 @@ CREATE TABLE `alumni` (
 
 INSERT INTO `alumni` (`id`, `firstName`, `lastName`, `spID`, `diplomirao`, `tema`, `poslodavac`, `posao`, `social`, `imageID`, `lang`) VALUES
 (1, 'Marko', 'Markovic', 1, 2024, 'Вожња у алкохолисаном стању и ризик од настанка саобраћајне незгоде', 'STUP', 'vozac', '', 9, 'srb'),
-(2, 'Pera', 'Zivkovic', 2, 2023, 'Улога логистичких центара у ланцу снабдевања - студија случаја', 'IMLEK', 'vozac', 'https://www.facebook.com/profile.php?id=1207011299', 19, 'srb');
+(2, 'Pera', 'Zivkovic', 2, 2023, 'Улога логистичких центара у ланцу снабдевања - студија случаја', 'IMLEK', 'vozac', 'https://www.facebook.com/profile.php?id=1207011299', 19, 'srb'),
+(3, 'Marko', 'Markovic', 1, 2024, 'Вожња у алкохолисаном стању и ризик од настанка саобраћајне незгоде', 'STUP', 'vozac', '', 9, 'srb'),
+(4, 'Pera', 'Zivkovic', 2, 2023, 'Улога логистичких центара у ланцу снабдевања - студија случаја', 'IMLEK', 'vozac', 'https://www.facebook.com/profile.php?id=1207011299', 19, 'srb');
 
 -- --------------------------------------------------------
 
@@ -550,7 +552,7 @@ ALTER TABLE `vest_media`
 -- AUTO_INCREMENT for table `alumni`
 --
 ALTER TABLE `alumni`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cenovnik`
