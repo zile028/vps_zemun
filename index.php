@@ -9,8 +9,8 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 if (session_status()) {
     session_start();
 }
-var_dump(dirname(__DIR__ . "/"));
-//const BASE_PATH = __DIR__ . "/";
+var_dump(realpath(__DIR__ . "/"));
+const BASE_PATH = __DIR__;
 //var_dump(BASE_PATH);
 die();
 const UPLOAD_DIR = "/upload/";
