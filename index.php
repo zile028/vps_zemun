@@ -9,10 +9,10 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 if (session_status()) {
     session_start();
 }
-var_dump(realpath(__DIR__ . "/"));
-const BASE_PATH = __DIR__;
+//var_dump(realpath(__DIR__ . "/"));
+const BASE_PATH = __DIR__ . "/";
 //var_dump(BASE_PATH);
-die();
+//die();
 const UPLOAD_DIR = "/upload/";
 const ADRESA = "11080 Београд, ул. Градски парк 2";
 const TELEFON = "(+381) 11 3771-552";
