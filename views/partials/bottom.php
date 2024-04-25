@@ -25,7 +25,7 @@
                     <i class="fas fa-phone" aria-hidden="true"></i>
                     <span><?php echo TELEFON; ?></span>
                 </li>
-                <li>
+                <li class="ignore">
                     <i class="fas fa-envelope" aria-hidden="true"></i>
                     <span><?php echo EMAIL; ?></span>
                 </li>
@@ -36,7 +36,7 @@
             </ul>
         </div>
     </article>
-    <article>
+    <article class="ignore">
         <p class="s-txt10"> &COPY; 2024. Dejan Živković - zile028@gmail.com.</p>
     </article>
 </footer>

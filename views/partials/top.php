@@ -21,7 +21,7 @@
 <body>
 <!-------- TOP BAR -------->
 <section class="top-bar">
-    <article class="container">
+    <article class="container-fluid">
         <ul>
             <li><i class="fas fa-phone"></i><?php echo TELEFON; ?></li>
             <li class="hide"><i class="fas fa-map-marker-alt"></i><?php echo ADRESA; ?></li>

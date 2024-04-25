@@ -62,19 +62,16 @@ let CyrLat = new CyrLatConverter('body').init({
     cirilicaBtn.onclick = () => {
         localStorage.setItem("text", "cyr");
         CyrLat.L2C();
-        cirilicaBtn.classList.toggle("active");
-        latinicaBtn.classList.toggle("active");
+        cirilicaBtn.classList.add("active");
+        latinicaBtn.classList.remove("active");
     };
     latinicaBtn.onclick = () => {
         localStorage.setItem("text", "lat");
         CyrLat.C2L();
-        cirilicaBtn.classList.toggle("active");
-        latinicaBtn.classList.toggle("active");
+        cirilicaBtn.classList.remove("active");
+        latinicaBtn.classList.add("active");
     };
 
 
 })();
-
-// console.log("Primer C2L: " + CyrLat.getC2L("Било је то у некој земљи сељака"));
-// console.log("Primer L2C: " + CyrLat.getL2C("na brdovitom Balkanu"));
 

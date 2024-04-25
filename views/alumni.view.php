@@ -1,11 +1,12 @@
 <?php require_once __DIR__ . "/partials/top.php" ?>
 <?php require_once __DIR__ . "/partials/hero_pages.php" ?>
     <section class="alumni teacher container py">
-        <article class="row">
+        <article class="">
             <?php foreach ($alumnisti as $student) : ?>
                 <div class="card">
-                    <img src="<?php uploadPath($student->storeName); ?>" alt="<?php echo
-                    $student->firstName; ?>">
+                    <img src="<?php is_null($student->storeName) ? uploadPath("avatar.png") : uploadPath($student->storeName); ?>"
+                         alt="<?php echo
+                         $student->firstName; ?>">
                     <div class="card-body">
                         <h5><?php echo "$student->firstName $student->lastName"; ?></h5>
                         <p><?php echo $student->spNaziv; ?></p>
