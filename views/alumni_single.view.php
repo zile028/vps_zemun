@@ -23,7 +23,8 @@
         </article>
         <aside class="teacher">
             <div class="card">
-                <img src="<?php uploadPath($clan->storeName); ?>" alt="">
+                <img src="<?php is_null($clan->storeName) ? uploadPath("avatar.png") : uploadPath($clan->storeName); ?>"
+                     alt="<?php echo "$clan->firstName $clan->lastName"; ?>">
                 <?php if ($clan->social): ?>
                     <div class="card-body">
                         <a href="<?php echo $clan->social; ?>" target="_blank"><i

@@ -7,13 +7,22 @@ $sql = "SELECT nivo, nivo, id,
             ORDER BY FIELD(espb, 180,60,120);
         SELECT DISTINCT poslodavac FROM alumni ORDER BY poslodavac;
         SELECT id,fileName, storeName FROM media WHERE mimetype LIKE 'image/%';
+        SELECT a.*, m.storeName, IF(modul IS NOT NULL , CONCAT(sp.naziv, ' - ', sp.modul), sp.naziv) AS spNaziv, sp.nivo, sp.zvanje
+            FROM alumni a
+            JOIN media m ON m.id = a.imageID
+            JOIN studijski_programi sp ON sp.id = a.spID
+            WHERE a.lang = :lang;
 ";
 $studije = $db->query($sql, ["lang" => "srb"])->find(PDO::FETCH_OBJ | PDO::FETCH_GROUP);
 $poslodavci = $db->nextRowsetFind();
 $media = $db->nextRowsetFind(PDO::FETCH_OBJ);
-$poslodavci = ["IMLEK", "STUP", "Hemofarm"];
+$alumnisti = $db->nextRowsetFind(PDO::FETCH_OBJ);
+
+
 view("/dashboard/alumni/index.view", [
     "studije" => $studije,
     "poslodavci" => $poslodavci,
-    "media" => $media
+    "media" => $media,
+    "alumnisti" => $alumnisti
+
 ]);

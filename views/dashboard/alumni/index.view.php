@@ -92,6 +92,75 @@
         </form>
     </div>
 
+    <!-- ============================================================== -->
+    <!-- START table -->
+    <!-- ============================================================== -->
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table
+                        id="zero_config"
+                        class="table table-striped table-bordered"
+                >
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Име и Презиме</th>
+                        <th>Звање</th>
+                        <th>Дипломирао</th>
+                        <th>Послодавац</th>
+                        <th>Посао</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($alumnisti as $item): ?>
+                        <tr>
+                            <td style="width: 30px"><a
+                                        href="/dashboard/alumni/<?php echo $item->id; ?>">
+                                    <img style="height: 30px; width: 30px; object-fit: cover"
+                                         class="rounded-circle"
+                                         src="<?php uploadPath($item->storeName); ?>"
+                                         alt="<?php echo $item->firstName; ?>">
+                                </a></td>
+                            <td>
+                                <?php echo $item->firstName; ?>
+                                <?php echo $item->lastName; ?>
+                            </td>
+                            <td><?php echo $item->zvanje; ?></td>
+                            <td><?php echo $item->diplomirao; ?></td>
+                            <td><?php echo $item->poslodavac; ?></td>
+                            <td><?php echo $item->posao; ?></td>
+                            <td>
+
+                            </td>
+                            <td class="d-flex gap-1">
+                                <!--                                <a class="btn btn-sm btn-info"-->
+                                <!--                                   href="/dashboard/alumni/-->
+                                <?php //echo $item->id; ?><!--"><i-->
+                                <!--                                            class="mdi mdi-account-card-details"></i></a>-->
+
+                                <form action="/dashboard/alumni/<?php echo $item->id; ?>"
+                                      method="post">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <input type="hidden" name="mediaID" value="<?php echo $item->imageID; ?>">
+                                    <input type="hidden" name="storeName" value="<?php echo $item->storeName; ?>">
+                                    <button class="btn btn-sm btn-danger"><i
+                                                class="mdi mdi-delete"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- END table -->
+    <!-- ============================================================== -->
+
 
     <!-- ============================================================== -->
     <!-- End PAge Content -->

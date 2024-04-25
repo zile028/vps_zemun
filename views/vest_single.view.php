@@ -4,7 +4,7 @@
     <section class="single container py">
         <article class="courses">
             <h2><?php echo $vest->naslov; ?></h2>
-            <cite><span><?php echo $vest->autor; ?></span> | <span><?php dateDDMMYYY
+            <cite><span><?php dateDDMMYYY
                     ($vest->createdAt);
                     ?></span></cite>
             <div>
