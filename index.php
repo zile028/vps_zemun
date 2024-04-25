@@ -10,8 +10,8 @@ if (session_status()) {
     session_start();
 }
 var_dump(dirname(__DIR__ . "/"));
-const BASE_PATH = __DIR__ . "/";
-var_dump(BASE_PATH);
+//const BASE_PATH = __DIR__ . "/";
+//var_dump(BASE_PATH);
 die();
 const UPLOAD_DIR = "/upload/";
 const ADRESA = "11080 Београд, ул. Градски парк 2";
