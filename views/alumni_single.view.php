@@ -23,7 +23,7 @@
         </article>
         <aside class="teacher">
             <div class="card">
-                <img src="<?php is_null($student->storeName) ? uploadPath("avatar.png") : uploadPath($student->storeName); ?>"
+                <img src="<?php is_null($clan->storeName) ? uploadPath("avatar.png") : uploadPath($clan->storeName); ?>"
                      alt="<?php echo "$clan->firstName $clan->lastName"; ?>">
                 <?php if ($clan->social): ?>
                     <div class="card-body">
