@@ -1,5 +1,5 @@
 <?php
-
+dd($_SERVER["SERVER_NAME"]);
 return $_SERVER["SERVER_NAME"] === "localhost" ?
     [
         "database" => [
