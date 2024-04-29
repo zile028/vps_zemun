@@ -109,6 +109,9 @@
                                 </form>
                             </td>
                             <td>
+                                <a class="btn bts-sm btn-warning"
+                                   href="/dashboard/studije/sp/<?php echo $sp->id; ?>"><i
+                                            class="mdi mdi-wrench"></i></a>
                                 <form action="/dashboard/studije/sp/<?php echo $sp->id; ?>"
                                       method="post">
                                     <input type="hidden" name="_method" value="delete">
