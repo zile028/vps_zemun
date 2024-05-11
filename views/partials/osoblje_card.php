@@ -1,5 +1,6 @@
 <div class="card">
-    <img src="<?php uploadPath($nastavnik->image); ?>" alt="">
+    <img src="<?php empty($nastavnik->image) ? uploadPath('avatar.png') : uploadPath($nastavnik->image); ?>"
+         alt="<?php echo $nastavnik->firstName; ?>">
     <div class="card-body">
         <div class="card-body_group">
 
