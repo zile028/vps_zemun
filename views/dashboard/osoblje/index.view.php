@@ -75,7 +75,8 @@
                                         href="/dashboard/osoblje/<?php echo $item["id"]; ?>">
                                     <img style="height: 30px; width: 30px; object-fit: cover"
                                          class="rounded-circle"
-                                         src="<?php uploadPath($item["image"]); ?>"
+                                         src="<?php empty($item["image"]) ? uploadPath("avatar.png") :
+                                             uploadPath($item["image"]); ?>"
                                          alt="<?php echo $item["firstName"]; ?>">
                                 </a></td>
                             <td>

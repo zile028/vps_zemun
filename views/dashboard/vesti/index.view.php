@@ -54,7 +54,9 @@
                                         href="/dashboard/vesti/<?php echo $item->id; ?>">
                                     <img style="height: 30px; width: 30px; object-fit: cover"
                                          class="rounded-circle"
-                                         src="<?php uploadPath($item->storeName); ?>"
+                                         src="
+                                         <?php empty($item->storeName) ? uploadPath("vest_avatar.png") :
+                                             uploadPath($item->storeName); ?>"
                                          alt="<?php echo $item->fileName; ?>">
                                 </a></td>
                             <td>

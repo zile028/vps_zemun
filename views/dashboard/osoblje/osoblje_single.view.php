@@ -111,7 +111,8 @@
                     </div>
                     <div class="col-md-6">
                         <img class="img-fluid" style="height: 300px"
-                             src="<?php uploadPath($osoba->image); ?>"
+                             src="<?php empty($osoba->image) ? uploadPath("avatar.png") :
+                                 uploadPath($osoba->image); ?>"
                              alt="<?php echo $osoba->firstName; ?>">
                     </div>
                     <div class="col-md-12">
