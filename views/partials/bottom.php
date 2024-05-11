@@ -31,13 +31,13 @@
                 </li>
                 <li>
                     <i class="fas fa-clock" aria-hidden="true"></i>
-                    <span>Radno vreme <?php echo RADNO_VREME; ?></span>
+                    <span>Радно време: <?php echo RADNO_VREME; ?></span>
                 </li>
             </ul>
         </div>
     </article>
     <article class="ignore">
-        <p class="s-txt10"> &COPY; 2024. Dejan Živković - zile028@gmail.com.</p>
+        <p class="s-txt10"> &COPY; 2024. Dejan Živković - zile028@gmail.com</p>
     </article>
 </footer>
 

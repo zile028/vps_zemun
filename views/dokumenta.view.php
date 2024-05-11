@@ -6,8 +6,7 @@
                 <?php foreach ($dokumenta as $index => $dokument): ?>
                     <li>
                         <span>
-                            <?php dateDDMM($dokument->createdAt); ?><br>
-                            <?php dateYYYY($dokument->createdAt); ?>
+                            <?php echo $index + 1; ?>
                         </span>
                         <span><?php echo $dokument->title; ?></span>
                         <a href="<?php uploadPath($dokument->attachment); ?>" target="_blank">
