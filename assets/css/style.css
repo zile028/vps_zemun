@@ -1328,6 +1328,7 @@ SINGLE PAGE
 }
 .schedule .card ul {
   margin-bottom: 0;
+  width: 100%;
 }
 .schedule .card ul li:before {
   content: none;

@@ -25,6 +25,10 @@ if (!Validator::string($_POST["naslov"])) {
 if (!Validator::string($_POST["description"])) {
     $error["vest"] = "Текст вести је обавезан!";
 }
+if (!isset($_POST["featured_imageID"])) {
+    $error["featured_imageID"] = "Слика вести је обавезна";
+}
+
 if (count($error) === 0) {
     $bindParamVest = [
         "naslov" => $_POST["naslov"],
@@ -61,5 +65,11 @@ if (count($error) === 0) {
                 ]);
         }
     }
+    redirect("/dashboard/vesti");
+} else {
+    $sql = "SELECT type, media.* FROM media WHERE mimetype LIKE 'image/%' ORDER BY fileName;";
+    $media = $db->query($sql)->find(PDO::FETCH_OBJ);
+    view("dashboard/vesti/create_page.view", [
+        "media" => $media, "error" => $error, "naslov" => $_POST["naslov"], "description" => $_POST["description"]
+    ]);
 }
-redirectBack();

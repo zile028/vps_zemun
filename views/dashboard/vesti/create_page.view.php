@@ -4,7 +4,7 @@
     <!-- ============================================================== -->
     <!-- Start Page Content -->
     <!-- ============================================================== -->
-    <h4>РАСПОРЕД</h4>
+    <h4>ДОДАВАЊЕ ВЕСТИ</h4>
     <!-- ============================================================== -->
     <!-- Sales Cards  -->
     <!-- ============================================================== -->
@@ -26,6 +26,16 @@
     <!-- ============================================================== -->
     <!-- Sales chart -->
     <!-- ============================================================== -->
+<?php if (isset($error) && count($error) > 0): ?>
+    <div class="card p-2">
+        <ul class="list-group">
+            <?php foreach ($error as $err) : ?>
+                <li class="list-group-item list-group-item-danger"><?php echo $err; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
 
     <!-- ============================================================== -->
     <!-- Start form -->
@@ -43,6 +53,7 @@
                                 id="fname"
                                 placeholder="Наслов"
                                 name="naslov"
+                                value="<?php echo $naslov ?? '' ?>"
                         />
                     </div>
                 </div>
@@ -59,13 +70,19 @@
                     </div>
                     <div class="col-md-6">
                         <label for="featuredImage">Насловна слика</label>
-                        <select id="featuredImage" class="form-control" name="featured_imageID">
-                            <?php foreach ($media as $image) : ?>
-                                <option value="<?php echo $image->id; ?>"><?php echo $image->fileName;
-                                    ?></option>
-                            <?php endforeach; ?>
-
-                        </select>
+                        <?php if (count($media) > 0): ?>
+                            <select id="featuredImage" class="form-control" name="featured_imageID">
+                                <?php foreach ($media as $image) : ?>
+                                    <option value="<?php echo $image->id; ?>"><?php echo $image->fileName;
+                                        ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        <?php else: ?>
+                            <p class="text-danger fw-bold">
+                                Насловна слика је обавезна, додајте је
+                                прво у медијима како би сте је овде могли одабрати.
+                            </p>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <button class="btn btn-primary">Додај вест</button>

@@ -5,8 +5,12 @@ class Validator
 {
     public static function string($value, $min = 1, $max = INF)
     {
-        $value = self::sanitizeString($value);
-        return strlen($value) >= $min && strlen($value) <= $max ? $value : false;
+        if (isset($value)) {
+            $value = self::sanitizeString($value);
+            return strlen($value) >= $min && strlen($value) <= $max ? $value : false;
+        } else {
+            return false;
+        }
     }
 
     public static function email($value)
