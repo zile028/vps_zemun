@@ -5,7 +5,8 @@
     <!-- ============================================================== -->
     <h4 class="card-title">Особље/Додавање</h4>
     <div class="card ">
-        <form class="form-horizontal" action="/dashboard/osoblje/<?php echo $osoba->id; ?>" method="post"
+        <form class="form-horizontal" action="/dashboard/osoblje/<?php echo $osoba->id; ?>"
+              method="post"
               enctype="multipart/form-data">
             <input type="hidden" name="_method" value="put">
             <input type="hidden" name="oldImage" value="<?php echo $osoba->image; ?>">
@@ -107,12 +108,10 @@
                                        id="cvAtach">
                             </div>
                         </div>
-                        <?php if (isset($osoba->cv)): ?>
-                            <a class="btn btn-sm btn-success" href="<?php uploadPath($osoba->cv); ?>">Тренутни CV</a>
-                        <?php endif; ?>
                     </div>
                     <div class="col-md-6">
-                        <img class="img-fluid" style="height: 300px" src="<?php uploadPath($osoba->image); ?>"
+                        <img class="img-fluid" style="height: 300px"
+                             src="<?php uploadPath($osoba->image); ?>"
                              alt="<?php echo $osoba->firstName; ?>">
                     </div>
                     <div class="col-md-12">
@@ -124,14 +123,12 @@
                                 <div id="editor" style="height: 300px">
                                     <?php echo $osoba->description; ?>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
                 <textarea name="description" style="display: none"
                           id="playground"><?php echo $osoba->description; ?></textarea>
-
             </div>
             <div class="border-top">
                 <div class="card-body">
@@ -141,6 +138,25 @@
                 </div>
             </div>
         </form>
+        <div class="d-flex gap-1">
+            <?php if (isset($osoba->cv)): ?>
+                <a class="btn btn-sm btn-success"
+                   href="<?php uploadPath($osoba->cv); ?>">Тренутни CV</a>
+                <form action="/dashboard/osoblje/cv/<?php echo $osoba->id; ?>"
+                      method="post">
+                    <input type="hidden" name="_method" value="patch">
+                    <button type="submit" class="btn btn-sm btn-danger">Уклони CV
+                    </button>
+                </form>
+            <?php endif; ?>
+            <form method="post"
+                  action="/dashboard/osoblje/image/<?php echo $osoba->id;
+                  ?>">
+                <input type="hidden" name="_method" value="patch">
+                <button type="submit" class="btn btn-sm btn-danger">Уклони слику
+                </button>
+            </form>
+        </div>
     </div>
     <!-- ============================================================== -->
     <!-- End PAge Content -->

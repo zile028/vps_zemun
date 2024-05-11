@@ -74,7 +74,14 @@
                             </td>
                             <td><?php echo $clan->fullName; ?></td>
                             <td><?php echo $clan->rank; ?></td>
-                            <td></td>
+                            <td>
+                                <form action="/dashboard/osoblje/<?php echo $clan->id;
+                                ?>/odbor/<?php echo $odbor->id ?>" method="post">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button class="btn btn-sm btn-danger"><i class="mdi
+                                    mdi-delete"></i></button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php endforeach; ?>
