@@ -30,12 +30,6 @@ if (!Validator::email($email)) {
 //    $errors["rank"] = "Nesipravno zvanje, mora sadržati minimum 3 karaktera!";
 //}
 
-$colName = implode(", ", array_keys([...$_POST]));
-$placeholders = implode(",", array_map(static function ($el) {
-    return ":" . $el;
-}, array_keys($_POST)));
-
-
 if ($_FILES["image"]["size"] > 0) {
     $profileImage = new FileValidator($_FILES["image"]);
     $profileImage->setLimit(2, "mb")->setValidType(["png", "jpeg", "jpg"]);
@@ -46,19 +40,19 @@ if ($_FILES["image"]["size"] > 0) {
 } else {
     $data["image"] = "avatar.png";
 }
-$colName .= ", image";
-$placeholders .= ", :image";
 $cvFile = new FileValidator($_FILES["cv"]);
 $cvFile->setLimit(2, "mb")->setValidType(["pdf"]);
 if ($cvFile->isValid()) {
     $cvFile->upload();
-    $colName .= ", cv";
-    $placeholders .= ", :cv";
     $data["cv"] = $cvFile->storeName;
+} else {
+    $data["cv"] = null;
 }
 
 if (count($errors) === 0) {
-    $db->query("INSERT INTO osoblje ($colName) VALUES ($placeholders)", $data);
+    $sql = "INSERT INTO osoblje (firstName, lastName, title, rank, email, cv, image, description)
+            VALUES (:firstName, :lastName, :title, :rank, :email, :cv, :image, :description)";
+    $db->query($sql, $data);
     redirect("/dashboard/osoblje");
 } else {
     view("dashboard/register", ["heading" => "Register", ...$_POST, "errors" => $errors]);
