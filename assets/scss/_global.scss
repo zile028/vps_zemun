@@ -156,10 +156,20 @@ hgroup {
         padding: 10px;
         flex: 1;
 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        &_group {
+            flex-grow: 1;
+
+        }
+
         div {
             @include flex($y: center);
             font-size: 0.9rem;
-            color: $gray;
+            //color: $gray;
         }
 
         h6 {
