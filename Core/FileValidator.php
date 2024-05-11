@@ -45,6 +45,7 @@ class FileValidator
 
     static function deleteFile($fileName): bool
     {
+       
         return unlink(BASE_PATH . self::UPLOAD_DIR . "/" . $fileName);
     }
 

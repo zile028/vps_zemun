@@ -110,6 +110,8 @@
                                     <form action="/dashboard/preuzimanja/<?php echo $item->id; ?>"
                                           method="post">
                                         <input type="hidden" name="_method" value="delete">
+                                        <input type="hidden" name="storeName" value="<?php echo
+                                        $item->storeName; ?>">
                                         <button class="btn btn-sm btn-danger"><i
                                                     class="mdi mdi-delete"></i>
                                         </button>

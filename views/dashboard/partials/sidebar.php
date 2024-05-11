@@ -81,7 +81,7 @@
                             href="/dashboard/preuzimanja"
                             aria-expanded="false"
                     ><i class="mdi mdi-cloud-download"></i><span
-                                class="hide-menu">Презимања</span></a
+                                class="hide-menu">Преузимања</span></a
                     >
                 </li>
                 <li class="sidebar-item">
