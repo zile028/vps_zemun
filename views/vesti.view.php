@@ -6,7 +6,8 @@
         <article class="news">
             <?php foreach ($vesti as $vest) : ?>
                 <div class="card">
-                    <img src="<?php uploadPath($vest->storeName); ?>" alt="">
+                    <img src="<?php empty($vest->storeName) ? uploadPath("vest_avatar.png") :
+                        uploadPath($vest->storeName); ?>" alt="<?php echo $vest->naslov; ?>">
                     <div class="card-body">
                         <h4><?php echo $vest->naslov; ?></h4>
                         <span><?php dateDDMMYYY($vest->createdAt); ?> </span>

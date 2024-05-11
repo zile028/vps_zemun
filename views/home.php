@@ -53,7 +53,9 @@
         <article class="wrapper">
             <?php foreach ($najnovije as $vest): ?>
                 <div class="card">
-                    <img src="<?php uploadPath($vest->storeName); ?>" alt="">
+                    <img src="<?php empty($vest->storeName) ? uploadPath("vest_avatar.png") :
+                        uploadPath($vest->storeName); ?>"
+                         alt="<?php echo $vest->naslov; ?>">
                     <div class="card-body">
                         <span><?php dateDDMMYYY($vest->createdAt); ?></span>
                         <h6><?php echo $vest->naslov; ?></h6>
