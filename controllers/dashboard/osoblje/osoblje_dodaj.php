@@ -22,28 +22,32 @@ if (!Validator::email($email)) {
     $errors["email"] = "Neispravna e-mail adresa!";
 }
 
-if (!Validator::string($title, 2,)) {
-    $errors["title"] = "Nesipravna titula, mora sadržati minimum 2 karaktera!";
-}
+//if (!Validator::string($title, 2,)) {
+//    $errors["title"] = "Nesipravna titula, mora sadržati minimum 2 karaktera!";
+//}
 
-if (!Validator::string($rank, 3,)) {
-    $errors["rank"] = "Nesipravno zvanje, mora sadržati minimum 3 karaktera!";
-}
+//if (!Validator::string($rank, 3,)) {
+//    $errors["rank"] = "Nesipravno zvanje, mora sadržati minimum 3 karaktera!";
+//}
 
 $colName = implode(", ", array_keys([...$_POST]));
 $placeholders = implode(",", array_map(static function ($el) {
     return ":" . $el;
 }, array_keys($_POST)));
 
-$profileImage = new FileValidator($_FILES["image"]);
-$profileImage->setLimit(2, "mb")->setValidType(["png", "jpeg", "jpg"]);
-if ($profileImage->isValid()) {
-    $profileImage->upload();
-    $colName .= ", image";
-    $placeholders .= ", :image";
-    $data["image"] = $profileImage->storeName;
-}
 
+if ($_FILES["image"]["size"] > 0) {
+    $profileImage = new FileValidator($_FILES["image"]);
+    $profileImage->setLimit(2, "mb")->setValidType(["png", "jpeg", "jpg"]);
+    if ($profileImage->isValid()) {
+        $profileImage->upload();
+        $data["image"] = $profileImage->storeName;
+    }
+} else {
+    $data["image"] = "avatar.png";
+}
+$colName .= ", image";
+$placeholders .= ", :image";
 $cvFile = new FileValidator($_FILES["cv"]);
 $cvFile->setLimit(2, "mb")->setValidType(["pdf"]);
 if ($cvFile->isValid()) {
@@ -54,7 +58,6 @@ if ($cvFile->isValid()) {
 }
 
 if (count($errors) === 0) {
-
     $db->query("INSERT INTO osoblje ($colName) VALUES ($placeholders)", $data);
     redirect("/dashboard/osoblje");
 } else {

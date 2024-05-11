@@ -17,7 +17,12 @@
                     fa-envelope"></i>
                         <?php echo $nastavnik["email"]; ?>
                     </a>
+                    <?php if (!empty($nastavnik["cv"])): ?>
+                        </br> <a href="<?php uploadPath($nastavnik["cv"]); ?>">
+                            <i class="fa-solid fa-file"></i>CV</a>
+                    <?php endif; ?>
                 </div>
+
             </div>
         </aside>
     </section>

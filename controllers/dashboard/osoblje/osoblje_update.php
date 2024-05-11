@@ -24,12 +24,12 @@ if (!Validator::string($lastName)) {
 if (!Validator::email($email)) {
     $errors["email"] = "Neispravna e-mail adresa!";
 }
-if (!Validator::string($title, 2,)) {
-    $errors["title"] = "Nesipravna titula, mora sadržati minimum 2 karaktera!";
-}
-if (!Validator::string($rank, 3,)) {
-    $errors["rank"] = "Nesipravno zvanje, mora sadržati minimum 3 karaktera!";
-}
+//if (!Validator::string($title, 2,)) {
+//    $errors["title"] = "Nesipravna titula, mora sadržati minimum 2 karaktera!";
+//}
+//if (!Validator::string($rank, 3,)) {
+//    $errors["rank"] = "Nesipravno zvanje, mora sadržati minimum 3 karaktera!";
+//}
 
 if (isset($_FILES["image"]) && $_FILES["image"]["size"] > 0) {
     $profileImage = new FileValidator($_FILES["image"]);
@@ -47,6 +47,9 @@ if (isset($_FILES["cv"]) && $_FILES["cv"]["size"] > 0) {
         $data["cv"] = $cvFile->storeName;
         FileValidator::deleteFile($oldCV);
     }
+} else {
+    $data["cv"] = null;
+
 }
 
 if (count($errors) === 0) {
