@@ -7,48 +7,176 @@
     <!-- ============================================================== -->
     <!-- End PAge Content -->
     <!-- ============================================================== -->
-    <div class="card container-fluid">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            Студијски програм: <span
-                                    class="fw-bold"><?php echo $sp->naziv; ?></span>
-                        </li>
-                        <li class="list-group-item">
-                            Модул: <span class="fw-bold"><?php echo $sp->modul; ?></span></li>
-                        <li class="list-group-item">Ниво: <span
-                                    class="fw-bold"><?php echo $sp->nivo; ?></span></li>
-                        <li class="list-group-item">Трајање: <span
-                                    class="fw-bold"><?php echo $sp->trajanje; ?></span></li>
-                    </ul>
-                    <h6>Опис</h6>
-                    <p><?php echo $sp->opis; ?></p>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Број ЕСПБ: <span
-                                    class="fw-bold"><?php echo $sp->espb; ?></span></li>
-                        <li class="list-group-item">Звање: <span
-                                    class="fw-bold"><?php echo $sp->zvanje; ?></span></li>
-                        <li class="list-group-item">
-                            Образовно поље: <span class="fw-bold"><?php echo $sp->polje; ?></span>
-                        </li>
-                        <li class="list-group-item">
-                            Година акредитације: <span
-                                    class="fw-bold"><?php echo $sp->akreditovan; ?></span></li>
-                    </ul>
-                    <h6>Циљ</h6>
-                    <p><?php echo $sp->cilj; ?></p>
-                </div>
-                <div class="col-md-12">
-                    <h6>Исход</h6>
-                    <p><?php echo $sp->ishod; ?></p>
+    <form action="/dashboard/studije/sp/<?php echo $sp->id; ?>" method="post">
+        <input type="hidden" name="_method" value="put">
+        <div class="card container-fluid">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="fname" class="col flex-grow-0 col-form-label text-nowrap">Студијски
+                                програм:</label>
+                            <div class="col">
+                                <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        id="fname"
+                                        placeholder="Назив"
+                                        name="naziv"
+                                        value="<?php echo $sp->naziv; ?>"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="modul"
+                                   class="col flex-grow-0 col-form-label text-nowrap">Модул:</label>
+                            <div class="col">
+                                <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        id="modul"
+                                        placeholder="Модул"
+                                        name="modul"
+                                        value="<?php echo $sp->modul; ?>"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="nivo"
+                                   class="col flex-grow-0 col-form-label text-nowrap">Ниво:</label>
+                            <div class="col">
+                                <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        id="nivo"
+                                        placeholder="Ниво"
+                                        name="nivo"
+                                        value="<?php echo $sp->nivo; ?>"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="trajanje"
+                                   class="col flex-grow-0 col-form-label text-nowrap">Трајање:</label>
+                            <div class="col">
+                                <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        id="trajanje"
+                                        placeholder="Трајање (година)"
+                                        name="trajanje"
+                                        value="<?php echo $sp->trajanje; ?>"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="opis" class="text-end control-label
+                    col-form-label">Опис</label>
+                            <div class="">
+                        <textarea
+                                rows="15"
+                                class="form-control"
+                                id="opis"
+                                placeholder="Опис"
+                                name="opis"
+                        ><?php echo $sp->opis; ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="form-group row">
+                            <label for="espb" class="col flex-grow-0 col-form-label text-nowrap">Број
+                                ЕСПБ:</label>
+                            <div class="col">
+                                <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        id="espb"
+                                        placeholder="ЕСПБ"
+                                        name="espb"
+                                        value="<?php echo $sp->espb; ?>"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="zvanje" class="col flex-grow-0 col-form-label text-nowrap">Звање:</label>
+                            <div class="col">
+                                <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        id="zvanje"
+                                        placeholder="Звање"
+                                        name="zvanje" value="<?php echo $sp->zvanje; ?>"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="polje" class="col flex-grow-0 col-form-label text-nowrap">Образовно
+                                поље:</label>
+                            <div class="col">
+                                <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        id="polje"
+                                        placeholder="Образовно поље"
+                                        name="polje" value="<?php echo $sp->polje; ?>"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="akreditovan"
+                                   class="col flex-grow-0 col-form-label text-nowrap">Година
+                                акредитације:</label>
+                            <div class="col">
+                                <input
+                                        type="text"
+                                        class="form-control fw-bold"
+                                        id="akreditovan"
+                                        placeholder="Година акредитације"
+                                        name="akreditovan" value="<?php echo $sp->akreditovan; ?>"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cilj" class="text-end control-label
+                    col-form-label">Циљ</label>
+                            <div class="">
+                        <textarea
+                                rows="15"
+                                class="form-control"
+                                id="cilj"
+                                placeholder="Циљ"
+                                name="cilj"
+                        ><?php echo $sp->cilj; ?></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <label for="ishod" class=" text-end control-label
+                    col-form-label">Исход</label>
+                            <div class="">
+                        <textarea
+                                rows="10"
+                                class="form-control"
+                                id="ishod"
+                                placeholder="Исход"
+                                name="ishod"
+                        ><?php echo $sp->ishod; ?></textarea>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Ажурирај</button>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 <?php if (count($slobodniPredmeti) > 0): ?>
     <div class="card">
         <div class="card-body">
