@@ -60,7 +60,7 @@
                             <td class=""><?php echo $predmet->vezbe; ?></td>
                             <td class=""><?php echo $predmet->espb; ?></td>
                             <td class="text-center">
-                                <?php if (isset($predmet->nastvaniPlan)): ?>
+                                <?php if (!empty($predmet->nastvaniPlan)): ?>
                                     <a class="btn btn-sm btn-success text-white" target="_blank"
                                        href="<?php uploadPath
                                        ($predmet->nastvaniPlan); ?>"><i
