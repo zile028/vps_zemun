@@ -33,7 +33,7 @@ if (!Validator::string($espb)) {
 }
 $file = new FileValidator($_FILES["nastavniPlan"]);
 $file->setValidType(["pdf"]);
-$file->setLimit(3, "mb");
+$file->setLimit(20, "mb");
 if ($file->isValid() && $file->upload()) {
     $data["nastavniPlan"] = $file->storeName;
 } else {
