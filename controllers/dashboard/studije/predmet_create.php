@@ -16,10 +16,6 @@ if (!Validator::string($sifra)) {
     $error["sifra"] = "Шифра предмета је обавезна!";
 }
 
-if (!Validator::string($semestar)) {
-    $error["semestar"] = "редни број семетра је обавезан!";
-}
-
 if (!Validator::string($predavanje)) {
     $error["predavanja"] = "Број часова предавања је обавезан!";
 }
@@ -47,8 +43,8 @@ if($_FILES["nastavniPlan"]["size"]>0){
 if (count($error) === 0) {
 
     $db = App::resolve(Database::class);
-    $sqlPredmet = "INSERT INTO predmeti (predmet, sifra, semestar, predavanja, vezbe, espb,nastvaniPlan) 
-                VALUES (:predmet, :sifra, :semestar, :predavanje, :vezbe, :espb, :nastavniPlan)";
+    $sqlPredmet = "INSERT INTO predmeti (predmet, sifra, predavanja, vezbe, espb,nastvaniPlan) 
+                VALUES (:predmet, :sifra, :predavanje, :vezbe, :espb, :nastavniPlan)";
     $predmetID = $db->query($sqlPredmet, $data)->lastID();
 //    $sqlPredmetSP = "INSERT INTO sp_predmet (spID, predmetID) VALUES (:spID, :predmetID)";
 
