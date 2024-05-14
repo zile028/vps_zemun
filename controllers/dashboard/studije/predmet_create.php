@@ -43,7 +43,7 @@ if($_FILES["nastavniPlan"]["size"]>0){
 if (count($error) === 0) {
 
     $db = App::resolve(Database::class);
-    $sqlPredmet = "INSERT INTO predmeti (predmet, sifra, predavanja, vezbe, espb,nastvaniPlan) 
+    $sqlPredmet = "INSERT INTO predmeti (predmet, sifra, predavanja, vezbe, espb, nastavniPlan) 
                 VALUES (:predmet, :sifra, :predavanje, :vezbe, :espb, :nastavniPlan)";
     $predmetID = $db->query($sqlPredmet, $data)->lastID();
 //    $sqlPredmetSP = "INSERT INTO sp_predmet (spID, predmetID) VALUES (:spID, :predmetID)";
