@@ -59,11 +59,11 @@
                             <td class=""><?php echo $predmet->predavanja; ?></td>
                             <td class=""><?php echo $predmet->vezbe; ?></td>
                             <td class=""><?php echo $predmet->espb; ?></td>
-                            <td class="text-center">
-                                <?php if (!empty($predmet->nastvaniPlan)): ?>
+                            <td class="text-center">                               
+                                <?php if (isset($predmet->nastavniPlan)): ?>
                                     <a class="btn btn-sm btn-success text-white" target="_blank"
                                        href="<?php uploadPath
-                                       ($predmet->nastvaniPlan); ?>"><i
+                                       ($predmet->nastavniPlan); ?>"><i
                                                 class="mdi mdi-file-multiple"
                                         ></i></a>
                                 <?php endif; ?>
