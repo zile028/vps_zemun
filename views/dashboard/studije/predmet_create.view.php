@@ -39,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
+<!--                 <div class="form-group row">
                     <label for="semestar" class="col-sm-3 text-end control-label
                     col-form-label">Семестар</label>
                     <div class="col-sm-9">
@@ -51,7 +51,7 @@
                                 name="semestar"
                         />
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group row">
                     <label for="predavanje" class="col-sm-3 text-end control-label
