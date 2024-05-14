@@ -12,7 +12,7 @@ if (!Validator::string($title)) {
 }
 $file = new \Core\FileValidator($_FILES["attachment"]);
 $file->setValidType(["pdf"]);
-$file->setLimit(3, "mb");
+$file->setLimit(20, "mb");
 if (count($error) === 0 && $file->isValid()) {
     if ($file->upload()) {
         $sql = "INSERT INTO dokumenta (title, attachment, userID, parentID, category)
