@@ -10,7 +10,7 @@ $sql = "INSERT INTO media (fileName, storeName, type, size,mimetype) VALUES (:fi
 
 $file = new FileValidator($_FILES["attachment"]);
 $file->setValidType(FileValidator::ALLOW_ALL_FILE);
-$file->setLimit(10, "mb");
+$file->setLimit(20, "mb");
 if (Validator::string($_POST["fileName"]) && $file->isValid()) {
     if ($file->upload()) {
         $bindParam = [
