@@ -31,12 +31,16 @@ if (!Validator::string($vezbe)) {
 if (!Validator::string($espb)) {
     $error["espb"] = "Број ЕСПБ је обавезан!";
 }
-$file = new FileValidator($_FILES["nastavniPlan"]);
-$file->setValidType(["pdf"]);
-$file->setLimit(20, "mb");
-if ($file->isValid() && $file->upload()) {
+if($_FILES["nastavniPlan"]["size"]>0){
+    $file = new FileValidator($_FILES["nastavniPlan"]);
+    $file->setValidType(["pdf"]);
+    $file->setLimit(20, "mb");
+    if ($file->isValid() && $file->upload()) {
     $data["nastavniPlan"] = $file->storeName;
-} else {
+    } else {
+        $data["nastavniPlan"] = "";
+    }
+}else{
     $data["nastavniPlan"] = "";
 }
 
