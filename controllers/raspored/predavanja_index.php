@@ -9,6 +9,6 @@ $sql = "SELECT sp.nivo, r.*, m.fileName, m.storeName, sp.naziv, sp.modul,sp.nivo
 $raspored = $db->query($sql)->find(PDO::FETCH_OBJ | PDO::FETCH_GROUP);
 view("raspored.view", [
     "heroImage" => "hero_raspored.jpg",
-    "heroTitle" => "Распоред испита",
+    "heroTitle" => "Распоред предавања",
     "rasporedi" => $raspored
 ]);
