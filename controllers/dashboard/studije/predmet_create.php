@@ -16,13 +16,6 @@ if (!Validator::string($sifra)) {
     $error["sifra"] = "Шифра предмета је обавезна!";
 }
 
-if (!Validator::string($predavanje)) {
-    $error["predavanja"] = "Број часова предавања је обавезан!";
-}
-
-if (!Validator::string($vezbe)) {
-    $error["vezbe"] = "Број часова вежби је обавезан!";
-}
 
 if (!Validator::string($espb)) {
     $error["espb"] = "Број ЕСПБ је обавезан!";
