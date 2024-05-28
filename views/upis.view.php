@@ -1,6 +1,8 @@
 <?php require_once "partials/top.php" ?>
 <?php require_once "partials/hero_pages.php" ?>
-
+<style>
+    img{width:100%}
+</style>
 <section class="contact container py">
     <article>
         <img src="/upload/feature_upis_oss.png" alt="upis">
