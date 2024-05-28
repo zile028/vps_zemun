@@ -3,16 +3,21 @@
 
 <section class="about container py">
     <article>
+        <img src="/upload/feature_upis_oss.png" alt="upis">
+    </article>
+    <article>
+        <img src="/upload/feature_upis_mss.png" alt="upis">
+    </article>
+</section>
+
+<section class="about container py">
+    <article>
         <h3>Студирање</h3>
         <ul>
             <li>Основне струковне студије трају три године. По завршеним студијама стиче се звање
                 струковни економиста -
                 180
                 ЕСПБ.
-            </li>
-            <li>Специјалистичке струковне студије трају једну годину. По завршеним студијама стиче
-                се звање специјалиста
-                струковни економиста - 60 ЕСПБ.
             </li>
             <li>Мастер струковне студије трају две године. По завршеним студијама стиче се звање
                 мастер струковни
