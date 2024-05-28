@@ -1,7 +1,7 @@
 <?php require_once "partials/top.php" ?>
 <?php require_once "partials/hero_pages.php" ?>
 
-<section class="about container py">
+<section class="contact container py">
     <article>
         <img src="/upload/feature_upis_oss.png" alt="upis">
     </article>
