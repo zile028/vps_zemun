@@ -1,8 +1,5 @@
 <?php require_once "partials/top.php" ?>
 <?php require_once "partials/hero_pages.php" ?>
-
-<?php require_once "partials/top.php" ?>
-<?php require_once "partials/hero_pages.php" ?>
     <section class="documents container py">
         <?php if (count($cenovnik) > 0): ?>
             <ul>
