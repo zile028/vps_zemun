@@ -12,7 +12,8 @@ $sql = "SELECT k.category, d.* ,k.category,
         ORDER BY k.category, parentID ASC;
         ";
 $params["lang"] = "srb";
-dd($cenovnik);
+
+$cenovnik = $db->query($sql, $params)->find(PDO::FETCH_OBJ);
 view("cenovnik.view", [
     "heroImage" => "hero_cenovnik.jpg",
     "heroTitle" => "Ценовник",
