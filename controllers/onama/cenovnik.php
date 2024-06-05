@@ -10,7 +10,7 @@ $sql = "SELECT k.category, d.* ,k.category,
         END AS parentID
         FROM dokumenta d
         JOIN kategorije k ON k.id = d.category
-        WHERE d.lang = :lang AND d.category = 7
+        WHERE d.lang = :lang AND k.id = 7
         ORDER BY k.category, parentID ASC;
         ";
 $params["lang"] = "srb";
