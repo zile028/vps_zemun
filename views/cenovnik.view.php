@@ -1,6 +1,31 @@
 <?php require_once "partials/top.php" ?>
 <?php require_once "partials/hero_pages.php" ?>
-    <section class="container py">
+
+<?php require_once "partials/top.php" ?>
+<?php require_once "partials/hero_pages.php" ?>
+    <section class="documents container py">
+        <?php if (count($cenovnik) > 0): ?>
+            <ul>
+                <?php foreach ($cenovnik as $index => $dokument): ?>
+                    <li>
+                        <span>
+                            <?php echo $index + 1; ?>
+                        </span>
+                        <span><?php echo $dokument->title; ?></span>
+                        <a href="<?php uploadPath($dokument->attachment); ?>" target="_blank">
+                            <i class="fa-solid fa-download"></i></a>
+                    </li>
+
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>Нема тренутно ценовника.</p>
+        <?php endif; ?>
+
+    </section>
+<?php require_once "partials/bottom.php" ?>
+
+<!--     <section class="container py">
         <?php if (count($cenovnik) > 0): ?>
             <table class="table table-document">
                 <thead>
@@ -26,5 +51,6 @@
             <p>Нема тренутно ценовника.</p>
         <?php endif; ?>
 
-    </section>
+    </section> -->
 <?php require_once "partials/bottom.php" ?>
+
