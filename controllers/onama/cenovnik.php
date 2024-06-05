@@ -12,7 +12,7 @@ $sql = "SELECT k.category, d.* ,k.category,
         ORDER BY k.category, parentID ASC;
         ";
 $params["lang"] = "srb";
-
+dd($cenovnik);
 view("cenovnik.view", [
     "heroImage" => "hero_cenovnik.jpg",
     "heroTitle" => "Ценовник",
