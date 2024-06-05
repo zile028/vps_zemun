@@ -15,7 +15,7 @@ $sql = "SELECT k.category, d.* ,k.category,
         ";
 $params["lang"] = "srb";
 $cenovnik = $db->query($sql, $params)->find(PDO::FETCH_OBJ);
-
+dd($cenovnik);
 view("cenovnik.view", [
     "heroImage" => "hero_cenovnik.jpg",
     "heroTitle" => "Ценовник",
