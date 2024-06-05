@@ -7,7 +7,7 @@ $sql = "SELECT k.category, d.* ,k.category,
         END AS parentID
         FROM dokumenta d
         JOIN kategorije k ON k.id = d.category
-        WHERE d.lang = :lang AND d.category = :kategorijaID
+        WHERE d.lang = :lang AND d.category = :kategorijaID AND sekcija = 'dokumenta'
         ORDER BY k.category, parentID ASC;
         SELECT category FROM kategorije WHERE id = :kategorijaID;
         ";
